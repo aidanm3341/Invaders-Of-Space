@@ -11,7 +11,7 @@ public class Main {
         try
         {
             AppGameContainer appgc;
-            appgc = new AppGameContainer(new Game("Point and Click"));
+            appgc = new AppGameContainer(new Game("Invaders Of Space"));
             appgc.setDisplayMode(800, 600, false);
             appgc.setShowFPS(false);
             appgc.start();
