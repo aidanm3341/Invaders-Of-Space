@@ -67,7 +67,9 @@ public class Weapon extends Entity{
         mouseX = (gc.getInput().getMouseX());
         mouseY = (gc.getInput().getMouseY());
 
-        angle = Math.atan2(mouseX - (gc.getWidth()/2 - player.getWidth()/4), (gc.getHeight()/2 - player.getHeight()/4) - mouseY);
+        //angle = Math.atan2(mouseX - (gc.getWidth()/2 - player.getWidth()/4), (gc.getHeight()/2 - player.getHeight()/4) - mouseY);
+//        angle = Math.atan2(mouseX - Camera.getFocusRelativeToScreenX(gc), Camera.getFocusRelativeToScreenY(gc) - mouseY);
+        angle = Math.atan2(Camera.convertActualXToGameX(mouseX) - Camera.getX(), Camera.getY() - Camera.convertActualYToGameY(mouseY));
 
         body = (Polygon) body.transform(Transform.createRotateTransform((float) (angle - lastAngle), x, y));
 
@@ -87,15 +89,5 @@ public class Weapon extends Entity{
 
     public void onMessage(Message msg) {
 
-    }
-
-    public ArrayList<Particle> getBullets()
-    {
-        return bulletEmitter.getParticles();
-    }
-
-    public void reset()
-    {
-        bulletEmitter.reset();
     }
 }

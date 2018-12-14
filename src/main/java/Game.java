@@ -28,6 +28,8 @@ public class Game extends BasicGame
 
 
     public void update(GameContainer gc, int i) throws SlickException {
+        if(gc.getInput().isKeyPressed(gc.getInput().KEY_ESCAPE))
+            gc.exit();
         entityManager.update(gc, i);
     }
 
@@ -37,6 +39,6 @@ public class Game extends BasicGame
 
         entityManager.render(gc, g);
 
-        camera.cameraAction(gc, g);
+        //camera.cameraAction(gc, g);
     }
 }

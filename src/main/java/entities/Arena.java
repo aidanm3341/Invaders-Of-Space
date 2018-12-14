@@ -8,12 +8,14 @@ import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
 
-public class Background extends Entity{
+public class Arena extends Entity{
+
+    public static final int WIDTH = 3360, HEIGHT = 2940;
 
     private Image spaceImage;
     private ArrayList<Tile> tiles;
 
-    public Background()
+    public Arena()
     {
 
     }
@@ -21,13 +23,15 @@ public class Background extends Entity{
     public void init(GameContainer gc) throws SlickException {
         spaceImage = new Image("spaceSquare.png");
         tiles = new ArrayList<Tile>();
-        for(int i=-3; i<5; i++)
+        for(int i=0; i<8; i++)
         {
-            for(int j=-3; j<4; j++)
+            for(int j=0; j<7; j++)
             {
                 tiles.add(new Tile(spaceImage, i*spaceImage.getWidth(), j*spaceImage.getHeight()));
             }
         }
+
+        //System.out.println(spaceImage.getWidth()*8 + " " + spaceImage.getHeight()*7);
     }
 
     public void update(GameContainer gc, float i) throws SlickException {

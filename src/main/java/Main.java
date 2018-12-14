@@ -12,7 +12,7 @@ public class Main {
         {
             AppGameContainer appgc;
             appgc = new AppGameContainer(new Game("Invaders Of Space"));
-            appgc.setDisplayMode(800, 600, false);
+            appgc.setDisplayMode(1100, 700, false);//2560 x 1600
             appgc.setShowFPS(false);
             appgc.start();
         }

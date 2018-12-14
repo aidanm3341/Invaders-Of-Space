@@ -1,6 +1,6 @@
 package managers;
 
-import entities.Background;
+import entities.Arena;
 import entities.Entity;
 import entities.Player;
 import entities.enemies.EnemyFactory;
@@ -16,7 +16,7 @@ public class EntityManager {
     private static ArrayList<Entity> entities;
     private CollisionManager collisions;
     private EnemyFactory enemyFactory;
-    private Background bg;
+    private Arena bg;
     private Player player;
 
     public EntityManager(Player player)
@@ -27,10 +27,10 @@ public class EntityManager {
     public void init(GameContainer gc) throws SlickException {
         entities = new ArrayList<Entity>();
         enemyFactory = new EnemyFactory(player);
-        bg = new Background();
+        bg = new Arena();
         collisions = new CollisionManager(entities);
 
-        entities.add(enemyFactory.getEnemy(EnemyType.YELLOW_YAK, 200, 200));
+        entities.add(enemyFactory.getEnemy(EnemyType.PURPLE_PIE, 500, 500));
         entities.add(player);
 
         bg.init(gc);

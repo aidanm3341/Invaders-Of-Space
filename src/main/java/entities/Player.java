@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Player extends Entity{
 
-    private static final float MAX_VEL = 0.7f;
+    private static final float MAX_VEL = 1f;//0.7f;
     private static final int MAX_LIFE = 100;
 
     private float velX, velY;
@@ -32,6 +32,9 @@ public class Player extends Entity{
 
         width = 60;
         height = 60;
+
+        x = 200;
+        y = 200;
 
         //this.isCollidable = true;
 
