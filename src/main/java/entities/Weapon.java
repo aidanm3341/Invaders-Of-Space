@@ -1,10 +1,6 @@
 package entities;
 
-import java.util.ArrayList;
-
-import entities.emitters.Bullet;
 import entities.emitters.BulletEmitter;
-import entities.emitters.Particle;
 import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -30,7 +26,7 @@ public class Weapon extends Entity{
     }
 
     public void init(GameContainer gc) throws SlickException {
-        image = new Image("laser.png");
+        image = new Image("particles/laser.png");
 
         x = player.getX();
         y = player.getY();

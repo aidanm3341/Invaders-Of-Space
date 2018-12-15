@@ -31,7 +31,7 @@ public class GreenGoblin extends Enemy
         };
         body = new Polygon(vertices);
 
-        sheet = new SpriteSheet("monster1.png", 48, 112);
+        sheet = new SpriteSheet("enemies/monster1.png", 48, 112);
         image = sheet.getSprite(0, 0);
     }
 }

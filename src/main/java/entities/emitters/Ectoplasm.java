@@ -8,7 +8,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Polygon;
 
 public class Ectoplasm extends Particle
 {
@@ -35,7 +34,7 @@ public class Ectoplasm extends Particle
 			this.color = new Color(106, 0, 0, alphaValue);
 		
 		try {
-			image = new Image("blankParticle.png");
+			image = new Image("particles/blankParticle.png");
 		}catch(SlickException e){e.printStackTrace();}
 
 		image = image.getScaledCopy(0.5f);

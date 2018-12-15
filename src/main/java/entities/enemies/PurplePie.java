@@ -1,7 +1,6 @@
 package entities.enemies;
 
 import entities.Player;
-import messaging.Message;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -24,6 +23,7 @@ public class PurplePie extends Enemy{
         life = 80;
         color = new Color(153, 0 ,153);
         ectoSize = 35;
+        speed = 0.3f;
 
         vertices = new float[]{
                 x,y,
@@ -33,7 +33,7 @@ public class PurplePie extends Enemy{
         };
         body = new Polygon(vertices);
 
-        sheet = new SpriteSheet("monster2.png", 123, 115);
+        sheet = new SpriteSheet("enemies/monster2.png", 123, 115);
         image = sheet.getSprite(0, 0);
     }
 }

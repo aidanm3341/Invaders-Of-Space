@@ -1,0 +1,78 @@
+package entities.waves;
+
+import entities.Entity;
+import entities.enemies.Enemy;
+import entities.enemies.EnemyFactory;
+import entities.enemies.EnemyType;
+import managers.EntityManager;
+import messaging.Message;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
+
+import java.util.LinkedList;
+
+public class Portal extends Entity{
+
+    private LinkedList<Enemy> enemies;
+
+    private SpriteSheet sprite;
+    private int spriteCounter;
+
+    private int counter, spawnTime;
+    private boolean isDone;
+
+    public Portal(float x, float y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void init(GameContainer gc) throws SlickException {
+        enemies = new LinkedList<Enemy>();
+        sprite = new SpriteSheet("portal.png", 126, 147);
+        width = sprite.getSprite(0, 0).getWidth();
+        height = sprite.getSprite(0, 0).getHeight();
+        spriteCounter = 0;
+        counter = 0;
+        spawnTime = 500;
+    }
+
+    public void update(GameContainer gc, float delta) throws SlickException {
+        if(counter >= spawnTime) {
+            dispatchEnemy();
+            counter = 0;
+        }
+        counter++;
+
+        if(enemies.isEmpty())
+            isDone = true;
+
+        //image = sheet.getSprite(sheetCount/50, 0);
+        if(spriteCounter > 90)
+            spriteCounter = 0;
+        spriteCounter++;
+    }
+
+    public void render(GameContainer gc, Graphics g) throws SlickException {
+        g.drawImage(sprite.getSprite(spriteCounter/50, 0), x, y);
+    }
+
+    public void onMessage(Message msg) { }
+
+    private void dispatchEnemy() {
+        if(!enemies.isEmpty())
+            EntityManager.addEntity(enemies.poll());
+    }
+
+    public void addEnemy(GameContainer gc, EnemyType type) throws SlickException{
+        Enemy newEnemy = EnemyFactory.getEnemy(type, x + width/2, y + height/2);
+        newEnemy.init(gc);
+        enemies.add(newEnemy);
+    }
+
+    public boolean isDone() {
+        return isDone;
+    }
+}

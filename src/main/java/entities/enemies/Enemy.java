@@ -12,6 +12,7 @@ import org.newdawn.slick.geom.Transform;
 public abstract class Enemy extends Entity {
 
     private float velX, velY, angle, lastAngle;
+    protected float speed;
     protected int life;
     protected Image image;
     protected Color color;
@@ -30,11 +31,12 @@ public abstract class Enemy extends Entity {
         this.y = y;
 
         ectoSize = 25;
+        speed = 0.5f;
 
         this.isCollidable = true;
 
-        velX = (float) (0.5 * Math.cos(angle));
-        velY = (float) (0.5 * Math.sin(angle));
+//        velX = (float) (speed * Math.cos(angle));
+//        velY = (float) (speed * Math.sin(angle));
     }
 
     public abstract void init(GameContainer gc) throws SlickException;
@@ -51,8 +53,8 @@ public abstract class Enemy extends Entity {
         delta *= 0.4f;
         angle = (float) Math.atan2(player.getX() - x, y - player.getY());
 
-        velX = (float) (0.4 * Math.cos(angle - Math.toRadians(90)))*delta;
-        velY = (float) (0.4 * Math.sin(angle - Math.toRadians(90)))*delta;
+        velX = (float) (speed * Math.cos(angle - Math.toRadians(90)))*delta;
+        velY = (float) (speed * Math.sin(angle - Math.toRadians(90)))*delta;
 
         x += velX;
         y += velY;

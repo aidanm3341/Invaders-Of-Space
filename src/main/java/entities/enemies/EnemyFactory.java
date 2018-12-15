@@ -5,14 +5,14 @@ import org.newdawn.slick.SlickException;
 
 public class EnemyFactory {
 
-    private Player player;
+    private static Player player;
 
     public EnemyFactory(Player player)
     {
         this.player = player;
     }
 
-    public Enemy getEnemy(EnemyType type, float x, float y) throws SlickException
+    public static Enemy getEnemy(EnemyType type, float x, float y) throws SlickException
     {
         switch(type){
             case GREEN_GOBLIN:

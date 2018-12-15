@@ -20,7 +20,7 @@ public class Bullet extends Particle {
 		this.angle = angle;
 		this.damage = damage;
 
-		image = new Image("bullet3.png");
+		image = new Image("particles/bullet3.png");
 
 		this.isCollidable = true;
 

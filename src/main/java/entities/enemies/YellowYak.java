@@ -1,7 +1,6 @@
 package entities.enemies;
 
 import entities.Player;
-import messaging.Message;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -24,6 +23,7 @@ public class YellowYak extends Enemy{
         life = 60;
         color = Color.yellow;
         ectoSize = 10;
+        speed = 0.8f;
 
         vertices = new float[]{
                 x,y,
@@ -33,7 +33,7 @@ public class YellowYak extends Enemy{
         };
         body = new Polygon(vertices);
 
-        sheet = new SpriteSheet("monster3.png", 84, 60);
+        sheet = new SpriteSheet("enemies/monster3.png", 84, 60);
         image = sheet.getSprite(0, 0);
     }
 }

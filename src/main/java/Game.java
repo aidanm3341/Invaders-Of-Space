@@ -1,5 +1,6 @@
 import entities.*;
 import managers.EntityManager;
+import managers.WaveManager;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -8,6 +9,7 @@ import org.newdawn.slick.SlickException;
 public class Game extends BasicGame
 {
     private EntityManager entityManager;
+    private WaveManager waveManager;
     private Player player;
     private Camera camera;
 
@@ -20,10 +22,14 @@ public class Game extends BasicGame
     public void init(GameContainer gc) throws SlickException {
         player = new Player();
         entityManager = new EntityManager(player);
+        waveManager = new WaveManager();
         camera = new Camera(player);
-        camera.setScalingFactor(0.5f);
+        camera.setScalingFactor(0.6f);
 
         entityManager.init(gc);
+        waveManager.init(gc);
+
+        waveManager.start();
     }
 
 
@@ -31,6 +37,7 @@ public class Game extends BasicGame
         if(gc.getInput().isKeyPressed(gc.getInput().KEY_ESCAPE))
             gc.exit();
         entityManager.update(gc, i);
+        waveManager.update(gc, i);
     }
 
 
@@ -38,7 +45,5 @@ public class Game extends BasicGame
         camera.cameraAction(gc, g);
 
         entityManager.render(gc, g);
-
-        //camera.cameraAction(gc, g);
     }
 }

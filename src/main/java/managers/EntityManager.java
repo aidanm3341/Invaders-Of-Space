@@ -30,7 +30,6 @@ public class EntityManager {
         bg = new Arena();
         collisions = new CollisionManager(entities);
 
-        entities.add(enemyFactory.getEnemy(EnemyType.PURPLE_PIE, 500, 500));
         entities.add(player);
 
         bg.init(gc);
