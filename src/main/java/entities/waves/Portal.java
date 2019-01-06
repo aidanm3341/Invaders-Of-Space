@@ -11,11 +11,13 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Portal extends Entity{
 
     private LinkedList<Enemy> enemies;
+    private ArrayList<Enemy> enemyDeathTracker;
 
     private SpriteSheet sprite;
     private int spriteCounter;
@@ -31,9 +33,12 @@ public class Portal extends Entity{
 
     public void init(GameContainer gc) throws SlickException {
         enemies = new LinkedList<Enemy>();
+        enemyDeathTracker = new ArrayList<Enemy>();
         sprite = new SpriteSheet("portal.png", 126, 147);
         width = sprite.getSprite(0, 0).getWidth();
         height = sprite.getSprite(0, 0).getHeight();
+        x += width/2;
+        y += height/2;
         spriteCounter = 0;
         counter = 0;
         spawnTime = 500;
@@ -45,9 +50,6 @@ public class Portal extends Entity{
             counter = 0;
         }
         counter++;
-
-        if(enemies.isEmpty())
-            isDone = true;
 
         //image = sheet.getSprite(sheetCount/50, 0);
         if(spriteCounter > 90)
@@ -70,9 +72,13 @@ public class Portal extends Entity{
         Enemy newEnemy = EnemyFactory.getEnemy(type, x + width/2, y + height/2);
         newEnemy.init(gc);
         enemies.add(newEnemy);
+        enemyDeathTracker.add(newEnemy);
     }
 
     public boolean isDone() {
-        return isDone;
+        for(Enemy e : enemyDeathTracker)
+            if(!e.isDead())
+                return false;
+        return true;
     }
 }

@@ -100,4 +100,8 @@ public abstract class Enemy extends Entity {
     public float getY(){
         return y;
     }
+
+    public boolean isDead(){
+        return life <= 0;
+    }
 }

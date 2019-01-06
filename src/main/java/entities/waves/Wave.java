@@ -15,7 +15,6 @@ public class Wave {
     {
         this.waveNumber = waveNumber;
         this.portals = portals;
-
     }
 
     public void start(){
@@ -38,5 +37,9 @@ public class Wave {
     public void cleanUp(){
         for(Portal p : portals)
             EntityManager.removeEntity(p);
+    }
+
+    public int getWaveNumber(){
+        return waveNumber;
     }
 }

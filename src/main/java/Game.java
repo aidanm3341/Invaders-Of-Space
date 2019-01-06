@@ -5,21 +5,17 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 
-public class Game extends BasicGame
+public class Game extends BasicGameState
 {
     private EntityManager entityManager;
     private WaveManager waveManager;
     private Player player;
     private Camera camera;
 
-    public Game(String gamename)
-    {
-        super(gamename);
-    }
-
-
-    public void init(GameContainer gc) throws SlickException {
+    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         player = new Player();
         entityManager = new EntityManager(player);
         waveManager = new WaveManager();
@@ -29,11 +25,11 @@ public class Game extends BasicGame
         entityManager.init(gc);
         waveManager.init(gc);
 
-        waveManager.start();
+        waveManager.start(0);
     }
 
 
-    public void update(GameContainer gc, int i) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         if(gc.getInput().isKeyPressed(gc.getInput().KEY_ESCAPE))
             gc.exit();
         entityManager.update(gc, i);
@@ -41,9 +37,15 @@ public class Game extends BasicGame
     }
 
 
-    public void render(GameContainer gc, Graphics g) throws SlickException {
-        camera.cameraAction(gc, g);
-
+    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+        Camera.cameraAction(gc, g);
         entityManager.render(gc, g);
+        Camera.cameraCut(gc, g);
+
+        waveManager.render(gc, g);
+    }
+
+    public int getID() {
+        return Main.GAME;
     }
 }

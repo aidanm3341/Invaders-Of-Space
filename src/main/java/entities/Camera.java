@@ -46,6 +46,12 @@ public class Camera{
         g.scale(scalingFactor, scalingFactor);
     }
 
+    public static void cameraCut(GameContainer gc, Graphics g)
+    {
+        g.scale(1/scalingFactor, 1/scalingFactor);
+        g.translate(-translationX, -translationY);
+    }
+
     public static void setScalingFactor(float newScalingFactor)
     {
         scalingFactor = newScalingFactor;
