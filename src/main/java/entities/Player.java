@@ -1,15 +1,13 @@
 package entities;
 
 import messaging.Message;
-import org.lwjgl.Sys;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
-
-import java.util.ArrayList;
+import org.newdawn.slick.state.StateBasedGame;
 
 public class Player extends Entity{
 
@@ -23,8 +21,12 @@ public class Player extends Entity{
     private int life;
 
     private Image image;
-
     private Weapon weapon;
+    private StateBasedGame sbg;
+
+    public Player(StateBasedGame sbg){
+        this.sbg = sbg;
+    }
 
     public void init(GameContainer gc) throws SlickException {
         maxAccel = 0.004f;
@@ -36,7 +38,7 @@ public class Player extends Entity{
         x = 200;
         y = 200;
 
-        //this.isCollidable = true;
+        this.isCollidable = true;
 
         image = new Image("ship.png");
 
@@ -163,7 +165,15 @@ public class Player extends Entity{
     }
 
     public void onMessage(Message msg) {
+        if(msg.getType().equals("damage")){
+            life -= Integer.parseInt(msg.getData());
+            if(life <= 0)
+                sbg.enterState(0);
+        }
+    }
 
+    public void reset(GameContainer gc) throws SlickException{
+        init(gc);
     }
 
     public float getX(){
@@ -180,5 +190,9 @@ public class Player extends Entity{
 
     public void setY(float y){
         this.y = y;
+    }
+
+    public int getLife(){
+        return life;
     }
 }

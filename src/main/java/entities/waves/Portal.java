@@ -16,17 +16,25 @@ import java.util.LinkedList;
 
 public class Portal extends Entity{
 
+    private static SpriteSheet sprite = null;
+
+    static {
+        try {
+            sprite = new SpriteSheet("portal.png", 126, 147);
+        } catch (SlickException e) {} }
+
+    public static final int PORTAL_WIDTH = sprite.getSprite(0 ,0).getWidth();
+    public static final int PORTAL_HEIGHT = sprite.getSprite(0 ,0).getHeight();
+
     private LinkedList<Enemy> enemies;
     private ArrayList<Enemy> enemyDeathTracker;
 
-    private SpriteSheet sprite;
     private int spriteCounter;
 
     private int counter, spawnTime;
     private boolean isDone;
 
-    public Portal(float x, float y)
-    {
+    public Portal(float x, float y) throws SlickException {
         this.x = x;
         this.y = y;
     }
@@ -34,11 +42,8 @@ public class Portal extends Entity{
     public void init(GameContainer gc) throws SlickException {
         enemies = new LinkedList<Enemy>();
         enemyDeathTracker = new ArrayList<Enemy>();
-        sprite = new SpriteSheet("portal.png", 126, 147);
         width = sprite.getSprite(0, 0).getWidth();
         height = sprite.getSprite(0, 0).getHeight();
-        x += width/2;
-        y += height/2;
         spriteCounter = 0;
         counter = 0;
         spawnTime = 500;

@@ -18,7 +18,7 @@ public class WaveText extends Entity{
         numberSheet = new SpriteSheet("waveNumbers.png", 130, 226);
         waveText = new Image("waveText.png");
         sheetX = number % 5;
-        sheetY = number < 6 ? 0 : 1;
+        sheetY = number < 5 ? 0 : 1;
 
         alpha = 0.8f;
         counter = 0;

@@ -24,6 +24,7 @@ public class YellowYak extends Enemy{
         color = Color.yellow;
         ectoSize = 10;
         speed = 0.8f;
+        rotationalSpeed = 0.004f;
 
         vertices = new float[]{
                 x,y,

@@ -11,8 +11,8 @@ import org.newdawn.slick.geom.Transform;
 
 public abstract class Enemy extends Entity {
 
-    private float velX, velY, angle, lastAngle;
-    protected float speed;
+    private float velX, velY, angle, lastAngle, thisToPlayerAngle;
+    protected float speed, rotationalSpeed;
     protected int life;
     protected Image image;
     protected Color color;
@@ -32,8 +32,11 @@ public abstract class Enemy extends Entity {
 
         ectoSize = 25;
         speed = 0.5f;
+        rotationalSpeed = 0.01f;
 
         this.isCollidable = true;
+
+        angle = (float) Math.atan2(player.getX() - x, y - player.getY());
 
 //        velX = (float) (speed * Math.cos(angle));
 //        velY = (float) (speed * Math.sin(angle));
@@ -51,7 +54,33 @@ public abstract class Enemy extends Entity {
     private void updateMovement(GameContainer gc, float delta)
     {
         delta *= 0.4f;
-        angle = (float) Math.atan2(player.getX() - x, y - player.getY());
+        thisToPlayerAngle = (float) Math.atan2(player.getX() - x, y - player.getY());
+
+
+        double a = thisToPlayerAngle - angle;
+        double b = thisToPlayerAngle - angle + 2*Math.PI;
+        double c = thisToPlayerAngle - angle - 2*Math.PI;
+
+        double a1 = Math.abs(a);
+        double b1 = Math.abs(b);
+        double c1 = Math.abs(c);
+
+        double z = Math.min(Math.min(a1, b1), c1);
+
+        if(z == a1) z = a;
+        else if(z == b1) z = b;
+        else if(z == c1) z = c;
+
+        if(z <= 0)
+            angle -= rotationalSpeed;
+        else
+            angle += rotationalSpeed;
+
+        if(angle >= Math.PI)
+            angle = (float) -Math.PI;
+        else if(angle <= -Math.PI)
+            angle = (float) Math.PI;
+
 
         velX = (float) (speed * Math.cos(angle - Math.toRadians(90)))*delta;
         velY = (float) (speed * Math.sin(angle - Math.toRadians(90)))*delta;

@@ -61,4 +61,8 @@ public class EntityManager {
     public static void removeEntity(Entity e){
         entities.remove(e);
     }
+
+    public void reset(GameContainer gc) throws SlickException{
+        init(gc);
+    }
 }

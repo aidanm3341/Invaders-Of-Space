@@ -14,9 +14,10 @@ public class Game extends BasicGameState
     private WaveManager waveManager;
     private Player player;
     private Camera camera;
+    private GUI gui;
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        player = new Player();
+        player = new Player(sbg);
         entityManager = new EntityManager(player);
         waveManager = new WaveManager();
         camera = new Camera(player);
@@ -25,7 +26,9 @@ public class Game extends BasicGameState
         entityManager.init(gc);
         waveManager.init(gc);
 
-        waveManager.start(0);
+        waveManager.start(gc,0);
+        gui = new GUI(player);
+        gui.init(gc);
     }
 
 
@@ -43,9 +46,22 @@ public class Game extends BasicGameState
         Camera.cameraCut(gc, g);
 
         waveManager.render(gc, g);
+        gui.render(gc, g);
     }
 
     public int getID() {
         return Main.GAME;
+    }
+
+    private void reset(GameContainer gc, StateBasedGame sbg) throws SlickException
+    {
+        player.reset(gc);
+        waveManager.reset(gc);
+        entityManager.reset(gc);
+        init(gc, sbg);
+    }
+
+    public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException{
+        reset(gc, sbg);
     }
 }

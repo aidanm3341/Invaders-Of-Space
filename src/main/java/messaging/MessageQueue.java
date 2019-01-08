@@ -18,10 +18,10 @@ public class MessageQueue {
 
     public void dispatch()
     {
-        for(Message msg : messages)
+        for(int i=0; i<messages.size(); i++)
         {
-            msg.getTo().onMessage(msg);
-            messages.remove(msg);
+            messages.get(i).getTo().onMessage(messages.get(i));
+            messages.remove(messages.get(i));
         }
     }
 

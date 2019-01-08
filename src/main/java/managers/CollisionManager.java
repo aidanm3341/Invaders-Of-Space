@@ -1,6 +1,7 @@
 package managers;
 
 import entities.Entity;
+import entities.Player;
 import entities.emitters.Bullet;
 import entities.enemies.Enemy;
 import messaging.Message;
@@ -12,6 +13,7 @@ public class CollisionManager {
 
     private ArrayList<Entity> entities;
     private MessageQueue msgQueue;
+    private Entity entity1, entity2;
 
     public CollisionManager(ArrayList<Entity> entities)
     {
@@ -33,16 +35,23 @@ public class CollisionManager {
 
     private boolean doCheckAndReturnContinue(int i, int j)
     {
-        if (entities.get(i).equals(entities.get(j)))
+        entity1 = entities.get(i);
+        entity2 = entities.get(j);
+
+        if (entity1.equals(entity2))
             return true;
-        if (entities.get(i) instanceof Bullet && entities.get(j) instanceof Bullet)
+        if (entity1 instanceof Bullet && entity2 instanceof Bullet)
             return true;
 
-        if (entities.get(i).collidesWith(entities.get(j))) {
-            if (entities.get(i) instanceof Bullet && entities.get(j) instanceof Enemy) {
-                Bullet b = (Bullet) entities.get(i);
-                msgQueue.add(new Message(entities.get(j), entities.get(i), "damage", String.valueOf(b.getDamage())));
-                entities.remove(entities.get(i));
+        if (entity1.collidesWith(entity2)) {
+            if (entity1 instanceof Bullet && entity2 instanceof Enemy) {
+                Bullet b = (Bullet) entity1;
+                msgQueue.add(new Message(entity2, entity1, "damage", String.valueOf(b.getDamage())));
+                entities.remove(entity1);
+            }
+            else if(entity1 instanceof Player && entity2 instanceof Enemy){
+                msgQueue.add(new Message(entity1, entity2, "damage", "5"));
+                msgQueue.add(new Message(entity2, entity1, "damage", "100"));
             }
         }
 
