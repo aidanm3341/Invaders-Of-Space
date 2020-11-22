@@ -1,5 +1,7 @@
 package entities.enemies;
 
+import ai.AimerAI;
+import ai.ChargerAI;
 import entities.Player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -14,6 +16,8 @@ public class PurplePie extends Enemy{
     public PurplePie(float x, float y, Player player) throws SlickException
     {
         super(x, y, player);
+        ai = new AimerAI(this, player);
+        ai.init();
     }
 
     public void init(GameContainer gc) throws SlickException
@@ -23,7 +27,6 @@ public class PurplePie extends Enemy{
         life = 80;
         color = new Color(153, 0 ,153);
         ectoSize = 35;
-        speed = 0.3f;
 
         vertices = new float[]{
                 x,y,

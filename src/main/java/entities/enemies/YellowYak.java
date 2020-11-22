@@ -1,5 +1,6 @@
 package entities.enemies;
 
+import ai.ChargerAI;
 import entities.Player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -14,6 +15,8 @@ public class YellowYak extends Enemy{
     public YellowYak(float x, float y, Player player) throws SlickException
     {
         super(x, y, player);
+        ai = new ChargerAI(this, player);
+        ai.init();
     }
 
     public void init(GameContainer gc) throws SlickException
@@ -23,8 +26,6 @@ public class YellowYak extends Enemy{
         life = 60;
         color = Color.yellow;
         ectoSize = 10;
-        speed = 0.8f;
-        rotationalSpeed = 0.004f;
 
         vertices = new float[]{
                 x,y,

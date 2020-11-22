@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class WaveManager {
 
-    private static final int NUMBER_OF_WAVES = 5;
+    private static final int NUMBER_OF_WAVES = 6;
 
     private ArrayList<Wave> waves;
     private Wave currentWave;
@@ -29,6 +29,8 @@ public class WaveManager {
         constructWave2(gc);
         constructWave3(gc);
         constructWave4(gc);
+        constructWave5(gc);
+        constructWave6(gc);
     }
 
     public void update(GameContainer gc, float delta) throws SlickException
@@ -209,6 +211,79 @@ public class WaveManager {
         portals.add(p5);
 
         waves.add(new Wave(4, portals));
+    }
+
+    private void constructWave5(GameContainer gc) throws SlickException
+    {
+        Portal p1 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100);
+        p1.init(gc);
+        p1.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p1.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p1.addEnemy(gc, EnemyType.YELLOW_YAK);
+
+        Portal p2 = new Portal(100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100);
+        p2.init(gc);
+        p2.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p2.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p2.addEnemy(gc, EnemyType.YELLOW_YAK);
+
+        Portal p3 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100);
+        p3.init(gc);
+        p3.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p3.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p3.addEnemy(gc, EnemyType.YELLOW_YAK);
+
+
+        Portal p4 = new Portal(100, 100);
+        p4.init(gc);
+        p4.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p4.addEnemy(gc, EnemyType.YELLOW_YAK);
+        p4.addEnemy(gc, EnemyType.YELLOW_YAK);
+
+
+
+        ArrayList<Portal> portals = new ArrayList<Portal>();
+        portals.add(p1);
+        portals.add(p2);
+        portals.add(p3);
+        portals.add(p4);
+
+        waves.add(new Wave(5, portals));
+    }
+
+    private void constructWave6(GameContainer gc) throws SlickException
+    {
+        Portal p1 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100);
+        p1.init(gc);
+        p1.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p1.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p1.addEnemy(gc, EnemyType.PURPLE_PIE);
+
+        Portal p2 = new Portal(100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100);
+        p2.init(gc);
+        p2.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p2.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p2.addEnemy(gc, EnemyType.PURPLE_PIE);
+
+        Portal p3 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100);
+        p3.init(gc);
+        p3.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p3.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p3.addEnemy(gc, EnemyType.PURPLE_PIE);
+
+        Portal p4 = new Portal(100, 100);
+        p4.init(gc);
+        p4.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p4.addEnemy(gc, EnemyType.PURPLE_PIE);
+        p4.addEnemy(gc, EnemyType.PURPLE_PIE);
+
+        ArrayList<Portal> portals = new ArrayList<Portal>();
+        portals.add(p1);
+        portals.add(p2);
+        portals.add(p3);
+        portals.add(p4);
+
+        waves.add(new Wave(6, portals));
     }
 
     public void reset(GameContainer gc) throws SlickException{
