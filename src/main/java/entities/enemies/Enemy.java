@@ -26,8 +26,8 @@ public abstract class Enemy extends Entity {
 
     public Enemy(float x, float y, Player player) throws SlickException
     {
-        this.x = x;
-        this.y = y;
+        setX(x);
+        setY(y);
         ectoSize = 25;
 
 
@@ -43,8 +43,8 @@ public abstract class Enemy extends Entity {
 
         body = (Polygon) body.transform(Transform.createRotateTransform(angle - lastAngle));
 
-        body.setCenterX(x);
-        body.setCenterY(y);
+        body.setCenterX(getX());
+        body.setCenterY(getY());
 
         image = sheet.getSprite(sheetCount/50, 0);
         image.setRotation((float) Math.toDegrees(angle));
@@ -63,7 +63,7 @@ public abstract class Enemy extends Entity {
 
     public void render(GameContainer gc, Graphics g) throws SlickException
     {
-        g.drawImage(image, x-image.getWidth()/2, y-image.getHeight()/2);
+        g.drawImage(image, getX()-image.getWidth()/2, getY()-image.getHeight()/2);
         //g.draw(body);
     }
 
@@ -71,7 +71,7 @@ public abstract class Enemy extends Entity {
     {
         if(msg.getType().equals("damage")){
             life -= Integer.parseInt(msg.getData());
-            EntityManager.addEntity(new EctoEmitter(x, y, color, ectoSize));
+            EntityManager.addEntity(new EctoEmitter(getX(), getY(), color, ectoSize));
         }
     }
 
@@ -79,12 +79,6 @@ public abstract class Enemy extends Entity {
         return life <= 0;
     }
 
-    public void setX(float x){
-        this.x = x;
-    }
-    public void setY(float y){
-        this.y = y;
-    }
     public void setAngle(float angle) {
         this.angle = angle;
     }

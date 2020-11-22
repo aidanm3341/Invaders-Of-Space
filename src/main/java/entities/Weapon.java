@@ -28,18 +28,18 @@ public class Weapon extends Entity{
     public void init(GameContainer gc) throws SlickException {
         image = new Image("particles/laser.png");
 
-        x = player.getX();
-        y = player.getY();
+        setX(player.getX());
+        setY(player.getY());
 
         float[] vertices = new float[] {
-                x,y,
-                x,y-60,
-                x+25,y-60,
-                x+25,y};
+                getX(),getY(),
+                getX(),getY()-60,
+                getX()+25,getY()-60,
+                getX()+25,getY()};
         body = new Polygon(vertices);
 
 
-        bulletEmitter = new BulletEmitter();
+        bulletEmitter = new BulletEmitter(10);
     }
 
     public void update(GameContainer gc, float delta) throws SlickException
@@ -50,15 +50,15 @@ public class Weapon extends Entity{
         {
             bulletEmitter.tryShoot(angle, delta);
         }
-        bulletEmitter.setX(x);
-        bulletEmitter.setY(y);
+        bulletEmitter.setX(getX());
+        bulletEmitter.setY(getY());
         bulletEmitter.update(gc, delta);
     }
 
     private void updateMovement(GameContainer gc)
     {
-        x = player.getX();
-        y = player.getY();
+        setX(player.getX());
+        setY(player.getY());
 
         mouseX = (gc.getInput().getMouseX());
         mouseY = (gc.getInput().getMouseY());
@@ -67,12 +67,12 @@ public class Weapon extends Entity{
 //        angle = Math.atan2(mouseX - Camera.getFocusRelativeToScreenX(gc), Camera.getFocusRelativeToScreenY(gc) - mouseY);
         angle = Math.atan2(Camera.convertActualXToGameX(mouseX) - Camera.getX(), Camera.getY() - Camera.convertActualYToGameY(mouseY));
 
-        body = (Polygon) body.transform(Transform.createRotateTransform((float) (angle - lastAngle), x, y));
+        body = (Polygon) body.transform(Transform.createRotateTransform((float) (angle - lastAngle), getX(), getY()));
 
         image.setRotation((float) Math.toDegrees(angle));
 
-        body.setCenterX(x+(float) (RADIUS_FROM_SHIP*Math.cos(angle-Math.toRadians(90))));
-        body.setCenterY(y+(float) (RADIUS_FROM_SHIP*Math.sin(angle-Math.toRadians(90))));
+        body.setCenterX(getX()+(float) (RADIUS_FROM_SHIP*Math.cos(angle-Math.toRadians(90))));
+        body.setCenterY(getY()+(float) (RADIUS_FROM_SHIP*Math.sin(angle-Math.toRadians(90))));
 
         lastAngle = angle;
     }

@@ -9,10 +9,12 @@ import org.newdawn.slick.SlickException;
 
 public class BulletEmitter extends ParticleEmitter{
 
-    private float bulletMaxCount = 100;
+    private float ticksBetweenBullets = 100;
     private float bulletTimeCounter = 2;
 
-    public BulletEmitter() {}
+    public BulletEmitter(float ticksBetweenBullets) {
+        this.ticksBetweenBullets = ticksBetweenBullets;
+    }
 
     public void init(GameContainer gc) throws SlickException { }
 
@@ -22,7 +24,7 @@ public class BulletEmitter extends ParticleEmitter{
 
     public void tryShoot(double angle, float delta) throws SlickException
     {
-        if(bulletTimeCounter*delta >= bulletMaxCount*delta){
+        if(bulletTimeCounter*delta >= ticksBetweenBullets *delta){
             Bullet newBullet = new Bullet(x, y, (float) angle, 1000, 10);
             addParticle(newBullet);
             bulletTimeCounter = 0;

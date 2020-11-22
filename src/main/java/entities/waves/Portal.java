@@ -35,8 +35,8 @@ public class Portal extends Entity{
     private boolean isDone;
 
     public Portal(float x, float y) throws SlickException {
-        this.x = x;
-        this.y = y;
+        setX(x);
+        setY(y);
     }
 
     public void init(GameContainer gc) throws SlickException {
@@ -63,7 +63,7 @@ public class Portal extends Entity{
     }
 
     public void render(GameContainer gc, Graphics g) throws SlickException {
-        g.drawImage(sprite.getSprite(spriteCounter/50, 0), x, y);
+        g.drawImage(sprite.getSprite(spriteCounter/50, 0), getX(), getY());
     }
 
     public void onMessage(Message msg) { }
@@ -74,7 +74,7 @@ public class Portal extends Entity{
     }
 
     public void addEnemy(GameContainer gc, EnemyType type) throws SlickException{
-        Enemy newEnemy = EnemyFactory.getEnemy(type, x + width/2, y + height/2);
+        Enemy newEnemy = EnemyFactory.getEnemy(type, getX() + width/2, getY() + height/2);
         newEnemy.init(gc);
         enemies.add(newEnemy);
         enemyDeathTracker.add(newEnemy);

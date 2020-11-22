@@ -29,10 +29,10 @@ public class GreenGoblin extends Enemy
         ectoSize = 20;
 
         vertices = new float[]{
-                x,y,
-                x,y+height,
-                x+width,y+height,
-                x+width,y
+                getX(),getY(),
+                getX(),getY()+height,
+                getX()+width,getY()+height,
+                getX()+width,getY()
         };
         body = new Polygon(vertices);
 

@@ -1,11 +1,13 @@
 package entities;
 
 import messaging.Message;
+import messaging.MessageQueue;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -35,8 +37,7 @@ public class Player extends Entity{
         width = 60;
         height = 60;
 
-        x = 200;
-        y = 200;
+        pos = new Point(200, 200);
 
         this.isCollidable = true;
 
@@ -49,8 +50,8 @@ public class Player extends Entity{
                 0,height
         };
         body = new Polygon(vertices);
-        body.setCenterX(x);
-        body.setCenterY(y);
+        body.setCenterX(getX());
+        body.setCenterY(getY());
 
         weapon = new Weapon(this);
         weapon.init(gc);
@@ -116,8 +117,8 @@ public class Player extends Entity{
         angle += angularVelocity;
         image.setRotation((float) Math.toDegrees(angle));
 
-        body.setCenterX(x);
-        x += velX*delta;
+        body.setCenterX(getX());
+        setX(getX() + velX*delta);
     }
 
     public void updateY(GameContainer gc, float delta) {
@@ -153,13 +154,13 @@ public class Player extends Entity{
             }
         }
 
-        body.setCenterY(y);
-        y += velY*delta;
+        body.setCenterY(getY());
+        setY(getY() + velY*delta);
     }
 
     public void render(GameContainer gc, Graphics g) throws SlickException
     {
-        g.drawImage(image, x - image.getWidth()/2, y - image.getHeight()/2);
+        g.drawImage(image, getX() - image.getWidth()/2, getY() - image.getHeight()/2);
         weapon.render(gc, g);
         //g.draw(body);
     }
@@ -174,22 +175,6 @@ public class Player extends Entity{
 
     public void reset(GameContainer gc) throws SlickException{
         init(gc);
-    }
-
-    public float getX(){
-        return x;
-    }
-
-    public float getY(){
-        return y;
-    }
-
-    public void setX(float x){
-        this.x = x;
-    }
-
-    public void setY(float y){
-        this.y = y;
     }
 
     public int getLife(){

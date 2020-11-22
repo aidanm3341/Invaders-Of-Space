@@ -4,15 +4,21 @@ import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 
 import java.util.ArrayList;
 
 public abstract class Entity {
 
-    protected float x, y, width, height;
+    protected Point pos;
+    protected float width, height;
     protected Polygon body;
     protected boolean isCollidable = false;
+
+    public Entity(){
+        pos = new Point(0, 0);
+    }
 
     public abstract void init(GameContainer gc) throws SlickException;
 
@@ -30,12 +36,17 @@ public abstract class Entity {
     }
 
     public float getX() {
-        return x;
+        return pos.getX();
     }
 
     public float getY() {
-        return y;
+        return pos.getY();
     }
+
+    public void setX(float x){ pos.setX(x); }
+
+    public void setY(float y){ pos.setY(y); }
+
 
     public float getWidth() {
         return width;
