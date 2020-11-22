@@ -7,13 +7,11 @@ import java.util.ArrayList;
 
 public class Wave {
 
-    private int waveNumber;
     private ArrayList<Portal> portals;
     private boolean isDone;
 
-    public Wave(int waveNumber, ArrayList<Portal> portals)
+    public Wave(ArrayList<Portal> portals)
     {
-        this.waveNumber = waveNumber;
         this.portals = portals;
     }
 
@@ -37,9 +35,5 @@ public class Wave {
     public void cleanUp(){
         for(Portal p : portals)
             EntityManager.removeEntity(p);
-    }
-
-    public int getWaveNumber(){
-        return waveNumber;
     }
 }

@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0749cbdb-4ba1-4b95-a9e6-ca66575611e0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/AI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/AIimp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/AimerAI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/BasicAI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ai/ChargerAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Invaders_Of_Space.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/GreenGoblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/GreenGoblin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/PurplePie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/PurplePie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/YellowYak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/YellowYak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/waves/Wave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/waves/Wave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/EntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/EntityManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/managers/WaveManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/WaveManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/waves/Wave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/waves/Wave.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,22 +219,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added more interesting AI" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1238" height="60" key="GridCell.Tab.0.bottom" timestamp="1606000779551">
+    <state width="1238" height="59" key="GridCell.Tab.0.bottom" timestamp="1606075504595">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="60" key="GridCell.Tab.0.bottom/0.23.1280.721@0.23.1280.721" timestamp="1606000779551" />
-    <state width="1238" height="60" key="GridCell.Tab.0.center" timestamp="1606000779550">
+    <state width="1238" height="59" key="GridCell.Tab.0.bottom/0.23.1280.721@0.23.1280.721" timestamp="1606075504595" />
+    <state width="1238" height="59" key="GridCell.Tab.0.center" timestamp="1606075504594">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="60" key="GridCell.Tab.0.center/0.23.1280.721@0.23.1280.721" timestamp="1606000779550" />
-    <state width="1238" height="60" key="GridCell.Tab.0.left" timestamp="1606000779549">
+    <state width="1238" height="59" key="GridCell.Tab.0.center/0.23.1280.721@0.23.1280.721" timestamp="1606075504594" />
+    <state width="1238" height="59" key="GridCell.Tab.0.left" timestamp="1606075504592">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="60" key="GridCell.Tab.0.left/0.23.1280.721@0.23.1280.721" timestamp="1606000779549" />
-    <state width="1238" height="60" key="GridCell.Tab.0.right" timestamp="1606000779550">
+    <state width="1238" height="59" key="GridCell.Tab.0.left/0.23.1280.721@0.23.1280.721" timestamp="1606075504592" />
+    <state width="1238" height="59" key="GridCell.Tab.0.right" timestamp="1606075504594">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="60" key="GridCell.Tab.0.right/0.23.1280.721@0.23.1280.721" timestamp="1606000779550" />
+    <state width="1238" height="59" key="GridCell.Tab.0.right/0.23.1280.721@0.23.1280.721" timestamp="1606075504594" />
   </component>
   <component name="masterDetails">
     <states>

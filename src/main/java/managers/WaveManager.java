@@ -75,7 +75,7 @@ public class WaveManager {
         ArrayList<Portal> portals = new ArrayList<Portal>();
         portals.add(p1);
 
-        waves.add(new Wave(0, portals));
+        waves.add(new Wave(portals));
     }
 
     private void constructWave1(GameContainer gc) throws SlickException
@@ -96,7 +96,7 @@ public class WaveManager {
         portals.add(p1);
         portals.add(p2);
 
-        waves.add(new Wave(1, portals));
+        waves.add(new Wave(portals));
     }
 
     private void constructWave2(GameContainer gc) throws SlickException
@@ -119,7 +119,7 @@ public class WaveManager {
         portals.add(p1);
         portals.add(p2);
 
-        waves.add(new Wave(2, portals));
+        waves.add(new Wave(portals));
     }
 
     private void constructWave3(GameContainer gc) throws SlickException
@@ -158,7 +158,7 @@ public class WaveManager {
         portals.add(p3);
         portals.add(p4);
 
-        waves.add(new Wave(3, portals));
+        waves.add(new Wave(portals));
     }
 
     private void constructWave4(GameContainer gc) throws SlickException
@@ -210,7 +210,7 @@ public class WaveManager {
         portals.add(p4);
         portals.add(p5);
 
-        waves.add(new Wave(4, portals));
+        waves.add(new Wave(portals));
     }
 
     private void constructWave5(GameContainer gc) throws SlickException
@@ -248,7 +248,7 @@ public class WaveManager {
         portals.add(p3);
         portals.add(p4);
 
-        waves.add(new Wave(5, portals));
+        waves.add(new Wave(portals));
     }
 
     private void constructWave6(GameContainer gc) throws SlickException
@@ -283,7 +283,7 @@ public class WaveManager {
         portals.add(p3);
         portals.add(p4);
 
-        waves.add(new Wave(6, portals));
+        waves.add(new Wave(portals));
     }
 
     public void reset(GameContainer gc) throws SlickException{
