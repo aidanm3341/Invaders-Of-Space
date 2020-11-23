@@ -7,15 +7,16 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 
 public class PurplePie extends Enemy{
 
     private float[] vertices;
 
-    public PurplePie(float x, float y, Player player) throws SlickException
+    public PurplePie(float x, float y, Point player) throws SlickException
     {
-        super(x, y, player);
+        super(x, y);
         ai = new AimerAI(this, player);
         ai.init();
     }

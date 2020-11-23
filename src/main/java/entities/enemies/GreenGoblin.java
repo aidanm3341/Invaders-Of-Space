@@ -7,15 +7,16 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 
 public class GreenGoblin extends Enemy
 {
     private float[] vertices;
 
-    public GreenGoblin(float x, float y, Player player) throws SlickException
+    public GreenGoblin(float x, float y, Point player) throws SlickException
     {
-        super(x, y, player);
+        super(x, y);
         ai = new BasicAI(this, player);
         ai.init();
     }

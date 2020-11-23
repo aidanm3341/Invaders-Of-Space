@@ -37,7 +37,9 @@ public class Player extends Entity{
         width = 60;
         height = 60;
 
-        pos = new Point(200, 200);
+        //pos = new Point(200, 200);
+        setX(200);
+        setY(200);
 
         this.isCollidable = true;
 
@@ -53,7 +55,7 @@ public class Player extends Entity{
         body.setCenterX(getX());
         body.setCenterY(getY());
 
-        weapon = new Weapon(this);
+        weapon = new Weapon(this.getPos());
         weapon.init(gc);
     }
 

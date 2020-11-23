@@ -26,7 +26,7 @@ public class EntityManager {
 
     public void init(GameContainer gc) throws SlickException {
         entities = new ArrayList<Entity>();
-        enemyFactory = new EnemyFactory(player);
+        enemyFactory = new EnemyFactory(player.getPos());
         bg = new Arena();
         collisions = new CollisionManager(entities);
 

@@ -24,12 +24,11 @@ public abstract class Enemy extends Entity {
     protected AI ai;
 
 
-    public Enemy(float x, float y, Player player) throws SlickException
+    public Enemy(float x, float y)
     {
         setX(x);
         setY(y);
         ectoSize = 25;
-
 
         this.isCollidable = true;
     }

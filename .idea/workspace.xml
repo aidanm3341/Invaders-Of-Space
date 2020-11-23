@@ -6,24 +6,33 @@
   <component name="ChangeListManager">
     <list default="true" id="0749cbdb-4ba1-4b95-a9e6-ca66575611e0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/AIimp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/AIimp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/AimerAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/AimerAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/BasicAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/BasicAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ai/ChargerAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/ChargerAI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Weapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/emitters/BulletEmitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/emitters/BulletEmitter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/EnemyFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/GreenGoblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/GreenGoblin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/PurplePie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/PurplePie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/enemies/YellowYak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/enemies/YellowYak.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/waves/Portal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/waves/Portal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/EntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/EntityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/AIimp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/AIimp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/AimerAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/AimerAI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/BasicAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/BasicAI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ai/ChargerAI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ai/ChargerAI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/Weapon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/emitters/BulletEmitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/emitters/BulletEmitter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/enemies/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/enemies/EnemyFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/enemies/EnemyFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entities/enemies/EnemyFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/enemies/EnemyFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/enemies/GreenGoblin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/enemies/GreenGoblin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/enemies/PurplePie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/enemies/PurplePie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entities/enemies/YellowYak.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/enemies/YellowYak.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entities/waves/Portal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entities/waves/Portal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/EntityManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/EntityManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,26 +242,30 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added more interesting AI" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="297" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606076535877">
+    <state x="138" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606078538820">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state x="297" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.721@0.23.1280.721" timestamp="1606076535877" />
-    <state width="1238" height="120" key="GridCell.Tab.0.bottom" timestamp="1606078041628">
+    <state x="138" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.721@0.23.1280.721" timestamp="1606078538820" />
+    <state width="1238" height="120" key="GridCell.Tab.0.bottom" timestamp="1606126462518">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="120" key="GridCell.Tab.0.bottom/0.23.1280.721@0.23.1280.721" timestamp="1606078041628" />
-    <state width="1238" height="120" key="GridCell.Tab.0.center" timestamp="1606078041627">
+    <state width="1238" height="120" key="GridCell.Tab.0.bottom/0.23.1280.721/1280.-380.1440.877@0.23.1280.721" timestamp="1606126462518" />
+    <state width="1238" height="120" key="GridCell.Tab.0.bottom/0.23.1280.721@0.23.1280.721" timestamp="1606078751083" />
+    <state width="1238" height="120" key="GridCell.Tab.0.center" timestamp="1606126462516">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="120" key="GridCell.Tab.0.center/0.23.1280.721@0.23.1280.721" timestamp="1606078041627" />
-    <state width="1238" height="120" key="GridCell.Tab.0.left" timestamp="1606078041627">
+    <state width="1238" height="120" key="GridCell.Tab.0.center/0.23.1280.721/1280.-380.1440.877@0.23.1280.721" timestamp="1606126462516" />
+    <state width="1238" height="120" key="GridCell.Tab.0.center/0.23.1280.721@0.23.1280.721" timestamp="1606078751082" />
+    <state width="1238" height="120" key="GridCell.Tab.0.left" timestamp="1606126462515">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="120" key="GridCell.Tab.0.left/0.23.1280.721@0.23.1280.721" timestamp="1606078041627" />
-    <state width="1238" height="120" key="GridCell.Tab.0.right" timestamp="1606078041627">
+    <state width="1238" height="120" key="GridCell.Tab.0.left/0.23.1280.721/1280.-380.1440.877@0.23.1280.721" timestamp="1606126462515" />
+    <state width="1238" height="120" key="GridCell.Tab.0.left/0.23.1280.721@0.23.1280.721" timestamp="1606078751082" />
+    <state width="1238" height="120" key="GridCell.Tab.0.right" timestamp="1606126462517">
       <screen x="0" y="23" width="1280" height="721" />
     </state>
-    <state width="1238" height="120" key="GridCell.Tab.0.right/0.23.1280.721@0.23.1280.721" timestamp="1606078041627" />
+    <state width="1238" height="120" key="GridCell.Tab.0.right/0.23.1280.721/1280.-380.1440.877@0.23.1280.721" timestamp="1606126462517" />
+    <state width="1238" height="120" key="GridCell.Tab.0.right/0.23.1280.721@0.23.1280.721" timestamp="1606078751083" />
   </component>
   <component name="masterDetails">
     <states>

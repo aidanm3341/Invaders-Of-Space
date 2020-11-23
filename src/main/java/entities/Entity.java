@@ -47,6 +47,10 @@ public abstract class Entity {
 
     public void setY(float y){ pos.setY(y); }
 
+    public Point getPos(){
+        return pos;
+    }
+
 
     public float getWidth() {
         return width;

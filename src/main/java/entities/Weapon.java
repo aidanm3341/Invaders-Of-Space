@@ -6,6 +6,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Transform;
 
@@ -14,22 +15,22 @@ public class Weapon extends Entity{
 
     private float mouseX, mouseY;
     double angle, lastAngle;
-    private Player player;
+    private Point origin;
 
     private Image image;
 
     private BulletEmitter bulletEmitter;
 
-    public Weapon(Player player)
+    public Weapon(Point origin)
     {
-        this.player = player;
+        this.origin = origin;
     }
 
     public void init(GameContainer gc) throws SlickException {
         image = new Image("particles/laser.png");
 
-        setX(player.getX());
-        setY(player.getY());
+        setX(origin.getX());
+        setY(origin.getY());
 
         float[] vertices = new float[] {
                 getX(),getY(),
@@ -57,8 +58,8 @@ public class Weapon extends Entity{
 
     private void updateMovement(GameContainer gc)
     {
-        setX(player.getX());
-        setY(player.getY());
+        setX(origin.getX());
+        setY(origin.getY());
 
         mouseX = (gc.getInput().getMouseX());
         mouseY = (gc.getInput().getMouseY());

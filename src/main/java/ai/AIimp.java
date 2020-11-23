@@ -2,14 +2,15 @@ package ai;
 
 import entities.Player;
 import entities.enemies.Enemy;
+import org.newdawn.slick.geom.Point;
 
 public abstract class AIimp implements AI{
 
     protected Enemy me;
-    protected Player player;
+    protected Point player;
     protected float x, y, angle, lastAngle;
 
-    public AIimp(Enemy enemy, Player player){
+    public AIimp(Enemy enemy, Point player){
         this.me = enemy;
         this.player = player;
     }

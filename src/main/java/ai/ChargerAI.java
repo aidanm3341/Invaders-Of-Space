@@ -2,6 +2,7 @@ package ai;
 
 import entities.Player;
 import entities.enemies.Enemy;
+import org.newdawn.slick.geom.Point;
 
 public class ChargerAI extends AIimp implements AI{
 
@@ -11,7 +12,7 @@ public class ChargerAI extends AIimp implements AI{
     private float speed, maxSpeed, minSpeed, rotationalSpeed, maxRotationalSpeed, minRotationalSpeed;
     private float chargeConeAngle;
 
-    public ChargerAI(Enemy enemy, Player player) {
+    public ChargerAI(Enemy enemy, Point player) {
         super(enemy, player);
     }
 
