@@ -15,22 +15,12 @@ public class EntityManager {
 
     private static ArrayList<Entity> entities;
     private CollisionManager collisions;
-    private EnemyFactory enemyFactory;
     private Arena bg;
-    private Player player;
-
-    public EntityManager(Player player)
-    {
-        this.player = player;
-    }
 
     public void init(GameContainer gc) throws SlickException {
         entities = new ArrayList<Entity>();
-        enemyFactory = new EnemyFactory(player.getPos());
         bg = new Arena();
         collisions = new CollisionManager(entities);
-
-        entities.add(player);
 
         bg.init(gc);
         for(int j=0; j<entities.size(); j++)
@@ -39,7 +29,6 @@ public class EntityManager {
 
 
     public void update(GameContainer gc, int i) throws SlickException {
-
         bg.update(gc, i);
         for(int j=0; j<entities.size(); j++) {
             entities.get(j).update(gc, i);

@@ -6,25 +6,18 @@ import org.newdawn.slick.geom.Point;
 
 public class EnemyFactory {
 
-    private static Point player;
-
-    public EnemyFactory(Point player)
-    {
-        this.player = player;
-    }
-
-    public static Enemy getEnemy(EnemyType type, float x, float y) throws SlickException
+    public static Enemy createEnemy(EnemyType type, Point target, float x, float y) throws SlickException
     {
         switch(type){
             case GREEN_GOBLIN:
-                return new GreenGoblin(x, y, player);
+                return new GreenGoblin(x, y, target);
             case PURPLE_PIE:
-                return new PurplePie(x, y, player);
+                return new PurplePie(x, y, target);
             case YELLOW_YAK:
-                return new YellowYak(x, y, player);
+                return new YellowYak(x, y, target);
 
             default:
-                return new GreenGoblin(x, y, player);
+                return new GreenGoblin(x, y, target);
         }
     }
 }

@@ -10,6 +10,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Point;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -73,8 +74,8 @@ public class Portal extends Entity{
             EntityManager.addEntity(enemies.poll());
     }
 
-    public void addEnemy(GameContainer gc, EnemyType type) throws SlickException{
-        Enemy newEnemy = EnemyFactory.getEnemy(type, getX() + width/2, getY() + height/2);
+    public void addEnemy(GameContainer gc, EnemyType type, Point target) throws SlickException{
+        Enemy newEnemy = EnemyFactory.createEnemy(type, target, getX() + width/2, getY() + height/2);
         newEnemy.init(gc);
         enemies.add(newEnemy);
         enemyDeathTracker.add(newEnemy);

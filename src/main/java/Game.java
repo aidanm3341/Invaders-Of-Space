@@ -8,8 +8,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Game extends BasicGameState
-{
+public class Game extends BasicGameState {
+
     private EntityManager entityManager;
     private WaveManager waveManager;
     private Player player;
@@ -18,17 +18,20 @@ public class Game extends BasicGameState
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         player = new Player(sbg);
-        entityManager = new EntityManager(player);
+        player.init(gc);
+        entityManager = new EntityManager();
         waveManager = new WaveManager();
         camera = new Camera(player);
-        camera.setScalingFactor(0.6f);
+        Camera.setScalingFactor(0.6f);
 
         entityManager.init(gc);
-        waveManager.init(gc);
+        EntityManager.addEntity(player);
 
-        waveManager.start(gc,0);
         gui = new GUI(player);
         gui.init(gc);
+
+        waveManager.init(gc, player.getPos());
+        waveManager.start(gc,0);
     }
 
 
@@ -53,8 +56,7 @@ public class Game extends BasicGameState
         return Main.GAME;
     }
 
-    private void reset(GameContainer gc, StateBasedGame sbg) throws SlickException
-    {
+    private void reset(GameContainer gc, StateBasedGame sbg) throws SlickException {
         player.reset(gc);
         waveManager.reset(gc);
         entityManager.reset(gc);
