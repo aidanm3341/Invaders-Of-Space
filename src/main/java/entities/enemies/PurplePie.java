@@ -1,8 +1,6 @@
 package entities.enemies;
 
 import ai.AimerAI;
-import ai.ChargerAI;
-import entities.Player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;

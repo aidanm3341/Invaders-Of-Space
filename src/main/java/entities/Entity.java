@@ -7,8 +7,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 
-import java.util.ArrayList;
-
 public abstract class Entity {
 
     protected Point pos;

@@ -1,13 +1,9 @@
 package entities.emitters;
 
-import java.util.Random;
-
 import messaging.Message;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
+
+import java.util.Random;
 
 public class Ectoplasm extends Particle
 {

@@ -1,6 +1,5 @@
 package ai;
 
-import entities.Player;
 import entities.enemies.Enemy;
 import org.newdawn.slick.geom.Point;
 

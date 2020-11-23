@@ -1,7 +1,6 @@
 package entities.waves;
 
 import entities.Entity;
-import managers.EntityManager;
 import messaging.Message;
 import org.newdawn.slick.*;
 

@@ -6,8 +6,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Polygon;
 
-import java.util.ArrayList;
-
 public abstract class Particle extends Entity {
 
 	protected float x, y, velX, velY, angle, angularVelocity, accel;

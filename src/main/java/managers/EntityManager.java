@@ -2,9 +2,6 @@ package managers;
 
 import entities.Arena;
 import entities.Entity;
-import entities.Player;
-import entities.enemies.EnemyFactory;
-import entities.enemies.EnemyType;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;

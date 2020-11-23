@@ -2,9 +2,8 @@ package entities.enemies;
 
 import ai.AI;
 import entities.Entity;
-import managers.EntityManager;
-import entities.Player;
 import entities.emitters.EctoEmitter;
+import managers.EntityManager;
 import messaging.Message;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Polygon;
