@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class MessageQueue {
 
-    private LinkedList<Message> messages;
+    private final LinkedList<Message> messages;
 
     private MessageQueue()
     {

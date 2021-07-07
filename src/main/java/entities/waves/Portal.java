@@ -17,12 +17,15 @@ import java.util.LinkedList;
 
 public class Portal extends Entity{
 
+    private static final Point TOP_LEFT_POS = new Point(100, 100);
+
     private static SpriteSheet sprite = null;
 
     static {
         try {
             sprite = new SpriteSheet("portal.png", 126, 147);
-        } catch (SlickException e) {} }
+        } catch (SlickException e) {}
+    }
 
     public static final int PORTAL_WIDTH = sprite.getSprite(0 ,0).getWidth();
     public static final int PORTAL_HEIGHT = sprite.getSprite(0 ,0).getHeight();

@@ -4,8 +4,8 @@ import entities.Entity;
 
 public class Message {
 
-    private Entity to, from;
-    private String type, data;
+    private final Entity to, from;
+    private final String type, data;
 
     public Message(Entity to, Entity from, String type, String data)
     {

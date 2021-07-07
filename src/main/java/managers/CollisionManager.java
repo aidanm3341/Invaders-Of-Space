@@ -8,6 +8,7 @@ import messaging.Message;
 import messaging.MessageQueue;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CollisionManager {
 
