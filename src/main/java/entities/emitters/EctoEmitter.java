@@ -26,7 +26,7 @@ public class EctoEmitter extends ParticleEmitter{
 		super.update(gc, delta);
 
 		if(particles.isEmpty())
-			EntityManager.removeEntity(this);
+			entityManager.removeEntity(this);
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException { }

@@ -57,4 +57,7 @@ public abstract class Entity {
     public float getHeight() {
         return height;
     }
+
+    public abstract EntityType getType();
+
 }

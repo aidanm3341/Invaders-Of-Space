@@ -7,8 +7,9 @@ import java.util.ArrayList;
 
 public class Wave {
 
-    private ArrayList<Portal> portals;
+    private final ArrayList<Portal> portals;
     private boolean isDone;
+    private final EntityManager entityManager = EntityManager.getInstance();
 
     public Wave(ArrayList<Portal> portals)
     {
@@ -17,7 +18,7 @@ public class Wave {
 
     public void start(){
         for(Portal p : portals)
-            EntityManager.addEntity(p);
+            entityManager.addEntity(p);
     }
 
     public void update(GameContainer gc, float delta){
@@ -34,6 +35,6 @@ public class Wave {
 
     public void cleanUp(){
         for(Portal p : portals)
-            EntityManager.removeEntity(p);
+            entityManager.removeEntity(p);
     }
 }

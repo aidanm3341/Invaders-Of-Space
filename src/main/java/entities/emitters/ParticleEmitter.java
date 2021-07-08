@@ -1,6 +1,7 @@
 package entities.emitters;
 
 import entities.Entity;
+import entities.EntityType;
 import managers.EntityManager;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 
 public abstract class ParticleEmitter extends Entity {
 
+    protected final EntityManager entityManager = EntityManager.getInstance();
     protected ArrayList<Particle> particles;
     protected float x, y;
 
@@ -23,7 +25,7 @@ public abstract class ParticleEmitter extends Entity {
             if(p.getLife() <= 0)
             {
                 particles.remove(p);
-                EntityManager.removeEntity(p);
+                entityManager.removeEntity(p);
             }
         }
     }
@@ -31,7 +33,7 @@ public abstract class ParticleEmitter extends Entity {
     public void addParticle(Particle newParticle)
     {
         particles.add(newParticle);
-        EntityManager.addEntity(newParticle);
+        entityManager.addEntity(newParticle);
     }
 
     public void reset()
@@ -48,5 +50,10 @@ public abstract class ParticleEmitter extends Entity {
 
     public void setY(float y){
         this.y = y;
+    }
+
+    @Override
+    public EntityType getType() {
+        return EntityType.NON_COLLIDING;
     }
 }

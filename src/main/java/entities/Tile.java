@@ -63,4 +63,9 @@ public class Tile extends Entity{
 	public float getHeight() {
 		return image.getHeight();
 	}
+
+	@Override
+	public EntityType getType() {
+		return EntityType.NON_COLLIDING;
+	}
 }

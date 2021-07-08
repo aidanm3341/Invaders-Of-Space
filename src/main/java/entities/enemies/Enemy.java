@@ -2,6 +2,7 @@ package entities.enemies;
 
 import ai.AI;
 import entities.Entity;
+import entities.EntityType;
 import entities.emitters.EctoEmitter;
 import managers.EntityManager;
 import messaging.Message;
@@ -11,6 +12,7 @@ import org.newdawn.slick.geom.Transform;
 
 public abstract class Enemy extends Entity {
 
+    private final EntityManager entityManager = EntityManager.getInstance();
     private float angle, lastAngle;
     protected int life;
     protected Image image;
@@ -55,7 +57,7 @@ public abstract class Enemy extends Entity {
 
 
         if(life <= 0)
-            EntityManager.removeEntity(this);
+            entityManager.removeEntity(this);
     }
 
 
@@ -69,7 +71,7 @@ public abstract class Enemy extends Entity {
     {
         if(msg.getType().equals("damage")){
             life -= Integer.parseInt(msg.getData());
-            EntityManager.addEntity(new EctoEmitter(getX(), getY(), color, ectoSize));
+            entityManager.addEntity(new EctoEmitter(getX(), getY(), color, ectoSize));
         }
     }
 
@@ -88,5 +90,9 @@ public abstract class Enemy extends Entity {
     }
     public float getLastAngle() {
         return lastAngle;
+    }
+
+    public EntityType getType(){
+        return EntityType.ENEMY;
     }
 }

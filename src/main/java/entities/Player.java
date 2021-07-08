@@ -53,8 +53,7 @@ public class Player extends Entity{
         weapon.init(gc);
     }
 
-    public void update(GameContainer gc, float i) throws SlickException
-    {
+    public void update(GameContainer gc, float i) throws SlickException {
         updateX(gc, i);
         updateY(gc, i);
         weapon.update(gc, i);
@@ -154,11 +153,10 @@ public class Player extends Entity{
         setY(getY() + velY*delta);
     }
 
-    public void render(GameContainer gc, Graphics g) throws SlickException
-    {
+    public void render(GameContainer gc, Graphics g) throws SlickException {
         g.drawImage(image, getX() - image.getWidth()/2, getY() - image.getHeight()/2);
         weapon.render(gc, g);
-        //g.draw(body);
+        g.draw(body);
     }
 
     public void onMessage(Message msg) {
@@ -175,5 +173,10 @@ public class Player extends Entity{
 
     public int getLife(){
         return life;
+    }
+
+    @Override
+    public EntityType getType() {
+        return EntityType.PLAYER;
     }
 }

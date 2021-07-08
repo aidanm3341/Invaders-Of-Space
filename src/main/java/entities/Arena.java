@@ -47,4 +47,8 @@ public class Arena extends Entity{
 
     }
 
+    @Override
+    public EntityType getType() {
+        return EntityType.NON_COLLIDING;
+    }
 }

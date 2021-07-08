@@ -87,4 +87,9 @@ public class Weapon extends Entity{
     public void onMessage(Message msg) {
 
     }
+
+    @Override
+    public EntityType getType() {
+        return EntityType.NON_COLLIDING;
+    }
 }

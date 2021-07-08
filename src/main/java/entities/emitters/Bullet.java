@@ -1,5 +1,6 @@
 package entities.emitters;
 
+import entities.EntityType;
 import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -68,4 +69,9 @@ public class Bullet extends Particle {
 	public int getDamage(){
 	    return damage;
     }
+
+	@Override
+	public EntityType getType() {
+		return EntityType.BULLET;
+	}
 }

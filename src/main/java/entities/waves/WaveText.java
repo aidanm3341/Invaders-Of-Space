@@ -1,6 +1,7 @@
 package entities.waves;
 
 import entities.Entity;
+import entities.EntityType;
 import messaging.Message;
 import org.newdawn.slick.*;
 
@@ -43,4 +44,9 @@ public class WaveText extends Entity{
     }
 
     public void onMessage(Message msg) {}
+
+    @Override
+    public EntityType getType() {
+        return EntityType.NON_COLLIDING;
+    }
 }

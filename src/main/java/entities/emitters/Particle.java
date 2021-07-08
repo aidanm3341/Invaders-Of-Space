@@ -1,6 +1,7 @@
 package entities.emitters;
 
 import entities.Entity;
+import entities.EntityType;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -35,5 +36,10 @@ public abstract class Particle extends Entity {
 	public Polygon getPolygon()
 	{
 		return body;
+	}
+
+	@Override
+	public EntityType getType() {
+		return EntityType.NON_COLLIDING;
 	}
 }

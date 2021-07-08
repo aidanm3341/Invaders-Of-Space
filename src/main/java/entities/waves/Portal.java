@@ -1,6 +1,7 @@
 package entities.waves;
 
 import entities.Entity;
+import entities.EntityType;
 import entities.enemies.Enemy;
 import entities.enemies.EnemyFactory;
 import entities.enemies.EnemyType;
@@ -17,6 +18,7 @@ import java.util.LinkedList;
 
 public class Portal extends Entity{
 
+    private final EntityManager entityManager = EntityManager.getInstance();
     private static final Point TOP_LEFT_POS = new Point(100, 100);
 
     private static SpriteSheet sprite = null;
@@ -74,7 +76,7 @@ public class Portal extends Entity{
 
     private void dispatchEnemy() {
         if(!enemies.isEmpty())
-            EntityManager.addEntity(enemies.poll());
+            entityManager.addEntity(enemies.poll());
     }
 
     public void addEnemy(GameContainer gc, EnemyType type, Point target) throws SlickException{
@@ -89,5 +91,10 @@ public class Portal extends Entity{
             if(!e.isDead())
                 return false;
         return true;
+    }
+
+    @Override
+    public EntityType getType() {
+        return EntityType.NON_COLLIDING;
     }
 }
