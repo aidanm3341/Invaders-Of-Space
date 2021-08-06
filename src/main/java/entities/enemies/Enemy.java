@@ -20,7 +20,7 @@ public abstract class Enemy extends Entity {
     protected int ectoSize;
 
     protected SpriteSheet sheet;
-    private int sheetCount;
+    private float sheetCount;
 
     protected AI ai;
 
@@ -46,13 +46,13 @@ public abstract class Enemy extends Entity {
         body.setCenterX(getX());
         body.setCenterY(getY());
 
-        image = sheet.getSprite(sheetCount/50, 0);
+        image = sheet.getSprite((int)sheetCount/50, 0);
         image.setRotation((float) Math.toDegrees(angle));
 
         if(sheetCount > 150)
             sheetCount = 0;
 
-        sheetCount++;
+        sheetCount += 0.4*delta;
 
 
 

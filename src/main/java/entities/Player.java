@@ -156,7 +156,7 @@ public class Player extends Entity{
     public void render(GameContainer gc, Graphics g) throws SlickException {
         g.drawImage(image, getX() - image.getWidth()/2, getY() - image.getHeight()/2);
         weapon.render(gc, g);
-        g.draw(body);
+        //g.draw(body);
     }
 
     public void onMessage(Message msg) {

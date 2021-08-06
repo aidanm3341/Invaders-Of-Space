@@ -35,7 +35,7 @@ public class Portal extends Entity{
     private LinkedList<Enemy> enemies;
     private ArrayList<Enemy> enemyDeathTracker;
 
-    private int spriteCounter;
+    private float spriteCounter;
 
     private int counter, spawnTime;
     private boolean isDone;
@@ -65,11 +65,11 @@ public class Portal extends Entity{
         //image = sheet.getSprite(sheetCount/50, 0);
         if(spriteCounter > 90)
             spriteCounter = 0;
-        spriteCounter++;
+        spriteCounter += 0.3 * delta;
     }
 
     public void render(GameContainer gc, Graphics g) throws SlickException {
-        g.drawImage(sprite.getSprite(spriteCounter/50, 0), getX(), getY());
+        g.drawImage(sprite.getSprite((int) spriteCounter/50, 0), getX(), getY());
     }
 
     public void onMessage(Message msg) { }
