@@ -67,12 +67,12 @@ public class AimerAI extends AIimp implements AI{
         double z = Math.min(Math.min(a1, b1), c1);
 
         if(speed <= speedThresholdForRotationSpeedChange){
-            rotationalSpeed += rotationalAccel;
+            rotationalSpeed += rotationalAccel * delta;
             if(rotationalSpeed >= maxRotationalSpeed)
                 rotationalSpeed = maxRotationalSpeed;
         }
         else{
-            rotationalSpeed -= rotationalAccel;
+            rotationalSpeed -= rotationalAccel * delta;
             if(rotationalSpeed <= minRotationalSpeed)
                 rotationalSpeed = minRotationalSpeed;
         }
@@ -83,9 +83,9 @@ public class AimerAI extends AIimp implements AI{
         else if(z == c1) z = c;
 
         if(z <= 0)
-            angle -= rotationalSpeed;
+            angle -= rotationalSpeed * delta;
         else
-            angle += rotationalSpeed;
+            angle += rotationalSpeed * delta;
 
         if(angle >= Math.PI)
             angle = (float) -Math.PI;
@@ -106,11 +106,11 @@ public class AimerAI extends AIimp implements AI{
         else if(speed <= minSpeed)
             speed = minSpeed;
 
-        velX = (float) (speed * Math.cos(angle - Math.toRadians(90)))*delta;
-        velY = (float) (speed * Math.sin(angle - Math.toRadians(90)))*delta;
+        velX = (float) (speed * Math.cos(angle - Math.toRadians(90)));
+        velY = (float) (speed * Math.sin(angle - Math.toRadians(90)));
 
-        x += velX;
-        y += velY;
+        x += velX * delta;
+        y += velY * delta;
 
         lastAngle = angle;
     }

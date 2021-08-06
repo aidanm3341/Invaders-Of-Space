@@ -26,11 +26,11 @@ public class BasicAI extends AIimp implements AI {
 
         angle = (float) Math.atan2(player.getX() - x, y - player.getY());
 
-        velX = (float) (speed * Math.cos(angle - Math.toRadians(90)))*delta;
-        velY = (float) (speed * Math.sin(angle - Math.toRadians(90)))*delta;
+        velX = (float) (speed * Math.cos(angle - Math.toRadians(90)));
+        velY = (float) (speed * Math.sin(angle - Math.toRadians(90)));
 
-        x += velX;
-        y += velY;
+        x += velX * delta;
+        y += velY * delta;
 
         lastAngle = angle;
         updateEnemy();

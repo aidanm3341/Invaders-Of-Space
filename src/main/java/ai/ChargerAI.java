@@ -20,16 +20,16 @@ public class ChargerAI extends AIimp implements AI{
         y = me.getY();
 
         speed = 0.3f;
-        maxSpeed = 0.7f;
+        maxSpeed = 0.6f;
         minSpeed = 0.2f;
 
-        rotationalSpeed = 0.0005f;
-        minRotationalSpeed = 0.00001f;
-        maxRotationalSpeed = 0.01f;
+        rotationalSpeed = 0.00005f;
+        minRotationalSpeed = 0.000001f;
+        maxRotationalSpeed = 0.001f;
 
         speedThresholdForRotationSpeedChange = 0.6f;
 
-        rotationalAccel = 0.00005f;
+        rotationalAccel = 0.000005f;
 
         maxAccel = 0.001f;
         accel = 0;
@@ -87,12 +87,12 @@ public class ChargerAI extends AIimp implements AI{
         double z = Math.min(Math.min(a1, b1), c1);
 
         if(speed <= speedThresholdForRotationSpeedChange){
-            rotationalSpeed += rotationalAccel;
+            rotationalSpeed += rotationalAccel * delta;
             if(rotationalSpeed >= maxRotationalSpeed)
                 rotationalSpeed = maxRotationalSpeed;
         }
         else{
-            rotationalSpeed -= rotationalAccel;
+            rotationalSpeed -= rotationalAccel * delta;
             if(rotationalSpeed <= minRotationalSpeed)
                 rotationalSpeed = minRotationalSpeed;
         }
@@ -103,9 +103,9 @@ public class ChargerAI extends AIimp implements AI{
         else if(z == c1) z = c;
 
         if(z <= 0)
-            angle -= rotationalSpeed;
+            angle -= rotationalSpeed * delta;
         else
-            angle += rotationalSpeed;
+            angle += rotationalSpeed * delta;
 
         if(angle >= Math.PI)
             angle = (float) -Math.PI;
@@ -120,17 +120,17 @@ public class ChargerAI extends AIimp implements AI{
         else
             accel = -maxAccel;
 
-        speed += accel;
+        speed += accel * delta;
         if(speed >= maxSpeed)
             speed = maxSpeed;
         else if(speed <= minSpeed)
             speed = minSpeed;
 
-        velX = (float) (speed * Math.cos(angle - Math.toRadians(90)))*delta;
-        velY = (float) (speed * Math.sin(angle - Math.toRadians(90)))*delta;
+        velX = (float) (speed * Math.cos(angle - Math.toRadians(90)));
+        velY = (float) (speed * Math.sin(angle - Math.toRadians(90)));
 
-        x += velX;
-        y += velY;
+        x += velX * delta;
+        y += velY * delta;
 
         lastAngle = angle;
     }
