@@ -57,13 +57,14 @@ public class Bullet extends Particle {
 		life--;
 	}
 	
-	public void render(GameContainer gc, Graphics g)
-	{
+	public void render(GameContainer gc, Graphics g) {
 		g.drawImage(image, body.getCenterX()-image.getWidth()/2, body.getCenterY()-image.getHeight()/2);
 	}
 
 	public void onMessage(Message msg) {
-
+		if(msg.getType().equals("destroyBullet")){
+			life = 0;
+		}
 	}
 
 	public int getDamage(){

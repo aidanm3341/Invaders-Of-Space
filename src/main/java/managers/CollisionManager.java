@@ -75,6 +75,7 @@ public class CollisionManager {
             for (Enemy e : enemies) {
                 if (b.collidesWith(e)) {
                     msgQueue.add(new Message(e, b, "damage", String.valueOf(b.getDamage())));
+                    msgQueue.add(new Message(b, null, "destroyBullet", ""));
                     bulletIterator.remove();
                     break;
                 }

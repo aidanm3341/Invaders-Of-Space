@@ -22,26 +22,24 @@ public abstract class ParticleEmitter extends Entity {
         for(int i=0; i<particles.size(); i++)
         {
             Particle p = particles.get(i);
-            if(p.getLife() <= 0)
-            {
-                particles.remove(p);
-                entityManager.removeEntity(p);
+            if(p.getLife() <= 0) {
+                removeParticle(p);
             }
         }
     }
 
-    public void addParticle(Particle newParticle)
-    {
+    public void addParticle(Particle newParticle) {
         particles.add(newParticle);
         entityManager.addEntity(newParticle);
     }
 
-    public void reset()
-    {
-        while(!particles.isEmpty())
-        {
-            particles.remove(0);
-        }
+    public void removeParticle(Particle p){
+        particles.remove(p);
+        entityManager.removeEntity(p);
+    }
+
+    public void reset() {
+        particles.clear();
     }
 
     public void setX(float x){

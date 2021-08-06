@@ -40,24 +40,22 @@ public class Weapon extends Entity{
         body = new Polygon(vertices);
 
 
-        bulletEmitter = new BulletEmitter(10);
+        bulletEmitter = new BulletEmitter(100);
     }
 
-    public void update(GameContainer gc, float delta) throws SlickException
-    {
+    public void update(GameContainer gc, float delta) throws SlickException {
         updateMovement(gc);
 
-        if(gc.getInput().isMouseButtonDown(gc.getInput().MOUSE_LEFT_BUTTON))
-        {
+        if(gc.getInput().isMouseButtonDown(gc.getInput().MOUSE_LEFT_BUTTON)) {
             bulletEmitter.tryShoot(angle, delta);
         }
+
         bulletEmitter.setX(getX());
         bulletEmitter.setY(getY());
         bulletEmitter.update(gc, delta);
     }
 
-    private void updateMovement(GameContainer gc)
-    {
+    private void updateMovement(GameContainer gc) {
         setX(origin.getX());
         setY(origin.getY());
 
@@ -78,8 +76,7 @@ public class Weapon extends Entity{
         lastAngle = angle;
     }
 
-    public void render(GameContainer gc, Graphics g) throws SlickException
-    {
+    public void render(GameContainer gc, Graphics g) throws SlickException {
         bulletEmitter.render(gc, g);
         g.drawImage(image, body.getCenterX()-image.getWidth()/2, body.getCenterY()-image.getHeight()/2);
     }
