@@ -5,7 +5,6 @@ import entities.Entity;
 import entities.EntityType;
 import entities.emitters.EctoEmitter;
 import managers.EntityManager;
-import messaging.Message;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Transform;
@@ -25,8 +24,7 @@ public abstract class Enemy extends Entity {
     protected AI ai;
 
 
-    public Enemy(float x, float y)
-    {
+    public Enemy(float x, float y) {
         setX(x);
         setY(y);
         ectoSize = 25;
@@ -36,8 +34,7 @@ public abstract class Enemy extends Entity {
 
     public abstract void init(GameContainer gc) throws SlickException;
 
-    public void update(GameContainer gc, float delta) throws SlickException
-    {
+    public void update(GameContainer gc, float delta) throws SlickException {
         ai.action(delta);
 
 
@@ -56,23 +53,20 @@ public abstract class Enemy extends Entity {
 
 
 
-        if(life <= 0)
+        if(life <= 0) {
             entityManager.removeEntity(this);
+        }
     }
 
 
-    public void render(GameContainer gc, Graphics g) throws SlickException
-    {
+    public void render(GameContainer gc, Graphics g) throws SlickException {
         g.drawImage(image, getX()-image.getWidth()/2, getY()-image.getHeight()/2);
         //g.draw(body);
     }
 
-    public void onMessage(Message msg)
-    {
-        if(msg.getType().equals("damage")){
-            life -= Integer.parseInt(msg.getData());
-            entityManager.addEntity(new EctoEmitter(getX(), getY(), color, ectoSize));
-        }
+    public void damage(int amount){
+        life -= amount;
+        entityManager.addEntity(new EctoEmitter(getX(), getY(), color, ectoSize));
     }
 
     public boolean isDead(){

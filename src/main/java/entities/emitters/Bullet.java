@@ -1,7 +1,6 @@
 package entities.emitters;
 
 import entities.EntityType;
-import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -59,10 +58,8 @@ public class Bullet extends Particle {
 		g.drawImage(image, body.getCenterX()-image.getWidth()/2, body.getCenterY()-image.getHeight()/2);
 	}
 
-	public void onMessage(Message msg) {
-		if(msg.getType().equals("destroyBullet")){
-			life = 0;
-		}
+	public void destroy(){
+		life = 0;
 	}
 
 	public int getDamage(){

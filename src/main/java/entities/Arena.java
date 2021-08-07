@@ -1,6 +1,5 @@
 package entities;
 
-import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -41,10 +40,6 @@ public class Arena extends Entity{
     public void render(GameContainer gc, Graphics g) throws SlickException {
         for(Tile t : tiles)
             t.render(gc, g);
-    }
-
-    public void onMessage(Message msg) {
-
     }
 
     @Override

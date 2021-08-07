@@ -2,7 +2,6 @@ package entities.waves;
 
 import entities.Entity;
 import entities.EntityType;
-import messaging.Message;
 import org.newdawn.slick.*;
 
 public class WaveText extends Entity{
@@ -42,8 +41,6 @@ public class WaveText extends Entity{
         waveText.draw(140, 238, new Color(1, 1, 1, alpha));
         numberSheet.getSprite(sheetX, sheetY).draw(840, 238, new Color(1, 1, 1, alpha));
     }
-
-    public void onMessage(Message msg) {}
 
     @Override
     public EntityType getType() {

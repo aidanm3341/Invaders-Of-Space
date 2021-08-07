@@ -1,6 +1,5 @@
 package entities.emitters;
 
-import messaging.Message;
 import org.newdawn.slick.*;
 
 import java.util.Random;
@@ -78,10 +77,6 @@ public class Ectoplasm extends Particle
 	public void render(GameContainer gc, Graphics g) 
 	{
 		g.drawImage(image, x, y);
-	}
-
-	public void onMessage(Message msg) {
-
 	}
 
 }

@@ -2,7 +2,6 @@ package entities.loot;
 
 import entities.Entity;
 import entities.EntityType;
-import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -36,10 +35,5 @@ public class Metal extends Entity {
     @Override
     public EntityType getType() {
         return EntityType.LOOT;
-    }
-
-    @Override
-    public void onMessage(Message msg) {
-
     }
 }

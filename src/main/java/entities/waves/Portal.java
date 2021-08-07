@@ -6,7 +6,6 @@ import entities.enemies.Enemy;
 import entities.enemies.EnemyFactory;
 import entities.enemies.EnemyType;
 import managers.EntityManager;
-import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -71,8 +70,6 @@ public class Portal extends Entity{
     public void render(GameContainer gc, Graphics g) throws SlickException {
         g.drawImage(sprite.getSprite((int) spriteCounter/50, 0), getX(), getY());
     }
-
-    public void onMessage(Message msg) { }
 
     private void dispatchEnemy() {
         if(!enemies.isEmpty())

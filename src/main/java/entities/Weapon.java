@@ -1,7 +1,6 @@
 package entities;
 
 import entities.emitters.BulletEmitter;
-import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -79,10 +78,6 @@ public class Weapon extends Entity{
     public void render(GameContainer gc, Graphics g) throws SlickException {
         bulletEmitter.render(gc, g);
         g.drawImage(image, body.getCenterX()-image.getWidth()/2, body.getCenterY()-image.getHeight()/2);
-    }
-
-    public void onMessage(Message msg) {
-
     }
 
     @Override

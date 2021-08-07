@@ -1,6 +1,5 @@
 package entities;
 
-import messaging.Message;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.StateBasedGame;
@@ -159,12 +158,10 @@ public class Player extends Entity{
         //g.draw(body);
     }
 
-    public void onMessage(Message msg) {
-        if(msg.getType().equals("damage")){
-            life -= Integer.parseInt(msg.getData());
-            if(life <= 0)
-                sbg.enterState(0);
-        }
+    public void damage(int amount){
+        life -= amount;
+        if(life <= 0)
+            sbg.enterState(0);
     }
 
     public void reset(GameContainer gc) throws SlickException{

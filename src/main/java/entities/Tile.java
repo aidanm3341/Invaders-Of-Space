@@ -1,6 +1,5 @@
 package entities;
 
-import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -37,9 +36,6 @@ public class Tile extends Entity{
 		g.drawImage(image, x, y);
 	}
 
-	public void onMessage(Message msg) {
-
-	}
 	public void setX(float x){
 		this.x = x;
 	}

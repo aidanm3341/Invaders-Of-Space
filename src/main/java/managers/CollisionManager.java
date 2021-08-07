@@ -4,10 +4,7 @@ import entities.Entity;
 import entities.Player;
 import entities.emitters.Bullet;
 import entities.enemies.Enemy;
-import messaging.Message;
-import messaging.MessageQueue;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,12 +16,10 @@ public class CollisionManager {
     private final List<Enemy> enemies;
     private final List<Player> player;
 
-    private final MessageQueue msgQueue;
     private Entity entity1, entity2;
 
     public CollisionManager(List<Entity> entities, List<Bullet> bullets, List<Enemy> enemies, List<Player> player) {
         this.entities = entities;
-        msgQueue = MessageQueue.getInstance();
         this.bullets = bullets;
         this.enemies = enemies;
         this.player = player;
@@ -50,8 +45,10 @@ public class CollisionManager {
             Bullet b = bulletIterator.next();
             for (Enemy e : enemies) {
                 if (b.collidesWith(e)) {
-                    msgQueue.add(new Message(e, b, "damage", String.valueOf(b.getDamage())));
-                    msgQueue.add(new Message(b, null, "destroyBullet", ""));
+                    //msgQueue.add(new Message(e, b, "damage", String.valueOf(b.getDamage())));
+                    e.damage(b.getDamage());
+                    //msgQueue.add(new Message(b, null, "destroyBullet", ""));
+                    b.destroy();
                     bulletIterator.remove();
                     break;
                 }
@@ -63,8 +60,10 @@ public class CollisionManager {
         for(Enemy e : enemies){
             for(Player p : player) {
                 if (p.collidesWith(e)) {
-                    msgQueue.add(new Message(p, e, "damage", "5"));
-                    msgQueue.add(new Message(e, p, "damage", "100"));
+//                    msgQueue.add(new Message(p, e, "damage", "5"));
+                    p.damage(5);
+//                    msgQueue.add(new Message(e, p, "damage", "100"));
+                    e.damage(100);
                 }
             }
         }
@@ -72,6 +71,5 @@ public class CollisionManager {
 
     public void update(){
         checkCollisions();
-        msgQueue.dispatch();
     }
 }

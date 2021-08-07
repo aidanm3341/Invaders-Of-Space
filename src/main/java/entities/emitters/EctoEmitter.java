@@ -1,7 +1,5 @@
 package entities.emitters;
 
-import managers.EntityManager;
-import messaging.Message;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -30,6 +28,4 @@ public class EctoEmitter extends ParticleEmitter{
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException { }
-
-	public void onMessage(Message msg) { }
 }

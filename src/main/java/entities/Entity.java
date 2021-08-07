@@ -1,13 +1,12 @@
 package entities;
 
-import messaging.Message;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 
-public abstract class Entity {
+public abstract class Entity{
 
     protected Point pos;
     protected float width, height;
@@ -23,8 +22,6 @@ public abstract class Entity {
     public abstract void update(GameContainer gc, float i) throws SlickException;
 
     public abstract void render(GameContainer gc, Graphics g) throws SlickException;
-
-    public abstract void onMessage(Message msg);
 
     public boolean collidesWith(Entity e){
         if(isCollidable && e.isCollidable)
