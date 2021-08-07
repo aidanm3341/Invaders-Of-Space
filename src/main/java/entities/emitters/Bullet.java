@@ -15,13 +15,12 @@ public class Bullet extends Particle {
 	private Image image;
 	private int damage;
 	
-	public Bullet(float x, float y, float angle, int life, int damage) throws SlickException
-	{
+	public Bullet(float x, float y, float angle, int life, int damage) throws SlickException {
 		super(x, y, life);
 		this.angle = angle;
 		this.damage = damage;
 
-		image = new Image("particles/bullet3.png");
+		image = new Image("particles/bullet4.png");
 
 		this.isCollidable = true;
 
@@ -31,7 +30,7 @@ public class Bullet extends Particle {
 				24,24,
 				0,24
 		};
-		//setVertices(vertices);
+
 		body = new Polygon(vertices);
 
 		body = (Polygon) body.transform(Transform.createRotateTransform(angle));
@@ -45,8 +44,7 @@ public class Bullet extends Particle {
 
 	}
 
-	public void update(GameContainer gc, float delta) throws SlickException
-	{
+	public void update(GameContainer gc, float delta) throws SlickException {
 		delta *= 0.8f;
 
 		body.setCenterX(x+(float) (100*Math.cos(angle-Math.toRadians(90))));
