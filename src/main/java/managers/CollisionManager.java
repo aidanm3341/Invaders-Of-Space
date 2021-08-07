@@ -44,30 +44,6 @@ public class CollisionManager {
 //        }
     }
 
-    private boolean doCheckAndReturnContinue(int i, int j) {
-        entity1 = entities.get(i);
-        entity2 = entities.get(j);
-
-        if (entity1.equals(entity2))
-            return true;
-        if (entity1 instanceof Bullet && entity2 instanceof Bullet)
-            return true;
-
-        if (entity1.collidesWith(entity2)) {
-            if (entity1 instanceof Bullet && entity2 instanceof Enemy) {
-                Bullet b = (Bullet) entity1;
-                msgQueue.add(new Message(entity2, entity1, "damage", String.valueOf(b.getDamage())));
-                entities.remove(entity1);
-            }
-            else if(entity1 instanceof Player && entity2 instanceof Enemy){
-                msgQueue.add(new Message(entity1, entity2, "damage", "5"));
-                msgQueue.add(new Message(entity2, entity1, "damage", "100"));
-            }
-        }
-
-        return false;
-    }
-
     private void checkBulletCollisions(){
         Iterator<Bullet> bulletIterator = bullets.iterator();
         while (bulletIterator.hasNext()) {
