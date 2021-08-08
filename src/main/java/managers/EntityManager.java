@@ -5,6 +5,7 @@ import entities.Entity;
 import entities.EntityType;
 import entities.Player;
 import entities.emitters.Bullet;
+import entities.enemies.DeathListener;
 import entities.enemies.Enemy;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -13,7 +14,7 @@ import org.newdawn.slick.SlickException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityManager {
+public class EntityManager implements DeathListener {
     private static EntityManager instance;
 
     private List<Entity> entities;
@@ -22,6 +23,7 @@ public class EntityManager {
     private List<Player> player;
 
     private CollisionManager collisions;
+    private LootManager lootManager;
     private Arena bg;
 
     private EntityManager(){}
@@ -34,6 +36,7 @@ public class EntityManager {
 
         bg = new Arena();
         collisions = new CollisionManager(entities, bullets, enemies, player);
+        lootManager = new LootManager();
 
         bg.init(gc);
         for(int j = 0; j< entities.size(); j++)
@@ -60,8 +63,10 @@ public class EntityManager {
         entities.add(e);
         if(e.getType().equals(EntityType.BULLET))
             bullets.add((Bullet) e);
-        else if(e.getType().equals(EntityType.ENEMY))
+        else if(e.getType().equals(EntityType.ENEMY)) {
             enemies.add((Enemy) e);
+            ((Enemy) e).addDeathListener(this);
+        }
         else if(e.getType().equals(EntityType.PLAYER))
             player.add((Player) e);
     }
@@ -70,10 +75,17 @@ public class EntityManager {
         entities.remove(e);
         if(e.getType().equals(EntityType.BULLET))
             bullets.remove(e);
-        else if(e.getType().equals(EntityType.ENEMY))
+        else if(e.getType().equals(EntityType.ENEMY)) {
             enemies.remove(e);
+            ((Enemy) e).removeDeathListener(this);
+        }
         else if(e.getType().equals(EntityType.PLAYER))
             player.remove(e);
+    }
+
+    @Override
+    public void notifyOfDeath(Enemy enemy) throws SlickException {
+        addEntity(lootManager.generateLoot(enemy.getX(), enemy.getY()));
     }
 
     public void reset(GameContainer gc) throws SlickException{
@@ -85,5 +97,4 @@ public class EntityManager {
             instance = new EntityManager();
         return instance;
     }
-
 }

@@ -9,6 +9,9 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Transform;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Enemy extends Entity {
 
     private final EntityManager entityManager = EntityManager.getInstance();
@@ -23,6 +26,8 @@ public abstract class Enemy extends Entity {
 
     protected AI ai;
 
+    private List<DeathListener> deathListeners;
+
 
     public Enemy(float x, float y) {
         setX(x);
@@ -30,6 +35,8 @@ public abstract class Enemy extends Entity {
         ectoSize = 25;
 
         this.isCollidable = true;
+
+        deathListeners = new ArrayList<>();
     }
 
     public abstract void init(GameContainer gc) throws SlickException;
@@ -54,6 +61,9 @@ public abstract class Enemy extends Entity {
 
 
         if(life <= 0) {
+            for (DeathListener deathListener : deathListeners) {
+                deathListener.notifyOfDeath(this);
+            }
             entityManager.removeEntity(this);
         }
     }
@@ -84,6 +94,14 @@ public abstract class Enemy extends Entity {
     }
     public float getLastAngle() {
         return lastAngle;
+    }
+
+    public void addDeathListener(DeathListener deathListener){
+        deathListeners.add(deathListener);
+    }
+
+    public void removeDeathListener(DeathListener deathListener){
+        deathListeners.remove(deathListener);
     }
 
     public EntityType getType(){
