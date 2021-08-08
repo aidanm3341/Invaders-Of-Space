@@ -19,6 +19,8 @@ public class Player extends Entity{
     private Weapon weapon;
     private StateBasedGame sbg;
 
+    private int scrapMetal;
+
     public Player(StateBasedGame sbg){
         this.sbg = sbg;
     }
@@ -50,6 +52,8 @@ public class Player extends Entity{
 
         weapon = new Weapon(this.getPos());
         weapon.init(gc);
+
+        scrapMetal = 0;
     }
 
     public void update(GameContainer gc, float i) throws SlickException {
@@ -170,6 +174,14 @@ public class Player extends Entity{
 
     public int getLife(){
         return life;
+    }
+
+    public void setScrapMetal(int scrapMetal) {
+        this.scrapMetal = scrapMetal;
+    }
+
+    public int getScrapMetal() {
+        return scrapMetal;
     }
 
     @Override

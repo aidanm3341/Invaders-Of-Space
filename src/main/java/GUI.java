@@ -20,6 +20,7 @@ public class GUI {
     public void render(GameContainer gc, Graphics g){
         for(int i=0; i<player.getLife()/10; i++){
             g.drawImage(heart, 25 + (i*(heart.getWidth()+5)), 25);
+            g.drawString("Scrap Metal - " + player.getScrapMetal(), gc.getWidth() - 200, 10);
         }
     }
 }

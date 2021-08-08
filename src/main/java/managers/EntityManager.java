@@ -7,6 +7,7 @@ import entities.Player;
 import entities.emitters.Bullet;
 import entities.enemies.DeathListener;
 import entities.enemies.Enemy;
+import entities.loot.Loot;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -21,6 +22,7 @@ public class EntityManager implements DeathListener {
     private List<Bullet> bullets;
     private List<Enemy> enemies;
     private List<Player> player;
+    private List<Loot> loot;
 
     private CollisionManager collisions;
     private LootManager lootManager;
@@ -33,9 +35,10 @@ public class EntityManager implements DeathListener {
         bullets = new ArrayList<>();
         enemies = new ArrayList<>();
         player = new ArrayList<>();
+        loot = new ArrayList<>();
 
         bg = new Arena();
-        collisions = new CollisionManager(entities, bullets, enemies, player);
+        collisions = new CollisionManager(entities, bullets, enemies, player, loot);
         lootManager = new LootManager();
 
         bg.init(gc);
@@ -69,6 +72,8 @@ public class EntityManager implements DeathListener {
         }
         else if(e.getType().equals(EntityType.PLAYER))
             player.add((Player) e);
+        else if(e.getType().equals(EntityType.LOOT))
+            loot.add((Loot) e);
     }
 
     public void removeEntity(Entity e){
@@ -81,6 +86,8 @@ public class EntityManager implements DeathListener {
         }
         else if(e.getType().equals(EntityType.PLAYER))
             player.remove(e);
+        else if(e.getType().equals(EntityType.LOOT))
+            loot.remove(e);
     }
 
     @Override
