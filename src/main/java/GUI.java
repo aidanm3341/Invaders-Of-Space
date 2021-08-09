@@ -1,8 +1,5 @@
 import entities.Player;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 
 public class GUI {
 
@@ -20,6 +17,7 @@ public class GUI {
     public void render(GameContainer gc, Graphics g){
         for(int i=0; i<player.getLife()/10; i++){
             g.drawImage(heart, 25 + (i*(heart.getWidth()+5)), 25);
+            g.setColor(Color.white);
             g.drawString("Scrap Metal - " + player.getScrapMetal(), gc.getWidth() - 200, 10);
         }
     }

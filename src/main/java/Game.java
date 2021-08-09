@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import shop.Shop;
 
 public class Game extends BasicGameState {
 
@@ -15,6 +16,9 @@ public class Game extends BasicGameState {
     private Player player;
     private Camera camera;
     private GUI gui;
+    private Shop shop;
+
+    private boolean shopView;
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         player = new Player(sbg);
@@ -22,6 +26,9 @@ public class Game extends BasicGameState {
         waveManager = new WaveManager();
         camera = new Camera(player);
         Camera.setScalingFactor(0.6f);
+        shopView = false;
+        shop = new Shop();
+        shop.init(gc, sbg);
 
         entityManager.init(gc);
         entityManager.addEntity(player);
@@ -37,8 +44,16 @@ public class Game extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
         if(gc.getInput().isKeyPressed(gc.getInput().KEY_ESCAPE))
             gc.exit();
-        entityManager.update(gc, i);
-        waveManager.update(gc, i);
+        else if(gc.getInput().isKeyPressed(gc.getInput().KEY_P))
+            shopView = !shopView;
+
+        if(!shopView) {
+            entityManager.update(gc, i);
+            waveManager.update(gc, i);
+        }
+        else{
+            shop.update(gc, sbg, i);
+        }
     }
 
 
@@ -49,6 +64,10 @@ public class Game extends BasicGameState {
 
         waveManager.render(gc, g);
         gui.render(gc, g);
+
+        if(shopView){
+            shop.render(gc, sbg, g);
+        }
     }
 
     public int getID() {
@@ -59,6 +78,7 @@ public class Game extends BasicGameState {
         player.reset(gc);
         waveManager.reset(gc);
         entityManager.reset(gc);
+        shop.reset(gc, sbg);
         init(gc, sbg);
     }
 
