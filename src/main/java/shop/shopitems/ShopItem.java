@@ -1,4 +1,4 @@
-package shop;
+package shop.shopitems;
 
 import entities.Player;
 import org.newdawn.slick.*;
@@ -6,11 +6,15 @@ import org.newdawn.slick.gui.AbstractComponent;
 import org.newdawn.slick.gui.ComponentListener;
 import org.newdawn.slick.gui.GUIContext;
 import org.newdawn.slick.gui.MouseOverArea;
+import shop.MyFont;
+import shop.Price;
+import shop.ShopListener;
+import shop.UIComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopItem implements UIComponent, ComponentListener{
+public abstract class ShopItem implements UIComponent, ComponentListener{
 
     private UnicodeFont shopItemFont;
 
@@ -20,7 +24,7 @@ public class ShopItem implements UIComponent, ComponentListener{
     private List<ShopListener> listeners;
 
     private String text;
-    private Price price;
+    protected Price price;
 
     public ShopItem(GUIContext container, UIComponent parent) throws SlickException {
         mouseOverArea = new MouseOverArea(container, null,
@@ -50,9 +54,7 @@ public class ShopItem implements UIComponent, ComponentListener{
         price.render(g, getX()+getWidth()-price.getWidth() - getPadding(), getY() + getHeight()/2 - price.getHeight()/2);
     }
 
-    public void applyToPlayer(Player player){
-        player.setScrapMetal(player.getScrapMetal()-price.getMetalPrice());
-    }
+    public abstract void applyToPlayer(Player player);
 
     @Override
     public void setParent(UIComponent parent) {
