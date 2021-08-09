@@ -6,12 +6,16 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Shop {
+public class Shop implements UIComponent{
 
     private static int PADDING = 100;
+    private GameContainer gc;
+
+    private ShopItem shopItem;
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-
+        this.gc = gc;
+        shopItem = new ShopItem(gc, this);
     }
 
 
@@ -21,11 +25,42 @@ public class Shop {
 
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        g.setColor(new Color(0, 0, 100, 200));
-        g.fillRect(PADDING, PADDING, gc.getWidth()-PADDING*2, gc.getHeight()-PADDING*2);
+        g.setColor(new Color(50, 50, 80, 230));
+        g.fillRect(getX(), getY(), getWidth(), getHeight());
+        shopItem.render(gc, g);
     }
 
     public void reset(GameContainer gc, StateBasedGame sbg) throws SlickException {
         this.init(gc, sbg);
+    }
+
+    @Override
+    public void setParent(UIComponent parent) {
+
+    }
+
+    @Override
+    public float getX() {
+        return PADDING;
+    }
+
+    @Override
+    public float getY() {
+        return PADDING;
+    }
+
+    @Override
+    public float getWidth() {
+        return gc.getWidth()-PADDING*2;
+    }
+
+    @Override
+    public float getHeight() {
+        return gc.getHeight()-PADDING*2;
+    }
+
+    @Override
+    public float getPadding(){
+        return 20;
     }
 }
