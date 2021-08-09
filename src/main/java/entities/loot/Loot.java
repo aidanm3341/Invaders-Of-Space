@@ -20,7 +20,7 @@ public class Loot extends Entity {
     private double a;
     private final Image image;
 
-    public Loot(float x, float y, Image image) throws SlickException {
+    public Loot(float x, float y, Image image)  {
         this.image = image;
         setX(x - image.getWidth()/2);
         setY(y - image.getHeight()/2);

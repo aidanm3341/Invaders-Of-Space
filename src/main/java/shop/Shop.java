@@ -1,21 +1,29 @@
 package shop;
 
+import entities.Player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Shop implements UIComponent{
+public class Shop implements UIComponent, ShopListener {
 
     private static int PADDING = 100;
     private GameContainer gc;
 
     private ShopItem shopItem;
 
+    private Player player;
+
+    public Shop(Player player){
+        this.player = player;
+    }
+
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         this.gc = gc;
         shopItem = new ShopItem(gc, this);
+        shopItem.addListener(this);
     }
 
 
@@ -62,5 +70,10 @@ public class Shop implements UIComponent{
     @Override
     public float getPadding(){
         return 20;
+    }
+
+    @Override
+    public void itemPurchased(ShopItem item) {
+        item.applyToPlayer(player);
     }
 }

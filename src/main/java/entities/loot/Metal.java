@@ -4,7 +4,23 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class Metal extends Loot {
-    public Metal(float x, float y) throws SlickException {
-        super(x, y, new Image("loot/metal.png"));
+    
+    private static Image image;
+
+    static {
+        try {
+            image = new Image("loot/metal.png");
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Metal(float x, float y) {
+        super(x, y, image);
+    }
+
+
+    public static Image getImage(){
+        return image;
     }
 }

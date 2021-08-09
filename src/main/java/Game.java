@@ -27,7 +27,7 @@ public class Game extends BasicGameState {
         camera = new Camera(player);
         Camera.setScalingFactor(0.6f);
         shopView = false;
-        shop = new Shop();
+        shop = new Shop(player);
         shop.init(gc, sbg);
 
         entityManager.init(gc);
