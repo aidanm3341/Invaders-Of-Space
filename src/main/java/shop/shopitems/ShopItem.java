@@ -90,6 +90,10 @@ public abstract class ShopItem implements UIComponent, ComponentListener{
         listeners.add(listener);
     }
 
+    public Price getPrice() {
+        return price;
+    }
+
     @Override
     public void componentActivated(AbstractComponent abstractComponent) {
         for(ShopListener listener : listeners)

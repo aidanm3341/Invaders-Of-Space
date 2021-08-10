@@ -33,7 +33,8 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
 
 
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-
+        if(gc.getInput().isKeyPressed(gc.getInput().KEY_P))
+            sbg.enterState(Main.GAME);
     }
 
 
@@ -79,8 +80,10 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
 
     @Override
     public void itemPurchased(ShopItem item) {
-        item.applyToPlayer(player);
-        sbg.enterState(Main.GAME);
+        if(player.getScrapMetal() >= item.getPrice().getMetalPrice()) {
+            item.applyToPlayer(player);
+            sbg.enterState(Main.GAME);
+        }
     }
 
     @Override
