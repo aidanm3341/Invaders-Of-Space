@@ -21,8 +21,6 @@ public class Game extends BasicGameState {
     }
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        //player = new Player(sbg);
-        player.init(gc);
         waveManager = new WaveManager();
         camera = new Camera(player);
         Camera.setScalingFactor(0.6f);

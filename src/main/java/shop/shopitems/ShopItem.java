@@ -99,4 +99,8 @@ public abstract class ShopItem implements UIComponent, ComponentListener{
         for(ShopListener listener : listeners)
             listener.itemPurchased(this);
     }
+
+    protected void useUp(){
+        mouseOverArea.setAcceptingInput(false);
+    }
 }

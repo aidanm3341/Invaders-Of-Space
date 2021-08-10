@@ -14,5 +14,6 @@ public class SpeedUpItem extends ShopItem{
         player.setScrapMetal(player.getScrapMetal()-price.getMetalPrice());
         player.getStats().setMaxVelocity(player.getStats().getMaxVelocity() + 0.3f);
         player.getStats().setMaxAcceleration(player.getStats().getMaxAcceleration() + 0.008f);
+        useUp();
     }
 }
