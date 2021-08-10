@@ -17,7 +17,7 @@ public abstract class Entity{
         pos = new Point(0, 0);
     }
 
-    public abstract void init(GameContainer gc) throws SlickException;
+    public abstract void init(GameContainer gc);
 
     public abstract void update(GameContainer gc, float i) throws SlickException;
 

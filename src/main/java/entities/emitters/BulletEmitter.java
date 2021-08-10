@@ -22,7 +22,7 @@ public class BulletEmitter extends ParticleEmitter{
         this.image = image;
     }
 
-    public void init(GameContainer gc) throws SlickException { }
+    public void init(GameContainer gc) { }
 
     public void render(GameContainer gc, Graphics g) throws SlickException { }
 

@@ -38,7 +38,7 @@ public class Loot extends Entity {
     }
 
     @Override
-    public void init(GameContainer gc) throws SlickException {
+    public void init(GameContainer gc){
 
     }
 

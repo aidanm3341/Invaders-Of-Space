@@ -12,15 +12,13 @@ public class GreenGoblin extends Enemy
 {
     private float[] vertices;
 
-    public GreenGoblin(float x, float y, Point player) throws SlickException
-    {
+    public GreenGoblin(float x, float y, Point player) {
         super(x, y);
         ai = new BasicAI(this, player);
         ai.init();
     }
 
-    public void init(GameContainer gc) throws SlickException
-    {
+    public void init(GameContainer gc) {
         width = 40;
         height = 40;
         life = 30;
@@ -35,7 +33,11 @@ public class GreenGoblin extends Enemy
         };
         body = new Polygon(vertices);
 
-        sheet = new SpriteSheet("enemies/monster1.png", 48, 112);
+        try {
+            sheet = new SpriteSheet("enemies/monster1.png", 48, 112);
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
         image = sheet.getSprite(0, 0);
     }
 }

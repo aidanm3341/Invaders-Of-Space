@@ -39,7 +39,7 @@ public abstract class Enemy extends Entity {
         deathListeners = new ArrayList<>();
     }
 
-    public abstract void init(GameContainer gc) throws SlickException;
+    public abstract void init(GameContainer gc);
 
     public void update(GameContainer gc, float delta) throws SlickException {
         ai.action(delta);

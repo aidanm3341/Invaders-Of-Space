@@ -27,8 +27,12 @@ public abstract class Weapon extends Entity {
         this.origin = origin;
     }
 
-    public void init(GameContainer gc) throws SlickException {
-        image = getImage();
+    public void init(GameContainer gc){
+        try {
+            image = getImage();
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
 
         setX(origin.getX());
         setY(origin.getY());
@@ -41,7 +45,11 @@ public abstract class Weapon extends Entity {
         body = new Polygon(vertices);
 
 
-        bulletEmitter = getBulletEmitter();
+        try {
+            bulletEmitter = getBulletEmitter();
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
     }
 
     public void update(GameContainer gc, float delta) throws SlickException {

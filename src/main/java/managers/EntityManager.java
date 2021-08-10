@@ -30,7 +30,7 @@ public class EntityManager implements DeathListener {
 
     private EntityManager(){}
 
-    public void init(GameContainer gc) throws SlickException {
+    public void init(GameContainer gc) {
         entities = new ArrayList<>();
         bullets = new ArrayList<>();
         enemies = new ArrayList<>();
@@ -95,7 +95,7 @@ public class EntityManager implements DeathListener {
         addEntity(lootManager.generateLoot(enemy.getX(), enemy.getY()));
     }
 
-    public void reset(GameContainer gc) throws SlickException{
+    public void reset(GameContainer gc){
         init(gc);
     }
 

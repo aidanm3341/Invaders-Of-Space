@@ -12,15 +12,13 @@ public class YellowYak extends Enemy{
 
     private float[] vertices;
 
-    public YellowYak(float x, float y, Point player) throws SlickException
-    {
+    public YellowYak(float x, float y, Point player) {
         super(x, y);
         ai = new ChargerAI(this, player);
         ai.init();
     }
 
-    public void init(GameContainer gc) throws SlickException
-    {
+    public void init(GameContainer gc) {
         width = 70;
         height = 40;
         life = 60;
@@ -35,7 +33,11 @@ public class YellowYak extends Enemy{
         };
         body = new Polygon(vertices);
 
-        sheet = new SpriteSheet("enemies/monster3.png", 84, 60);
+        try {
+            sheet = new SpriteSheet("enemies/monster3.png", 84, 60);
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
         image = sheet.getSprite(0, 0);
     }
 }

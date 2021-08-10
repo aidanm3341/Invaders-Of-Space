@@ -12,14 +12,14 @@ public class PurplePie extends Enemy{
 
     private float[] vertices;
 
-    public PurplePie(float x, float y, Point player) throws SlickException
+    public PurplePie(float x, float y, Point player)
     {
         super(x, y);
         ai = new AimerAI(this, player);
         ai.init();
     }
 
-    public void init(GameContainer gc) throws SlickException
+    public void init(GameContainer gc)
     {
         width = 100;
         height = 70;
@@ -35,7 +35,11 @@ public class PurplePie extends Enemy{
         };
         body = new Polygon(vertices);
 
-        sheet = new SpriteSheet("enemies/monster2.png", 123, 115);
+        try {
+            sheet = new SpriteSheet("enemies/monster2.png", 123, 115);
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
         image = sheet.getSprite(0, 0);
     }
 }

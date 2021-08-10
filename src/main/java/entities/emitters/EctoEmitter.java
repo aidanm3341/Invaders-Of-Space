@@ -17,7 +17,7 @@ public class EctoEmitter extends ParticleEmitter{
 		}
 	}
 
-	public void init(GameContainer gc) throws SlickException { }
+	public void init(GameContainer gc) { }
 
 	public void update(GameContainer gc, float delta) throws SlickException
 	{

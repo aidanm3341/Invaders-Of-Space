@@ -19,8 +19,12 @@ public class Arena extends Entity{
 
     }
 
-    public void init(GameContainer gc) throws SlickException {
-        spaceImage = new Image("spaceSquare.png");
+    public void init(GameContainer gc){
+        try {
+            spaceImage = new Image("spaceSquare.png");
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
         tiles = new ArrayList<Tile>();
         for(int i=0; i<8; i++)
         {

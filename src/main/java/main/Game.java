@@ -23,7 +23,7 @@ public class Game extends BasicGameState {
         this.gui = gui;
     }
 
-    public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+    public void init(GameContainer gc, StateBasedGame sbg){
         waveManager = new WaveManager();
         camera = new Camera(player);
         Camera.setScalingFactor(0.6f);
@@ -60,7 +60,7 @@ public class Game extends BasicGameState {
         return Main.GAME;
     }
 
-    private void reset(GameContainer gc, StateBasedGame sbg) throws SlickException {
+    public void reset(GameContainer gc, StateBasedGame sbg) {
         player.reset(gc);
         waveManager.reset(gc);
         entityManager.reset(gc);

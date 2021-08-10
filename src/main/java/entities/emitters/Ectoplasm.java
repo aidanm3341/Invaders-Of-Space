@@ -4,15 +4,13 @@ import org.newdawn.slick.*;
 
 import java.util.Random;
 
-public class Ectoplasm extends Particle
-{
+public class Ectoplasm extends Particle {
 	private Image image;
 	private Random rand;
 	private float alphaValue = 0.7f;
 	private Color color;
 	
-	public Ectoplasm(float x, float y, Color color)
-	{
+	public Ectoplasm(float x, float y, Color color) {
 		super(x, y, 0);
 		rand = new Random();
 		life = 100 + rand.nextInt(150);
@@ -35,7 +33,7 @@ public class Ectoplasm extends Particle
 		image = image.getScaledCopy(0.5f);
 		image.setImageColor(color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
 		
-		life = 100 + rand.nextInt(150);
+		life = 300 + rand.nextInt(250);
 		
 		velX = (rand.nextFloat() + rand.nextFloat() - 1)/6;
 		velY = (rand.nextFloat() + rand.nextFloat() - 1)/6;
@@ -43,12 +41,11 @@ public class Ectoplasm extends Particle
 		accel = 0.0001f;
 	}
 
-	public void init(GameContainer gc) throws SlickException {
+	public void init(GameContainer gc) {
 
 	}
 
-	public void update(GameContainer gc, float delta)
-	{	
+	public void update(GameContainer gc, float delta) {
 		if(velX < 0){
 			velX += accel*delta;
 		}
@@ -65,11 +62,11 @@ public class Ectoplasm extends Particle
 		x += velX*delta;
 		y += velY*delta;
 		
-		angle += angularVelocity;
-		life--;
+		angle += angularVelocity*delta;
+		life -= delta;
 		
 		if(alphaValue > 0.05f){
-			alphaValue -= 0.003f;
+			alphaValue -= 0.003f*delta;
 			image.setImageColor(color.getRed(), color.getGreen(), color.getBlue(), alphaValue);
 		}
 	}

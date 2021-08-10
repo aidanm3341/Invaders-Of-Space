@@ -14,16 +14,23 @@ public class Menu extends BasicGameState implements ComponentListener {
 
     private MouseOverArea play;
     private StateBasedGame sbg;
+    private GameContainer gc;
+    private Game game;
 
     public int getID() {
         return Main.MAINMENU;
+    }
+
+    public Menu(Game game){
+        this.game = game;
     }
 
     public void init(GameContainer gc, StateBasedGame stateBasedGame) throws SlickException {
         Image playImage = new Image("playButton.png");
         play = new MouseOverArea(gc, playImage, gc.getWidth()/2 - playImage.getWidth()/2, gc.getHeight()/2 - playImage.getHeight()/2);
         play.addListener(this);
-        sbg = stateBasedGame;
+        this.sbg = stateBasedGame;
+        this.gc = gc;
     }
 
     public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
@@ -35,6 +42,7 @@ public class Menu extends BasicGameState implements ComponentListener {
     }
 
     public void componentActivated(AbstractComponent abstractComponent) {
+        game.reset(gc, sbg);
         sbg.enterState(Main.GAME);
     }
 }

@@ -17,7 +17,7 @@ public class Tile extends Entity{
 		this.y = y;
 	}
 
-	public void init(GameContainer gc) throws SlickException {
+	public void init(GameContainer gc) {
 
 	}
 

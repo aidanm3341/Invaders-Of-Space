@@ -25,8 +25,10 @@ public class Main extends StateBasedGame{
         player.init(gc);
         GUI gui = new GUI(player);
         gui.init(gc);
-        this.addState(new Menu());
-        this.addState(new Game(player, gui));
+
+        Game game = new Game(player, gui);
+        this.addState(new Menu(game));
+        this.addState(game);
         this.addState(new Shop(player, gui));
     }
 

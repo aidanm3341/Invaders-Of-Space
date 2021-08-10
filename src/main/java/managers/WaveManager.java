@@ -26,7 +26,7 @@ public class WaveManager {
     private Point target;
 
 
-    public void init(GameContainer gc, Point target) throws SlickException {
+    public void init(GameContainer gc, Point target) {
         waves = new ArrayList<Wave>();
         this.target = target;
 
@@ -56,7 +56,7 @@ public class WaveManager {
         waveSplash.render(gc, g);
     }
 
-    public void start(GameContainer gc, int wave) throws SlickException {
+    public void start(GameContainer gc, int wave) {
         currentWaveInt = wave;
         currentWave = waves.get(wave);
         currentWave.start();
@@ -70,7 +70,7 @@ public class WaveManager {
         start(gc, currentWaveInt + 1);
     }
 
-    private void constructWave0(GameContainer gc) throws SlickException {
+    private void constructWave0(GameContainer gc) {
         Portal p1 = new Portal(Arena.WIDTH/2, Arena.HEIGHT/2);
         p1.init(gc);
         p1.addEnemy(gc, EnemyType.GREEN_GOBLIN, target);
@@ -81,7 +81,7 @@ public class WaveManager {
         waves.add(new Wave(portals));
     }
 
-    private void constructWave1(GameContainer gc) throws SlickException {
+    private void constructWave1(GameContainer gc) {
         Portal p1 = new Portal(100,100);
         p1.init(gc);
         p1.addEnemy(gc, EnemyType.GREEN_GOBLIN, target);
@@ -101,7 +101,7 @@ public class WaveManager {
         waves.add(new Wave(portals));
     }
 
-    private void constructWave2(GameContainer gc) throws SlickException {
+    private void constructWave2(GameContainer gc) {
         Portal p1 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100);
         p1.init(gc);
         p1.addEnemy(gc, EnemyType.GREEN_GOBLIN, target);
@@ -123,7 +123,7 @@ public class WaveManager {
         waves.add(new Wave(portals));
     }
 
-    private void constructWave3(GameContainer gc) throws SlickException {
+    private void constructWave3(GameContainer gc) {
         Portal p1 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100);
         p1.init(gc);
         p1.addEnemy(gc, EnemyType.GREEN_GOBLIN, target);
@@ -161,7 +161,7 @@ public class WaveManager {
         waves.add(new Wave(portals));
     }
 
-    private void constructWave4(GameContainer gc) throws SlickException {
+    private void constructWave4(GameContainer gc) {
         Portal p1 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100);
         p1.init(gc);
         p1.addEnemy(gc, EnemyType.PURPLE_PIE, target);
@@ -212,7 +212,7 @@ public class WaveManager {
         waves.add(new Wave(portals));
     }
 
-    private void constructWave5(GameContainer gc) throws SlickException {
+    private void constructWave5(GameContainer gc) {
         Portal p1 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100);
         p1.init(gc);
         p1.addEnemy(gc, EnemyType.YELLOW_YAK, target);
@@ -249,7 +249,7 @@ public class WaveManager {
         waves.add(new Wave(portals));
     }
 
-    private void constructWave6(GameContainer gc) throws SlickException {
+    private void constructWave6(GameContainer gc) {
         Portal p1 = new Portal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100);
         p1.init(gc);
         p1.addEnemy(gc, EnemyType.PURPLE_PIE, target);
@@ -283,7 +283,7 @@ public class WaveManager {
         waves.add(new Wave(portals));
     }
 
-    public void reset(GameContainer gc) throws SlickException{
+    public void reset(GameContainer gc){
         init(gc, target);
     }
 }

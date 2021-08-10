@@ -5,7 +5,7 @@ import org.newdawn.slick.geom.Point;
 
 public class EnemyFactory {
 
-    public static Enemy createEnemy(EnemyType type, Point target, float x, float y) throws SlickException
+    public static Enemy createEnemy(EnemyType type, Point target, float x, float y)
     {
         switch(type){
             case GREEN_GOBLIN:

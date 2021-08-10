@@ -39,7 +39,7 @@ public class Bullet extends Particle {
 		velY = (float) Math.sin(angle-Math.toRadians(90)) * BULLET_SPEED;
 	}
 
-	public void init(GameContainer gc) throws SlickException {
+	public void init(GameContainer gc) {
 
 	}
 

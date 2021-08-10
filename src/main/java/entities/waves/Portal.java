@@ -39,12 +39,12 @@ public class Portal extends Entity{
     private int counter, spawnTime;
     private boolean isDone;
 
-    public Portal(float x, float y) throws SlickException {
+    public Portal(float x, float y) {
         setX(x);
         setY(y);
     }
 
-    public void init(GameContainer gc) throws SlickException {
+    public void init(GameContainer gc){
         enemies = new LinkedList<Enemy>();
         enemyDeathTracker = new ArrayList<Enemy>();
         width = sprite.getSprite(0, 0).getWidth();
@@ -76,7 +76,7 @@ public class Portal extends Entity{
             entityManager.addEntity(enemies.poll());
     }
 
-    public void addEnemy(GameContainer gc, EnemyType type, Point target) throws SlickException{
+    public void addEnemy(GameContainer gc, EnemyType type, Point target){
         Enemy newEnemy = EnemyFactory.createEnemy(type, target, getX() + width/2, getY() + height/2);
         newEnemy.init(gc);
         enemies.add(newEnemy);

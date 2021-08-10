@@ -10,12 +10,9 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Player extends Entity {
 
-//    private static final float MAX_VEL = 1f;
-//    private static final int MAX_LIFE = 100;
-
     private float velX, velY;
     private float angle, angularVelocity;
-    private  float accel;//, maxAccel;
+    private float accel;
 
     private Image image;
     private WeaponFactory weaponFactory;
@@ -30,7 +27,7 @@ public class Player extends Entity {
         this.sbg = sbg;
     }
 
-    public void init(GameContainer gc) throws SlickException {
+    public void init(GameContainer gc) {
         this.gc = gc;
         stats = new PlayerStats(1, 100, 0.004f, 100);
 
@@ -42,7 +39,11 @@ public class Player extends Entity {
 
         this.isCollidable = true;
 
-        image = new Image("ship.png");
+        try {
+            image = new Image("ship.png");
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
 
         float[] vertices = new float[]{
                 0,0,
@@ -168,7 +169,7 @@ public class Player extends Entity {
             sbg.enterState(0);
     }
 
-    public void reset(GameContainer gc) throws SlickException{
+    public void reset(GameContainer gc){
         init(gc);
     }
 
