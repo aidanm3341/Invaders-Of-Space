@@ -1,5 +1,5 @@
 import entities.Camera;
-import entities.Player;
+import entities.player.Player;
 import managers.EntityManager;
 import managers.WaveManager;
 import org.newdawn.slick.GameContainer;

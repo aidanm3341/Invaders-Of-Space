@@ -1,7 +1,7 @@
 package managers;
 
 import entities.Entity;
-import entities.Player;
+import entities.player.Player;
 import entities.emitters.Bullet;
 import entities.enemies.Enemy;
 import entities.loot.Loot;

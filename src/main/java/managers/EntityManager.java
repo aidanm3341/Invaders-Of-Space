@@ -3,7 +3,7 @@ package managers;
 import entities.Arena;
 import entities.Entity;
 import entities.EntityType;
-import entities.Player;
+import entities.player.Player;
 import entities.emitters.Bullet;
 import entities.enemies.DeathListener;
 import entities.enemies.Enemy;

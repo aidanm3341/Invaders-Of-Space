@@ -1,4 +1,4 @@
-import entities.Player;
+import entities.player.Player;
 import org.newdawn.slick.*;
 
 public class GUI {

@@ -1,6 +1,6 @@
 package shop.shopitems;
 
-import entities.Player;
+import entities.player.Player;
 import org.newdawn.slick.*;
 import org.newdawn.slick.gui.AbstractComponent;
 import org.newdawn.slick.gui.ComponentListener;
@@ -42,7 +42,7 @@ public abstract class ShopItem implements UIComponent, ComponentListener{
         listeners = new ArrayList<>();
 
         shopItemFont = (new MyFont(30)).getUniFont();
-        text = "Magic Space Cannon";
+        text = "Speed Boost";
         price = new Price(10);
     }
 
