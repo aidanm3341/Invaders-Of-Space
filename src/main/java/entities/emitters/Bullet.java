@@ -19,7 +19,7 @@ public class Bullet extends Particle {
 		this.angle = angle;
 		this.damage = damage;
 
-		this.image = image;
+		this.image = image.copy();
 
 		this.isCollidable = true;
 
@@ -33,7 +33,7 @@ public class Bullet extends Particle {
 		body = new Polygon(vertices);
 
 		body = (Polygon) body.transform(Transform.createRotateTransform(angle));
-		image.setRotation((float) Math.toDegrees(angle));
+		this.image.setRotation((float) Math.toDegrees(angle));
 
 		velX = (float) Math.cos(angle-Math.toRadians(90)) * BULLET_SPEED;
 		velY = (float) Math.sin(angle-Math.toRadians(90)) * BULLET_SPEED;
