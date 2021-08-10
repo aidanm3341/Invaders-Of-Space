@@ -2,6 +2,7 @@ package entities.emitters;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import java.util.List;
@@ -12,8 +13,13 @@ public class BulletEmitter extends ParticleEmitter{
     private float bulletTimeCounter = 2;
     private final float bulletLife = 2000;
 
-    public BulletEmitter(float ticksBetweenBullets) {
+    private float bulletDamage;
+    private Image image;
+
+    public BulletEmitter(float ticksBetweenBullets, float bulletDamage, Image image) {
         this.ticksBetweenBullets = ticksBetweenBullets;
+        this.bulletDamage = bulletDamage;
+        this.image = image;
     }
 
     public void init(GameContainer gc) throws SlickException { }
@@ -22,7 +28,7 @@ public class BulletEmitter extends ParticleEmitter{
 
     public void tryShoot(double angle, float delta) throws SlickException {
         if(bulletTimeCounter >= ticksBetweenBullets){
-            Bullet newBullet = new Bullet(x, y, (float) angle, (int) bulletLife, 10);
+            Bullet newBullet = new Bullet(x, y, (float) angle, (int) bulletLife, 10, image);
             addParticle(newBullet);
             bulletTimeCounter = 0;
         }

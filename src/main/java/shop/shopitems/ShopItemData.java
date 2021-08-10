@@ -1,6 +1,7 @@
 package shop.shopitems;
 
 import entities.player.Player;
+import org.newdawn.slick.SlickException;
 import shop.Price;
 
 public abstract class ShopItemData {
@@ -13,7 +14,7 @@ public abstract class ShopItemData {
         this.price = price;
     }
 
-    public abstract void applyToPlayer(Player player);
+    public abstract void applyToPlayer(Player player) throws SlickException;
 
     public String getName() {
         return name;

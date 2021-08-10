@@ -38,7 +38,7 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
         itemFactory = new ShopItemFactory();
         shopItem1 = new ShopItemUI(gc, panel1, itemFactory.speedUpItem());
         shopItem1.addListener(this);
-        shopItem2 = new ShopItemUI(gc, panel2, itemFactory.speedUpItem());
+        shopItem2 = new ShopItemUI(gc, panel2, itemFactory.advancedWeaponItem());
         shopItem2.addListener(this);
         shopItem3 = new ShopItemUI(gc, panel3, itemFactory.speedUpItem());
         shopItem3.addListener(this);
@@ -97,7 +97,7 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
     }
 
     @Override
-    public void itemPurchased(ShopItemUI item) {
+    public void itemPurchased(ShopItemUI item) throws SlickException {
         if(player.getScrapMetal() >= item.getPrice().getMetalPrice()) {
             item.applyToPlayer(player);
         }

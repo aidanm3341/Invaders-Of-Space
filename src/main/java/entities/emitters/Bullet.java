@@ -14,12 +14,12 @@ public class Bullet extends Particle {
 	private Image image;
 	private int damage;
 	
-	public Bullet(float x, float y, float angle, int life, int damage) throws SlickException {
+	public Bullet(float x, float y, float angle, int life, int damage, Image image) throws SlickException {
 		super(x, y, life);
 		this.angle = angle;
 		this.damage = damage;
 
-		image = new Image("particles/bullet4.png");
+		this.image = image;
 
 		this.isCollidable = true;
 

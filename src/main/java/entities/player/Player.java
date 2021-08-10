@@ -2,7 +2,8 @@ package entities.player;
 
 import entities.Entity;
 import entities.EntityType;
-import entities.Weapon;
+import entities.weapons.Weapon;
+import entities.weapons.WeaponFactory;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.StateBasedGame;
@@ -19,8 +20,10 @@ public class Player extends Entity {
     private float life;
 
     private Image image;
+    private WeaponFactory weaponFactory;
     private Weapon weapon;
     private StateBasedGame sbg;
+    private GameContainer gc;
     private PlayerStats stats;
 
     private int scrapMetal;
@@ -30,6 +33,7 @@ public class Player extends Entity {
     }
 
     public void init(GameContainer gc) throws SlickException {
+        this.gc = gc;
         stats = new PlayerStats(1, 100, 0.004f);
 //        maxAccel = 0.004f;
 //        life = MAX_LIFE;
@@ -56,7 +60,8 @@ public class Player extends Entity {
         body.setCenterX(getX());
         body.setCenterY(getY());
 
-        weapon = new Weapon(this.getPos());
+        weaponFactory = new WeaponFactory();
+        weapon = weaponFactory.basicWeapon(getPos());
         weapon.init(gc);
 
         scrapMetal = 0;
@@ -187,6 +192,11 @@ public class Player extends Entity {
 
     public PlayerStats getStats(){
         return stats;
+    }
+
+    public void setWeapon(Weapon weapon) throws SlickException {
+        this.weapon = weapon;
+        weapon.init(gc);
     }
 
     @Override

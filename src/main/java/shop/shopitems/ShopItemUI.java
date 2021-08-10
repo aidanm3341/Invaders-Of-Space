@@ -56,7 +56,7 @@ public class ShopItemUI implements UIComponent, ComponentListener{
         data.getPrice().render(g, getX()+getWidth()/2-data.getPrice().getWidth()/2, getY()+getHeight()-data.getPrice().getHeight()-parent.getPadding());
     }
 
-    public void applyToPlayer(Player player){
+    public void applyToPlayer(Player player) throws SlickException {
         data.applyToPlayer(player);
     }
 
@@ -100,8 +100,13 @@ public class ShopItemUI implements UIComponent, ComponentListener{
 
     @Override
     public void componentActivated(AbstractComponent abstractComponent) {
-        for(ShopListener listener : listeners)
-            listener.itemPurchased(this);
+        for(ShopListener listener : listeners) {
+            try {
+                listener.itemPurchased(this);
+            } catch (SlickException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     protected void disableInput(){

@@ -1,5 +1,8 @@
-package entities;
+package entities.weapons;
 
+import entities.Camera;
+import entities.Entity;
+import entities.EntityType;
 import entities.emitters.BulletEmitter;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -9,7 +12,7 @@ import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Transform;
 
-public class Weapon extends Entity{
+public abstract class Weapon extends Entity {
     private static final int RADIUS_FROM_SHIP = 120;
 
     private float mouseX, mouseY;
@@ -20,13 +23,12 @@ public class Weapon extends Entity{
 
     private BulletEmitter bulletEmitter;
 
-    public Weapon(Point origin)
-    {
+    public Weapon(Point origin) {
         this.origin = origin;
     }
 
     public void init(GameContainer gc) throws SlickException {
-        image = new Image("particles/laser.png");
+        image = getImage();
 
         setX(origin.getX());
         setY(origin.getY());
@@ -39,7 +41,7 @@ public class Weapon extends Entity{
         body = new Polygon(vertices);
 
 
-        bulletEmitter = new BulletEmitter(100);
+        bulletEmitter = getBulletEmitter();
     }
 
     public void update(GameContainer gc, float delta) throws SlickException {
@@ -79,6 +81,9 @@ public class Weapon extends Entity{
         bulletEmitter.render(gc, g);
         g.drawImage(image, body.getCenterX()-image.getWidth()/2, body.getCenterY()-image.getHeight()/2);
     }
+
+    protected abstract Image getImage() throws SlickException;
+    protected abstract BulletEmitter getBulletEmitter() throws SlickException;
 
     @Override
     public EntityType getType() {
