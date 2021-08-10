@@ -1,18 +1,20 @@
-package shop;
-
 import entities.player.Player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import shop.ShopListener;
+import shop.UIComponent;
 import shop.shopitems.ShopItem;
 import shop.shopitems.SpeedUpItem;
 
-public class Shop implements UIComponent, ShopListener {
+public class Shop extends BasicGameState implements UIComponent, ShopListener {
 
     private static int PADDING = 100;
     private GameContainer gc;
+    private StateBasedGame sbg;
 
     private ShopItem shopItem;
 
@@ -24,6 +26,7 @@ public class Shop implements UIComponent, ShopListener {
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         this.gc = gc;
+        this.sbg = sbg;
         shopItem = new SpeedUpItem(gc, this);
         shopItem.addListener(this);
     }
@@ -77,5 +80,11 @@ public class Shop implements UIComponent, ShopListener {
     @Override
     public void itemPurchased(ShopItem item) {
         item.applyToPlayer(player);
+        sbg.enterState(Main.GAME);
+    }
+
+    @Override
+    public int getID() {
+        return Main.SHOP;
     }
 }
