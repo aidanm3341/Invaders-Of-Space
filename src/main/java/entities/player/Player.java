@@ -17,8 +17,6 @@ public class Player extends Entity {
     private float angle, angularVelocity;
     private  float accel;//, maxAccel;
 
-    private float life;
-
     private Image image;
     private WeaponFactory weaponFactory;
     private Weapon weapon;
@@ -34,15 +32,11 @@ public class Player extends Entity {
 
     public void init(GameContainer gc) throws SlickException {
         this.gc = gc;
-        stats = new PlayerStats(1, 100, 0.004f);
-//        maxAccel = 0.004f;
-//        life = MAX_LIFE;
-        life = stats.getMaxLife();
+        stats = new PlayerStats(1, 100, 0.004f, 100);
 
         width = 60;
         height = 60;
 
-        //pos = new Point(200, 200);
         setX(200);
         setY(200);
 
@@ -169,8 +163,8 @@ public class Player extends Entity {
     }
 
     public void damage(int amount){
-        life -= amount;
-        if(life <= 0)
+        stats.setCurrentLife(stats.getCurrentLife()-amount);
+        if(stats.getCurrentLife() <= 0)
             sbg.enterState(0);
     }
 
@@ -179,7 +173,7 @@ public class Player extends Entity {
     }
 
     public float getLife(){
-        return life;
+        return stats.getCurrentLife();
     }
 
     public void setScrapMetal(int scrapMetal) {

@@ -1,12 +1,13 @@
 package entities.player;
 
 public class PlayerStats {
-    private float maxVelocity, maxLife, maxAcceleration;
+    private float maxVelocity, maxLife, maxAcceleration, currentLife;
 
-    public PlayerStats(float maxVelocity, float maxLife, float maxAcceleration) {
+    public PlayerStats(float maxVelocity, float maxLife, float maxAcceleration, float currentLife) {
         this.maxVelocity = maxVelocity;
         this.maxLife = maxLife;
         this.maxAcceleration = maxAcceleration;
+        this.currentLife = currentLife;
     }
 
     public float getMaxVelocity() {
@@ -31,5 +32,13 @@ public class PlayerStats {
 
     public void setMaxAcceleration(float maxAcceleration) {
         this.maxAcceleration = maxAcceleration;
+    }
+
+    public float getCurrentLife() {
+        return currentLife;
+    }
+
+    public void setCurrentLife(float currentLife) {
+        this.currentLife = currentLife;
     }
 }

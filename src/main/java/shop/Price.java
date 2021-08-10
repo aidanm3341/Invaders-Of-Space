@@ -9,10 +9,14 @@ public class Price {
     private UnicodeFont priceFont;
     private int metalPrice;
 
-    public Price(int metalPrice) throws SlickException {
+    public Price(int metalPrice){
         this.metalPrice = metalPrice;
 
-        priceFont = (new MyFont(15)).getUniFont();
+        try {
+            priceFont = (new MyFont(15)).getUniFont();
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
     }
 
     public void render(Graphics g, float x, float y){

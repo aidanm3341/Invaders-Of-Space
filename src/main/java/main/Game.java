@@ -18,8 +18,9 @@ public class Game extends BasicGameState {
     private Camera camera;
     private GUI gui;
 
-    public Game(Player player){
+    public Game(Player player, GUI gui){
         this.player = player;
+        this.gui = gui;
     }
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
@@ -29,9 +30,6 @@ public class Game extends BasicGameState {
 
         entityManager.init(gc);
         entityManager.addEntity(player);
-
-        gui = new GUI(player);
-        gui.init(gc);
 
         waveManager.init(gc, player.getPos());
         waveManager.start(gc,0);

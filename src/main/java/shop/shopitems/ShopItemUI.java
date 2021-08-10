@@ -52,7 +52,15 @@ public class ShopItemUI implements UIComponent, ComponentListener{
         mouseOverArea.render(gc, g);
         g.setColor(Color.white);
         g.setFont(shopItemFont);
-        g.drawString(data.getName(), getX()+getWidth()/2 - shopItemFont.getWidth(data.getName())/2, getY()+parent.getPadding());
+        if(shopItemFont.getWidth(data.getName()) < getWidth()) {
+            g.drawString(data.getName(), getX() + getWidth() / 2 - shopItemFont.getWidth(data.getName()) / 2, getY() + parent.getPadding());
+        }
+        else{
+            String str1 = data.getName().substring(0, data.getName().indexOf(' '));
+            String str2 = data.getName().substring(data.getName().indexOf(' '));
+            g.drawString(str1, getX() + getWidth() / 2 - shopItemFont.getWidth(str1) / 2, getY() + parent.getPadding());
+            g.drawString(str2, getX() + getWidth() / 2 - shopItemFont.getWidth(str2) / 2, getY() + parent.getPadding() + shopItemFont.getHeight(str1));
+        }
         data.getPrice().render(g, getX()+getWidth()/2-data.getPrice().getWidth()/2, getY()+getHeight()-data.getPrice().getHeight()-parent.getPadding());
     }
 

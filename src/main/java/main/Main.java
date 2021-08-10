@@ -23,9 +23,11 @@ public class Main extends StateBasedGame{
     public void initStatesList(GameContainer gc) throws SlickException {
         Player player = new Player(this);
         player.init(gc);
+        GUI gui = new GUI(player);
+        gui.init(gc);
         this.addState(new Menu());
-        this.addState(new Game(player));
-        this.addState(new Shop(player));
+        this.addState(new Game(player, gui));
+        this.addState(new Shop(player, gui));
     }
 
 

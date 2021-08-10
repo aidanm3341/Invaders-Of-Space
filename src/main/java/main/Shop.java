@@ -24,9 +24,11 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
     private ShopItemUI shopItem1, shopItem2, shopItem3;
 
     private Player player;
+    private GUI gui;
 
-    public Shop(Player player){
+    public Shop(Player player, GUI gui){
         this.player = player;
+        this.gui = gui;
     }
 
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
@@ -40,7 +42,7 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
         shopItem1.addListener(this);
         shopItem2 = new ShopItemUI(gc, panel2, itemFactory.advancedWeaponItem());
         shopItem2.addListener(this);
-        shopItem3 = new ShopItemUI(gc, panel3, itemFactory.speedUpItem());
+        shopItem3 = new ShopItemUI(gc, panel3, itemFactory.healItem());
         shopItem3.addListener(this);
     }
 
@@ -60,6 +62,8 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
         shopItem1.render(gc, g);
         shopItem2.render(gc, g);
         shopItem3.render(gc, g);
+
+        gui.render(gc, g);
     }
 
     public void reset(GameContainer gc, StateBasedGame sbg) throws SlickException {
