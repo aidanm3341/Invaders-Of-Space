@@ -74,7 +74,7 @@ public abstract class Enemy extends Entity {
         //g.draw(body);
     }
 
-    public void damage(int amount){
+    public void damage(float amount){
         life -= amount;
         entityManager.addEntity(new EctoEmitter(getX(), getY(), color, ectoSize));
     }

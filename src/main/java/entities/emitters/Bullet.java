@@ -12,9 +12,9 @@ public class Bullet extends Particle {
 
 	private static final float BULLET_SPEED = 1f;
 	private Image image;
-	private int damage;
+	private float damage;
 	
-	public Bullet(float x, float y, float angle, int life, int damage, Image image) throws SlickException {
+	public Bullet(float x, float y, float angle, int life, float damage, Image image) throws SlickException {
 		super(x, y, life);
 		this.angle = angle;
 		this.damage = damage;
@@ -62,7 +62,7 @@ public class Bullet extends Particle {
 		life = 0;
 	}
 
-	public int getDamage(){
+	public float getDamage(){
 	    return damage;
     }
 

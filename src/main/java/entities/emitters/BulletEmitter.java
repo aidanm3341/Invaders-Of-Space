@@ -28,7 +28,7 @@ public class BulletEmitter extends ParticleEmitter{
 
     public void tryShoot(double angle, float delta) throws SlickException {
         if(bulletTimeCounter >= ticksBetweenBullets){
-            Bullet newBullet = new Bullet(x, y, (float) angle, (int) bulletLife, 10, image);
+            Bullet newBullet = new Bullet(x, y, (float) angle, (int) bulletLife, bulletDamage, image);
             addParticle(newBullet);
             bulletTimeCounter = 0;
         }
