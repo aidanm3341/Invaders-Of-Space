@@ -14,8 +14,9 @@ import shop.UIComponent;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ShopItem implements UIComponent, ComponentListener{
+public class ShopItemUI implements UIComponent, ComponentListener{
 
+    private ShopItemData data;
     private UnicodeFont shopItemFont;
 
     private MouseOverArea mouseOverArea;
@@ -23,15 +24,13 @@ public abstract class ShopItem implements UIComponent, ComponentListener{
 
     private List<ShopListener> listeners;
 
-    private String text;
-    protected Price price;
-
-    public ShopItem(GUIContext container, UIComponent parent) throws SlickException {
+    public ShopItemUI(GUIContext container, UIComponent parent, ShopItemData data) throws SlickException {
+        this.data = data;
         mouseOverArea = new MouseOverArea(container, null,
                 (int) (parent.getX() + parent.getPadding()),
                 (int) (parent.getY() + parent.getPadding()),
                 (int) (parent.getWidth() - parent.getPadding()*2),
-                100);
+                (int) (parent.getHeight() - parent.getPadding()*2));
         mouseOverArea.addListener(this);
         mouseOverArea.setNormalColor(Color.black);
         mouseOverArea.setMouseOverColor(new Color(20, 20, 20));
@@ -42,19 +41,24 @@ public abstract class ShopItem implements UIComponent, ComponentListener{
         listeners = new ArrayList<>();
 
         shopItemFont = (new MyFont(30)).getUniFont();
-        text = "Speed Boost";
-        price = new Price(10);
+    }
+
+    public void update(GameContainer gc, float delta){
+        if(data.isUsed)
+            disableInput();
     }
 
     public void render(GameContainer gc, Graphics g){
         mouseOverArea.render(gc, g);
         g.setColor(Color.white);
         g.setFont(shopItemFont);
-        g.drawString(text, getX()+getPadding(), getY() + getHeight()/2 - shopItemFont.getHeight(text)/2);
-        price.render(g, getX()+getWidth()-price.getWidth() - getPadding(), getY() + getHeight()/2 - price.getHeight()/2);
+        g.drawString(data.getName(), getX()+getWidth()/2 - shopItemFont.getWidth(data.getName())/2, getY()+parent.getPadding());
+        data.getPrice().render(g, getX()+getWidth()/2-data.getPrice().getWidth()/2, getY()+getHeight()-data.getPrice().getHeight()-parent.getPadding());
     }
 
-    public abstract void applyToPlayer(Player player);
+    public void applyToPlayer(Player player){
+        data.applyToPlayer(player);
+    }
 
     @Override
     public void setParent(UIComponent parent) {
@@ -91,7 +95,7 @@ public abstract class ShopItem implements UIComponent, ComponentListener{
     }
 
     public Price getPrice() {
-        return price;
+        return data.getPrice();
     }
 
     @Override
@@ -100,7 +104,7 @@ public abstract class ShopItem implements UIComponent, ComponentListener{
             listener.itemPurchased(this);
     }
 
-    protected void useUp(){
+    protected void disableInput(){
         mouseOverArea.setAcceptingInput(false);
     }
 }

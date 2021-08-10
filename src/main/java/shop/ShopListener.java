@@ -1,7 +1,7 @@
 package shop;
 
-import shop.shopitems.ShopItem;
+import shop.shopitems.ShopItemUI;
 
 public interface ShopListener {
-    void itemPurchased(ShopItem item);
+    void itemPurchased(ShopItemUI item);
 }
