@@ -1,3 +1,5 @@
+package main;
+
 import org.newdawn.slick.Image;
 
 import java.util.HashMap;

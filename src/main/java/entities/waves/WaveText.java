@@ -12,8 +12,7 @@ public class WaveText extends Entity{
     private float alpha;
     private int counter, counterMax;
 
-    public WaveText(int number) throws SlickException
-    {
+    public WaveText(int number) throws SlickException {
         numberSheet = new SpriteSheet("waveNumbers.png", 130, 226);
         waveText = new Image("waveText.png");
         sheetX = number % 5;
@@ -28,8 +27,7 @@ public class WaveText extends Entity{
 
     }
 
-    public void update(GameContainer gc, float delta)
-    {
+    public void update(GameContainer gc, float delta) {
         if(counter >= counterMax) {
             if (alpha > 0)
                 alpha -= 0.002f;

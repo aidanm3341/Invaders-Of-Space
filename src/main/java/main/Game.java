@@ -1,3 +1,5 @@
+package main;
+
 import entities.Camera;
 import entities.player.Player;
 import managers.EntityManager;
@@ -43,7 +45,7 @@ public class Game extends BasicGameState {
             sbg.enterState(Main.SHOP);
 
         entityManager.update(gc, i);
-        waveManager.update(gc, i);
+        waveManager.update(gc, sbg, i);
     }
 
 

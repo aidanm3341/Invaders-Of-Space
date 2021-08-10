@@ -1,3 +1,5 @@
+package main;
+
 import entities.player.Player;
 import org.newdawn.slick.*;
 

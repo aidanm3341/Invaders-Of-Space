@@ -1,3 +1,5 @@
+package main;
+
 import entities.player.Player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -98,7 +100,6 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
     public void itemPurchased(ShopItemUI item) {
         if(player.getScrapMetal() >= item.getPrice().getMetalPrice()) {
             item.applyToPlayer(player);
-            sbg.enterState(Main.GAME);
         }
     }
 

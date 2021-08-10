@@ -106,5 +106,7 @@ public class ShopItemUI implements UIComponent, ComponentListener{
 
     protected void disableInput(){
         mouseOverArea.setAcceptingInput(false);
+        mouseOverArea.setFocus(false);
+        mouseOverArea.setNormalColor(Color.gray);
     }
 }

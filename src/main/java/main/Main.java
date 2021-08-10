@@ -1,3 +1,5 @@
+package main;
+
 import entities.player.Player;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -9,7 +11,7 @@ import java.util.logging.Logger;
 
 public class Main extends StateBasedGame{
 
-    // Game state identifiers
+    // main.Game state identifiers
     public static final int MAINMENU     = 0;
     public static final int GAME         = 1;
     public static final int SHOP         = 2;

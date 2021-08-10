@@ -5,10 +5,12 @@ import entities.enemies.EnemyType;
 import entities.waves.Portal;
 import entities.waves.Wave;
 import entities.waves.WaveText;
+import main.Main;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.ArrayList;
 
@@ -37,25 +39,24 @@ public class WaveManager {
         constructWave6(gc);
     }
 
-    public void update(GameContainer gc, float delta) throws SlickException {
+    public void update(GameContainer gc, StateBasedGame sbg, float delta) throws SlickException {
         currentWave.update(gc, delta);
         if(currentWave.isDone()) {
             if(waveTimerStart == 0)
                 waveTimerStart = System.currentTimeMillis();
-            if(System.currentTimeMillis() - waveTimerStart >= 5000 && currentWaveInt+1 < NUMBER_OF_WAVES) {
+            if(System.currentTimeMillis() - waveTimerStart >= 3000 && currentWaveInt+1 < NUMBER_OF_WAVES) {
+                sbg.enterState(Main.SHOP);
                 startNextWave(gc);
             }
         }
         waveSplash.update(gc, delta);
     }
 
-    public void render(GameContainer gc, Graphics g) throws SlickException
-    {
+    public void render(GameContainer gc, Graphics g) throws SlickException {
         waveSplash.render(gc, g);
     }
 
-    public void start(GameContainer gc, int wave) throws SlickException
-    {
+    public void start(GameContainer gc, int wave) throws SlickException {
         currentWaveInt = wave;
         currentWave = waves.get(wave);
         currentWave.start();
