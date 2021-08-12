@@ -17,7 +17,15 @@ public class Camera{
         y = focus.getY()*scalingFactor;
     }
 
-    public static void cameraAction(GameContainer gc, Graphics g) {
+    public static void cameraAction(GameContainer gc, Graphics g){
+        cameraActionMultipliedBy(gc, g, 1);
+    }
+
+    public static void cameraCut(GameContainer gc, Graphics g){
+        cameraCutMultipliedBy(gc, g, 1);
+    }
+
+    public static void cameraActionMultipliedBy(GameContainer gc, Graphics g, float scale) {
         x = focus.getX()*scalingFactor;
         y = focus.getY()*scalingFactor;
         width = gc.getWidth();
@@ -39,13 +47,19 @@ public class Camera{
             translationY = -y + height/2;
 
 
-        g.translate(translationX, translationY);
+        g.translate(translationX*scale, translationY*scale);
+    }
+
+    public static void cameraActionScale(Graphics g){
         g.scale(scalingFactor, scalingFactor);
     }
 
-    public static void cameraCut(GameContainer gc, Graphics g) {
+    public static void cameraCutScale(Graphics g){
         g.scale(1/scalingFactor, 1/scalingFactor);
-        g.translate(-translationX, -translationY);
+    }
+
+    public static void cameraCutMultipliedBy(GameContainer gc, Graphics g, float scale) {
+        g.translate(-translationX*scale, -translationY*scale);
     }
 
     public static void setScalingFactor(float newScalingFactor)

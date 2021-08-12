@@ -14,7 +14,7 @@ public class Bullet extends Particle {
 	private Image image;
 	private float damage;
 	
-	public Bullet(float x, float y, float angle, int life, float damage, Image image) throws SlickException {
+	public Bullet(float x, float y, float angle, int life, float damage, Image image){
 		super(x, y, life);
 		this.angle = angle;
 		this.damage = damage;
@@ -51,7 +51,7 @@ public class Bullet extends Particle {
 		
 		x += velX*delta;
 		y += velY*delta;
-		life--;
+		life-= delta;
 	}
 	
 	public void render(GameContainer gc, Graphics g) {

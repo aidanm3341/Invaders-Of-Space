@@ -49,7 +49,9 @@ public class Game extends BasicGameState {
 
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         Camera.cameraAction(gc, g);
+        Camera.cameraActionScale(g);
         entityManager.render(gc, g);
+        Camera.cameraCutScale(g);
         Camera.cameraCut(gc, g);
 
         waveManager.render(gc, g);
