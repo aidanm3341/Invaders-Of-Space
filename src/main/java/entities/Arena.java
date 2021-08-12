@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public class Arena extends Entity{
 
     public static final int WIDTH = 3360, HEIGHT = 2940;
-    private static final float PARALLAX_BG1 = -1f;
-    private static final float PARALLAX_BG2 = -0.93f;
-    private static final float PARALLAX_BG3 = -0.86f;
-    private static final float PARALLAX_BG4 = -0.8f;
+    private static final float PARALLAX_BG1 = -0.8f;
+    private static final float PARALLAX_BG2 = -0.67f;
+    private static final float PARALLAX_BG3 = -0.57f;
+    private static final float PARALLAX_BG4 = -0.48f;
 
     private Image bg1, bg2, bg3, bg4;
     private ArrayList<Tile> tiles1, tiles2, tiles3, tiles4;
