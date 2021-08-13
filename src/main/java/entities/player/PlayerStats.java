@@ -39,6 +39,6 @@ public class PlayerStats {
     }
 
     public void setCurrentLife(float currentLife) {
-        this.currentLife = currentLife;
+        this.currentLife = Math.min(currentLife, getMaxLife());
     }
 }
