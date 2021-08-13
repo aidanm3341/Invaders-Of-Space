@@ -1,6 +1,7 @@
 package main;
 
 import entities.player.Player;
+import managers.Fiona;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -16,8 +17,12 @@ public class Main extends StateBasedGame{
     public static final int GAME         = 1;
     public static final int SHOP         = 2;
 
+    private Fiona fiona;
+
     public Main(String name) {
         super(name);
+        fiona = new Fiona();
+        fiona.sayHello();
     }
 
     public void initStatesList(GameContainer gc) throws SlickException {
