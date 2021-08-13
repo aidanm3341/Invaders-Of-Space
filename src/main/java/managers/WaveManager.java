@@ -9,8 +9,10 @@ import main.Main;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.state.StateBasedGame;
+import shop.MyFont;
 
 import java.util.ArrayList;
 
@@ -25,9 +27,12 @@ public class WaveManager {
     private long waveTimerStart;
     private Point target;
 
+    private String shopCountDownTimerString;
+    private UnicodeFont waveTimerFont;
+
 
     public void init(GameContainer gc, Point target) {
-        waves = new ArrayList<Wave>();
+        waves = new ArrayList<>();
         this.target = target;
 
         constructWave0(gc);
@@ -37,6 +42,9 @@ public class WaveManager {
         constructWave4(gc);
         constructWave5(gc);
         constructWave6(gc);
+
+        waveTimerFont = new MyFont(15).getUniFont();
+        shopCountDownTimerString = "";
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, float delta) throws SlickException {
@@ -48,12 +56,20 @@ public class WaveManager {
                 sbg.enterState(Main.SHOP);
                 startNextWave(gc);
             }
+            shopCountDownTimerString = "The shop will open in " + (4-((((System.currentTimeMillis() - waveTimerStart)/1000) % 3) + 1)) + " seconds";
+        }
+        else{
+            shopCountDownTimerString = "";
         }
         waveSplash.update(gc, delta);
     }
 
     public void render(GameContainer gc, Graphics g) throws SlickException {
         waveSplash.render(gc, g);
+        g.setFont(waveTimerFont);
+        g.drawString(shopCountDownTimerString,
+                gc.getWidth()/2 - waveTimerFont.getWidth(shopCountDownTimerString)/2,
+                gc.getHeight() - waveTimerFont.getHeight(shopCountDownTimerString) - 20);
     }
 
     public void start(GameContainer gc, int wave) {

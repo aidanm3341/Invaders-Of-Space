@@ -30,7 +30,7 @@ public class Player extends Entity {
 
     public void init(GameContainer gc) {
         this.gc = gc;
-        stats = new PlayerStats(1, 100, 0.004f, 100);
+        stats = new PlayerStats(1, 30, 0.004f, 30);
 
         width = 60;
         height = 60;

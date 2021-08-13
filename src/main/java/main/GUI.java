@@ -23,8 +23,8 @@ public class GUI {
         g.setFont(guiFont);
         for(int i=0; i<player.getLife()/10; i++){
             g.drawImage(heart, 25 + (i*(heart.getWidth()+5)), 25);
-            g.setColor(Color.white);
-            g.drawString("Scrap Metal - " + player.getScrapMetal(), gc.getWidth() - 200, 10);
         }
+        g.setColor(Color.white);
+        g.drawString("Scrap Metal - " + player.getScrapMetal(), gc.getWidth() - 200, 10);
     }
 }
