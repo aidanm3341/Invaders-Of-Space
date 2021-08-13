@@ -2,7 +2,6 @@ package shop;
 
 import entities.loot.Metal;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 
 public class Price {
@@ -12,11 +11,7 @@ public class Price {
     public Price(int metalPrice){
         this.metalPrice = metalPrice;
 
-        try {
-            priceFont = (new MyFont(15)).getUniFont();
-        } catch (SlickException e) {
-            e.printStackTrace();
-        }
+        priceFont = (new MyFont(15)).getUniFont();
     }
 
     public void render(Graphics g, float x, float y){

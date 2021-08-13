@@ -9,6 +9,10 @@ import org.newdawn.slick.gui.ComponentListener;
 import org.newdawn.slick.gui.MouseOverArea;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.BlobbyTransition;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
+import org.newdawn.slick.state.transition.HorizontalSplitTransition;
 
 public class Menu extends BasicGameState implements ComponentListener {
 
@@ -43,6 +47,6 @@ public class Menu extends BasicGameState implements ComponentListener {
 
     public void componentActivated(AbstractComponent abstractComponent) {
         game.reset(gc, sbg);
-        sbg.enterState(Main.GAME);
+        sbg.enterState(Main.GAME, new FadeOutTransition(), new FadeInTransition());
     }
 }

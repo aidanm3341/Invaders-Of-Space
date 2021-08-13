@@ -1,12 +1,10 @@
 package main;
 
 import entities.player.Player;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import shop.MyFont;
 import shop.PanelUI;
 import shop.ShopListener;
 import shop.UIComponent;
@@ -16,6 +14,7 @@ import shop.shopitems.ShopItemUI;
 public class Shop extends BasicGameState implements UIComponent, ShopListener {
 
     private static int PADDING = 100;
+    private static String CONTINUE_STRING = "Press <Space> to continue.";
     private GameContainer gc;
     private StateBasedGame sbg;
 
@@ -25,6 +24,7 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
 
     private Player player;
     private GUI gui;
+    private UnicodeFont shopFont;
 
     public Shop(Player player, GUI gui){
         this.player = player;
@@ -44,11 +44,13 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
         shopItem2.addListener(this);
         shopItem3 = new ShopItemUI(gc, panel3, itemFactory.healItem());
         shopItem3.addListener(this);
+
+        shopFont = new MyFont(20).getUniFont();
     }
 
 
     public void update(GameContainer gc, StateBasedGame sbg, int i) throws SlickException {
-        if(gc.getInput().isKeyPressed(gc.getInput().KEY_P))
+        if(gc.getInput().isKeyPressed(gc.getInput().KEY_SPACE))
             sbg.enterState(Main.GAME);
         shopItem1.update(gc, i);
         shopItem2.update(gc, i);
@@ -64,6 +66,10 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
         shopItem3.render(gc, g);
 
         gui.render(gc, g);
+        g.setFont(shopFont);
+        g.drawString(CONTINUE_STRING,
+                gc.getWidth()/2 - shopFont.getWidth(CONTINUE_STRING)/2,
+                gc.getHeight() - shopFont.getHeight(CONTINUE_STRING) - 20);
     }
 
     public void reset(GameContainer gc, StateBasedGame sbg) throws SlickException {

@@ -1,5 +1,6 @@
 package entities.player;
 
+import entities.Arena;
 import entities.Entity;
 import entities.EntityType;
 import entities.weapons.Weapon;
@@ -34,8 +35,8 @@ public class Player extends Entity {
         width = 60;
         height = 60;
 
-        setX(200);
-        setY(200);
+        setX(Arena.WIDTH/2);
+        setY(Arena.HEIGHT/2);
 
         this.isCollidable = true;
 
