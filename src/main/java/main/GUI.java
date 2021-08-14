@@ -6,7 +6,9 @@ import shop.MyFont;
 
 public class GUI {
 
-    private Image heart;
+    private static final float HEALTHBAR_X = 25;
+    private static final float HEALTHBAR_Y = 25;
+    private Image healthbarLeft, healthbarRight, healthbarTopAndBottom, healthbarHealth;
     private Player player;
     private UnicodeFont guiFont;
 
@@ -15,15 +17,24 @@ public class GUI {
     }
 
     public void init(GameContainer gc) throws SlickException{
-        heart = new Image("heart.png");
+        healthbarLeft = new Image("healthbar/healthbar_left.png");
+        healthbarRight = new Image("healthbar/healthbar_right.png");
+        healthbarTopAndBottom = new Image("healthbar/healthbar_top_and_bottom.png");
+        healthbarHealth = new Image("healthbar/healthbar_health.png");
         guiFont = new MyFont(20).getUniFont();
     }
 
     public void render(GameContainer gc, Graphics g){
         g.setFont(guiFont);
-        for(int i=0; i<player.getLife()/10; i++){
-            g.drawImage(heart, 25 + (i*(heart.getWidth()+5)), 25);
-        }
+        g.drawImage(healthbarLeft, HEALTHBAR_X, HEALTHBAR_Y);
+        for(int i=0; i<player.getStats().getMaxLife()/10; i++)
+            g.drawImage(healthbarTopAndBottom, HEALTHBAR_X + (i*healthbarTopAndBottom.getWidth()), HEALTHBAR_Y);
+        for(int i=0; i<player.getStats().getCurrentLife()/10; i++)
+            g.drawImage(healthbarHealth, HEALTHBAR_X + (i*healthbarTopAndBottom.getWidth()), HEALTHBAR_Y);
+        g.drawImage(healthbarRight,
+                HEALTHBAR_X + (healthbarHealth.getWidth() * player.getStats().getMaxLife()/10),
+                HEALTHBAR_Y);
+
         g.setColor(Color.white);
         g.drawString("Scrap Metal - " + player.getScrapMetal(), gc.getWidth() - 200, 10);
     }
