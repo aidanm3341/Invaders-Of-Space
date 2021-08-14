@@ -16,7 +16,7 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
     private GameContainer gc;
     private StateBasedGame sbg;
 
-    private ShopItemFactory itemFactory;
+    private ShopItemGenerator itemGenerator;
     private PanelUI panel1, panel2, panel3;
     private ShopItemUI shopItem1, shopItem2, shopItem3;
 
@@ -35,15 +35,19 @@ public class Shop extends BasicGameState implements UIComponent, ShopListener {
         panel1 = new PanelUI(this, 0, 0, getWidth()/3, getHeight());
         panel2 = new PanelUI(this, getWidth()/3, 0, getWidth()/3, getHeight());
         panel3 = new PanelUI(this, getWidth()-getWidth()/3, 0, getWidth()/3, getHeight());
-        itemFactory = new ShopItemFactory();
-        shopItem1 = new ShopItemUI(gc, panel1, itemFactory.speedUpItem());
-        shopItem1.addListener(this);
-        shopItem2 = new ShopItemUI(gc, panel2, itemFactory.advancedWeaponItem());
-        shopItem2.addListener(this);
-        shopItem3 = new ShopItemUI(gc, panel3, itemFactory.healItem());
-        shopItem3.addListener(this);
+
+        itemGenerator = new ShopItemGenerator();
 
         shopFont = new MyFont(20).getUniFont();
+    }
+
+    public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException {
+        shopItem1 = new ShopItemUI(gc, panel1, itemGenerator.getShopItem());
+        shopItem1.addListener(this);
+        shopItem2 = new ShopItemUI(gc, panel2, itemGenerator.getShopItem());
+        shopItem2.addListener(this);
+        shopItem3 = new ShopItemUI(gc, panel3, itemGenerator.getShopItem());
+        shopItem3.addListener(this);
     }
 
 
