@@ -21,6 +21,7 @@ public class ShopItemUI implements UIComponent, ComponentListener{
 
     private MouseOverArea mouseOverArea;
     private UIComponent parent;
+    private Image image;
 
     private List<ShopListener> listeners;
 
@@ -41,6 +42,7 @@ public class ShopItemUI implements UIComponent, ComponentListener{
         listeners = new ArrayList<>();
 
         shopItemFont = (new MyFont(30)).getUniFont();
+        image = data.getImage();
     }
 
     public void update(GameContainer gc, float delta){
@@ -48,7 +50,7 @@ public class ShopItemUI implements UIComponent, ComponentListener{
             disableInput();
     }
 
-    public void render(GameContainer gc, Graphics g){
+    public void render(GameContainer gc, Graphics g) throws SlickException {
         mouseOverArea.render(gc, g);
         g.setColor(Color.white);
         g.setFont(shopItemFont);
@@ -62,6 +64,8 @@ public class ShopItemUI implements UIComponent, ComponentListener{
             g.drawString(str2, getX() + getWidth() / 2 - shopItemFont.getWidth(str2) / 2, getY() + parent.getPadding() + shopItemFont.getHeight(str1));
         }
         data.getPrice().render(g, getX()+getWidth()/2-data.getPrice().getWidth()/2, getY()+getHeight()-data.getPrice().getHeight()-parent.getPadding());
+
+        g.drawImage(image, getX() + getWidth()/2 - image.getWidth()/2, getY() + getHeight()/2 - image.getHeight()/2);
     }
 
     public void applyToPlayer(Player player) throws SlickException {
