@@ -46,7 +46,7 @@ public abstract class Weapon extends Entity {
 
 
         try {
-            bulletEmitter = getBulletEmitter();
+            bulletEmitter = createBulletEmitter();
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -91,7 +91,11 @@ public abstract class Weapon extends Entity {
     }
 
     protected abstract Image getImage() throws SlickException;
-    protected abstract BulletEmitter getBulletEmitter() throws SlickException;
+    protected abstract BulletEmitter createBulletEmitter() throws SlickException;
+
+    public BulletEmitter getBulletEmitter() {
+        return bulletEmitter;
+    }
 
     @Override
     public EntityType getType() {

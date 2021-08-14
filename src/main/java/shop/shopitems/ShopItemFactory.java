@@ -75,4 +75,19 @@ public class ShopItemFactory {
         };
     }
 
+    public ShopItemData damageUpItem(){
+        return new ShopItemData("Damage Up", new Price(8)) {
+            @Override
+            public void applyToPlayer(Player player) throws SlickException {
+                player.setScrapMetal(player.getScrapMetal()-getPrice().getMetalPrice());
+                player.getWeapon().getBulletEmitter().setBulletDamage(player.getWeapon().getBulletEmitter().getBulletDamage() + 3);
+            }
+
+            @Override
+            public Image getImage() throws SlickException {
+                return new Image(0, 0);
+            }
+        };
+    }
+
 }

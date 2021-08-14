@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BulletEmitter extends ParticleEmitter{
 
-    private final float ticksBetweenBullets;
+    private float ticksBetweenBullets;
     private float bulletTimeCounter = 2;
     private final float bulletLife = 2000;
 
@@ -39,5 +39,21 @@ public class BulletEmitter extends ParticleEmitter{
     public List<Particle> getParticles()
     {
         return particles;
+    }
+
+    public float getTicksBetweenBullets() {
+        return ticksBetweenBullets;
+    }
+
+    public void setTicksBetweenBullets(float ticksBetweenBullets) {
+        this.ticksBetweenBullets = ticksBetweenBullets;
+    }
+
+    public float getBulletDamage() {
+        return bulletDamage;
+    }
+
+    public void setBulletDamage(float bulletDamage) {
+        this.bulletDamage = bulletDamage;
     }
 }

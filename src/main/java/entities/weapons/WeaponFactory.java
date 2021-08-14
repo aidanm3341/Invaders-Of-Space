@@ -14,7 +14,7 @@ public class WeaponFactory {
             }
 
             @Override
-            protected BulletEmitter getBulletEmitter() throws SlickException {
+            protected BulletEmitter createBulletEmitter() throws SlickException {
                 return new BulletEmitter(120, 10, new Image("particles/bullet4.png"));
             }
         };
@@ -28,7 +28,7 @@ public class WeaponFactory {
             }
 
             @Override
-            protected BulletEmitter getBulletEmitter() throws SlickException {
+            protected BulletEmitter createBulletEmitter() throws SlickException {
                 return new BulletEmitter(50, 6, new Image("particles/bullet.png"));
             }
         };

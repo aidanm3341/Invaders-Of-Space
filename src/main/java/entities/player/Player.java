@@ -195,6 +195,10 @@ public class Player extends Entity {
         weapon.init(gc);
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
     @Override
     public EntityType getType() {
         return EntityType.PLAYER;
