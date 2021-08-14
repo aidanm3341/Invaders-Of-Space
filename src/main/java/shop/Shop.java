@@ -1,13 +1,11 @@
-package main;
+package shop;
 
 import entities.player.Player;
+import main.GUI;
+import main.Main;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import shop.MyFont;
-import shop.PanelUI;
-import shop.ShopListener;
-import shop.UIComponent;
 import shop.shopitems.ShopItemFactory;
 import shop.shopitems.ShopItemUI;
 

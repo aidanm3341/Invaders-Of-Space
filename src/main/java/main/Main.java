@@ -6,6 +6,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+import shop.Shop;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

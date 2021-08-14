@@ -55,7 +55,7 @@ public class ShopItemFactory {
 
             @Override
             public Image getImage() throws SlickException {
-                return new Image(0, 0);
+                return new Image("spanner.png");
             }
         };
     }
