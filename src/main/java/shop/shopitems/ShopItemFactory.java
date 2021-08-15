@@ -65,7 +65,8 @@ public class ShopItemFactory {
             @Override
             public void applyToPlayer(Player player) throws SlickException {
                 player.setScrapMetal(player.getScrapMetal()-getPrice().getMetalPrice());
-                player.getStats().setMaxLife(player.getStats().getMaxLife() + 1);
+                player.getStats().setMaxLife(player.getStats().getMaxLife() + 10);
+                player.getStats().setCurrentLife(player.getStats().getCurrentLife() + 10);
             }
 
             @Override

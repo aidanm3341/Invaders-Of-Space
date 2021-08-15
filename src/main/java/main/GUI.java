@@ -27,12 +27,17 @@ public class GUI {
     public void render(GameContainer gc, Graphics g){
         g.setFont(guiFont);
         g.drawImage(healthbarLeft, HEALTHBAR_X, HEALTHBAR_Y);
+
+        // repeat top and bottom however many times is needed
         for(int i=0; i<player.getStats().getMaxLife()/10; i++)
             g.drawImage(healthbarTopAndBottom, HEALTHBAR_X + (i*healthbarTopAndBottom.getWidth()), HEALTHBAR_Y);
+
+        // render the actual current health
         for(int i=0; i<player.getStats().getCurrentLife()/10; i++)
             g.drawImage(healthbarHealth, HEALTHBAR_X + (i*healthbarTopAndBottom.getWidth()), HEALTHBAR_Y);
+
         g.drawImage(healthbarRight,
-                HEALTHBAR_X + (healthbarHealth.getWidth() * player.getStats().getMaxLife()/10),
+                HEALTHBAR_X + (healthbarHealth.getWidth() * (player.getStats().getMaxLife()/10)),
                 HEALTHBAR_Y);
 
         g.setColor(Color.white);
