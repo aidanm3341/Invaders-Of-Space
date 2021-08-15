@@ -1,7 +1,6 @@
 package shop.shopitems;
 
 import entities.player.Player;
-import entities.weapons.Weapon;
 import entities.weapons.WeaponFactory;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -67,6 +66,7 @@ public class ShopItemFactory {
                 player.setScrapMetal(player.getScrapMetal()-getPrice().getMetalPrice());
                 player.getStats().setMaxLife(player.getStats().getMaxLife() + 10);
                 player.getStats().setCurrentLife(player.getStats().getCurrentLife() + 10);
+                isUsed = true;
             }
 
             @Override
@@ -82,6 +82,7 @@ public class ShopItemFactory {
             public void applyToPlayer(Player player) throws SlickException {
                 player.setScrapMetal(player.getScrapMetal()-getPrice().getMetalPrice());
                 player.getWeapon().getBulletEmitter().setBulletDamage(player.getWeapon().getBulletEmitter().getBulletDamage() + 3);
+                isUsed = true;
             }
 
             @Override
