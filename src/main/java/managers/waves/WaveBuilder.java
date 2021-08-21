@@ -31,6 +31,10 @@ public class WaveBuilder {
         portals.add(portal);
     }
 
+    public void addPortal(Point point, List<EnemyType> enemies){
+        addPortal(point.getX(), point.getY(), enemies);
+    }
+
     public Wave getWaveAndReset(){
         Wave wave = new Wave(portals);
         portals = new ArrayList<>();

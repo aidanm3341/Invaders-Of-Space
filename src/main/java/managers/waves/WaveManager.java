@@ -3,6 +3,7 @@ package managers.waves;
 import entities.Arena;
 import entities.enemies.EnemyType;
 import entities.waves.Portal;
+import entities.waves.PortalPosition;
 import entities.waves.Wave;
 import entities.waves.WaveText;
 import main.Main;
@@ -83,78 +84,64 @@ public class WaveManager {
         waveTimerStart = 0;
     }
 
-    private void startNextWave(GameContainer gc) throws SlickException{
+    private void startNextWave(GameContainer gc) {
         currentWave.cleanUp();
         start(gc, currentWaveInt + 1);
     }
 
     private void constructWave0(WaveBuilder waveBuilder) {
-        waveBuilder.addPortal(Arena.WIDTH/2, Arena.HEIGHT/2, List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN));
+        waveBuilder.addPortal(PortalPosition.MIDDLE, List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN));
         waves.add(waveBuilder.getWaveAndReset());
     }
 
     private void constructWave1(WaveBuilder waveBuilder) {
-        waveBuilder.addPortal(100, 100, List.of(EnemyType.GREEN_GOBLIN, EnemyType.PURPLE_PIE, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.GREEN_GOBLIN, EnemyType.PURPLE_PIE, EnemyType.YELLOW_YAK));
+        List<EnemyType> enemies = List.of(EnemyType.GREEN_GOBLIN, EnemyType.PURPLE_PIE, EnemyType.YELLOW_YAK);
+        waveBuilder.addPortal(PortalPosition.TOP_LEFT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_RIGHT, enemies);
         waves.add(waveBuilder.getWaveAndReset());
     }
 
     private void constructWave2(WaveBuilder waveBuilder) {
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100,
-                List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
+        List<EnemyType> enemies = List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK);
+        waveBuilder.addPortal(PortalPosition.TOP_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_LEFT, enemies);
         waves.add(waveBuilder.getWaveAndReset());
     }
 
     private void constructWave3(WaveBuilder waveBuilder) {
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100,
-                List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(100, 100,
-                List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
+        List<EnemyType> enemies = List.of(EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK);
+        waveBuilder.addPortal(PortalPosition.TOP_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_LEFT, enemies);
+        waveBuilder.addPortal(PortalPosition.TOP_LEFT, enemies);
         waves.add(waveBuilder.getWaveAndReset());
     }
 
     private void constructWave4(WaveBuilder waveBuilder) {
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(100, 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(Arena.WIDTH/2, Arena.HEIGHT/2,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
+        List<EnemyType> enemies = List.of(EnemyType.PURPLE_PIE, EnemyType.GREEN_GOBLIN, EnemyType.GREEN_GOBLIN, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK);
+        waveBuilder.addPortal(PortalPosition.TOP_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_LEFT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.TOP_LEFT, enemies);
+        waveBuilder.addPortal(PortalPosition.MIDDLE, enemies);
         waves.add(waveBuilder.getWaveAndReset());
     }
 
     private void constructWave5(WaveBuilder waveBuilder) {
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100,
-                List.of(EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
-        waveBuilder.addPortal(100, 100,
-                List.of(EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK));
+        List<EnemyType> enemies = List.of(EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK, EnemyType.YELLOW_YAK);
+        waveBuilder.addPortal(PortalPosition.TOP_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_LEFT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.TOP_LEFT, enemies);
         waves.add(waveBuilder.getWaveAndReset());
     }
 
     private void constructWave6(WaveBuilder waveBuilder) {
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE));
-        waveBuilder.addPortal(100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE));
-        waveBuilder.addPortal(Arena.WIDTH - Portal.PORTAL_WIDTH - 100, Arena.HEIGHT - Portal.PORTAL_HEIGHT - 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE));
-        waveBuilder.addPortal(100, 100,
-                List.of(EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE));
+        List<EnemyType> enemies = List.of(EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE, EnemyType.PURPLE_PIE);
+        waveBuilder.addPortal(PortalPosition.TOP_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_LEFT, enemies);
+        waveBuilder.addPortal(PortalPosition.BOTTOM_RIGHT, enemies);
+        waveBuilder.addPortal(PortalPosition.TOP_LEFT, enemies);
         waves.add(waveBuilder.getWaveAndReset());
     }
 

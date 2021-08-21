@@ -27,7 +27,9 @@ public class Portal extends Entity{
     static {
         try {
             sprite = new SpriteSheet("portal.png", 126, 147);
-        } catch (SlickException e) {}
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
     }
 
     public static final int PORTAL_WIDTH = sprite.getSprite(0 ,0).getWidth();
