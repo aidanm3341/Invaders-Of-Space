@@ -182,7 +182,7 @@ Event: 69.155 Thread 0x00007fa24982c800 1328       4       java.nio.Buffer::next
 Event: 69.156 Thread 0x00007fa24982c800 nmethod 1328 0x00000001026ffa50 code [0x00000001026ffba0, 0x00000001026ffc38]
 Event: 69.158 Thread 0x00007fa24a01b800 1329       3       org.newdawn.slick.state.StateBasedGame::update (166 bytes)
 Event: 69.159 Thread 0x00007fa24a01b800 nmethod 1329 0x0000000102aed2d0 code [0x0000000102aed4c0, 0x0000000102aedf58]
-Event: 69.176 Thread 0x00007fa24a01b800 1330       3       managers.WaveManager::update (76 bytes)
+Event: 69.176 Thread 0x00007fa24a01b800 1330       3       managers.waves.WaveManager::update (76 bytes)
 Event: 69.177 Thread 0x00007fa24a01b800 nmethod 1330 0x0000000102ade090 code [0x0000000102ade240, 0x0000000102ade6f8]
 Event: 70.119 Thread 0x00007fa24a01b800 1331   !   3       org.lwjgl.opengl.Display::processMessages (44 bytes)
 Event: 70.120 Thread 0x00007fa24a01b800 nmethod 1331 0x0000000102af4310 code [0x0000000102af45a0, 0x0000000102af55c8]
@@ -281,9 +281,9 @@ Event: 36.336 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action
 Event: 47.176 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102a4cdf0 method=entities.enemies.Enemy.isDead()Z @ 4
 Event: 47.180 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102a45ea8 method=entities.enemies.Enemy.isDead()Z @ 4
 Event: 47.184 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000001029f04bc method=entities.enemies.Enemy.isDead()Z @ 4
-Event: 68.751 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102af8464 method=managers.WaveManager.update(Lorg/newdawn/slick/GameContainer;F)V @ 47
-Event: 68.754 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102aeebe0 method=managers.WaveManager.update(Lorg/newdawn/slick/GameContainer;F)V @ 47
-Event: 68.758 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102af1ec8 method=managers.WaveManager.update(Lorg/newdawn/slick/GameContainer;F)V @ 47
+Event: 68.751 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102af8464 method=managers.waves.WaveManager.update(Lorg/newdawn/slick/GameContainer;F)V @ 47
+Event: 68.754 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102aeebe0 method=managers.waves.WaveManager.update(Lorg/newdawn/slick/GameContainer;F)V @ 47
+Event: 68.758 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102af1ec8 method=managers.waves.WaveManager.update(Lorg/newdawn/slick/GameContainer;F)V @ 47
 Event: 69.683 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102a085a4 method=org.lwjgl.opengl.MacOSXDisplay.update()V @ 86
 Event: 75.119 Thread 0x00007fa24900c000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000102a0d038 method=org.newdawn.slick.AppGameContainer.gameLoop()V @ 60
 

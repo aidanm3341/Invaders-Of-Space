@@ -1,5 +1,6 @@
 package entities.waves;
 
+import entities.Arena;
 import entities.Entity;
 import entities.EntityType;
 import entities.enemies.Enemy;
@@ -17,8 +18,9 @@ import java.util.LinkedList;
 
 public class Portal extends Entity{
 
+    public static final Point TOP_LEFT = new Point(100, 100);
+
     private final EntityManager entityManager = EntityManager.getInstance();
-    private static final Point TOP_LEFT_POS = new Point(100, 100);
 
     private static SpriteSheet sprite = null;
 

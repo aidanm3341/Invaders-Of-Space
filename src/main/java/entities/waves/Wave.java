@@ -4,15 +4,15 @@ import managers.EntityManager;
 import org.newdawn.slick.GameContainer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Wave {
 
-    private final ArrayList<Portal> portals;
+    private final List<Portal> portals;
     private boolean isDone;
     private final EntityManager entityManager = EntityManager.getInstance();
 
-    public Wave(ArrayList<Portal> portals)
-    {
+    public Wave(List<Portal> portals) {
         this.portals = portals;
     }
 

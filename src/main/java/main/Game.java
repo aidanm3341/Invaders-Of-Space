@@ -3,14 +3,12 @@ package main;
 import entities.Camera;
 import entities.player.Player;
 import managers.EntityManager;
-import managers.WaveManager;
+import managers.waves.WaveManager;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import shop.MyFont;
 
 public class Game extends BasicGameState {
 
