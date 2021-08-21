@@ -10,51 +10,28 @@ import java.util.ArrayList;
 public class Arena extends Entity{
 
     public static final int WIDTH = 3360, HEIGHT = 2940;
-    private static final float PARALLAX_BG1 = -0.8f;
-    private static final float PARALLAX_BG2 = -0.67f;
-    private static final float PARALLAX_BG3 = -0.57f;
-    private static final float PARALLAX_BG4 = -0.48f;
 
-    private Image bg1, bg2, bg3, bg4;
-    private ArrayList<Tile> tiles1, tiles2, tiles3, tiles4;
+    private static final float PARALLAX_BACKGROUND_NEBULA = -1.5f;
+    private static final float PARALLAX_BACKGROUND_PLANET = -1.3f;
+    private static final float PARALLAX_BACKGROUND_PLANET2 = -1.29f;
+    private static final float PARALLAX_BACKGROUND_STARS1 = -1.36f;
+    private static final float PARALLAX_BACKGROUND_STARS2 = -1.32f;
+    private static final float PARALLAX_BACKGROUND_STARS3 = -1.4f;
+
+    private Image bgNebula, bgPlanet, bgPlanet2, bgStars1, bgStars2, bgStars3;
 
     public Arena() { }
 
     public void init(GameContainer gc){
         try {
-            bg1 = new Image("arena/bg1.png");
-            bg2 = new Image("arena/bg2.png");
-            bg3 = new Image("arena/bg3.png");
-            bg4 = new Image("arena/bg4.png");
+            bgNebula = new Image("arena/background_nebula.png");
+            bgPlanet = new Image("arena/background_planet.png");
+            bgPlanet2 = new Image("arena/background_planet2.png");
+            bgStars1 = new Image("arena/background_stars1.png");
+            bgStars2 = new Image("arena/background_stars2.png");
+            bgStars3 = new Image("arena/background_stars3.png");
         } catch (SlickException e) {
             e.printStackTrace();
-        }
-        tiles1 = new ArrayList<>();
-        for(int i=0; i<15; i++) {
-            for(int j=0; j<14; j++) {
-                tiles1.add(new Tile(bg1, i* bg1.getWidth(), j* bg1.getHeight()));
-            }
-        }
-
-        tiles2 = new ArrayList<>();
-        for(int i=0; i<15; i++) {
-            for(int j=0; j<14; j++) {
-                tiles2.add(new Tile(bg2, i* bg2.getWidth(), j* bg2.getHeight()));
-            }
-        }
-
-        tiles3 = new ArrayList<>();
-        for(int i=0; i<15; i++) {
-            for(int j=0; j<14; j++) {
-                tiles3.add(new Tile(bg3, i* bg3.getWidth(), j* bg3.getHeight()));
-            }
-        }
-
-        tiles4 = new ArrayList<>();
-        for(int i=0; i<15; i++) {
-            for(int j=0; j<14; j++) {
-                tiles4.add(new Tile(bg4, i* bg4.getWidth(), j* bg4.getHeight()));
-            }
         }
     }
 
@@ -63,22 +40,24 @@ public class Arena extends Entity{
     }
 
     public void render(GameContainer gc, Graphics g) throws SlickException {
-        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BG1);
-        for(Tile t : tiles1)
-            t.render(gc, g);
-        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BG1);
-        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BG2);
-        for(Tile t : tiles2)
-            t.render(gc, g);
-        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BG2);
-        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BG3);
-        for(Tile t : tiles3)
-            t.render(gc, g);
-        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BG3);
-        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BG4);
-        for(Tile t : tiles4)
-            t.render(gc, g);
-        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BG4);
+        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BACKGROUND_NEBULA);
+            g.drawImage(bgNebula, 0, 0);
+        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BACKGROUND_NEBULA);
+        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BACKGROUND_STARS1);
+            g.drawImage(bgStars1, 0, 0);
+        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BACKGROUND_STARS1);
+        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BACKGROUND_STARS2);
+            g.drawImage(bgStars2, 0, 0);
+        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BACKGROUND_STARS2);
+        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BACKGROUND_STARS3);
+            g.drawImage(bgStars3, 0, 0);
+        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BACKGROUND_STARS3);
+        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BACKGROUND_PLANET);
+            g.drawImage(bgPlanet, -200, -100);
+        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BACKGROUND_PLANET);
+        Camera.cameraActionMultipliedBy(gc, g, PARALLAX_BACKGROUND_PLANET2);
+            g.drawImage(bgPlanet2, -200, -100);
+        Camera.cameraCutMultipliedBy(gc, g, PARALLAX_BACKGROUND_PLANET2);
     }
 
     @Override
