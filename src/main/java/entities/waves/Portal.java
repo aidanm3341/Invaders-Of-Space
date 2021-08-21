@@ -24,7 +24,7 @@ public class Portal extends Entity{
 
     static {
         try {
-            sprite = new SpriteSheet("portal.png", 126, 147);
+            sprite = new SpriteSheet("portal2.png", 256, 256);
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -62,13 +62,13 @@ public class Portal extends Entity{
         }
         counter++;
 
-        if(spriteCounter > 90)
+        if(spriteCounter > 7)
             spriteCounter = 0;
-        spriteCounter += 0.3 * delta;
+        spriteCounter += 0.007 * delta;
     }
 
     public void render(GameContainer gc, Graphics g) throws SlickException {
-        g.drawImage(sprite.getSprite((int) spriteCounter/50, 0), getX(), getY());
+        g.drawImage(sprite.getSprite((int) spriteCounter, 0), getX(), getY());
     }
 
     private void dispatchEnemy() {
