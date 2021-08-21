@@ -18,8 +18,6 @@ import java.util.LinkedList;
 
 public class Portal extends Entity{
 
-    public static final Point TOP_LEFT = new Point(100, 100);
-
     private final EntityManager entityManager = EntityManager.getInstance();
 
     private static SpriteSheet sprite = null;
@@ -41,7 +39,6 @@ public class Portal extends Entity{
     private float spriteCounter;
 
     private int counter, spawnTime;
-    private boolean isDone;
 
     public Portal(float x, float y) {
         setX(x);
@@ -49,8 +46,8 @@ public class Portal extends Entity{
     }
 
     public void init(GameContainer gc){
-        enemies = new LinkedList<Enemy>();
-        enemyDeathTracker = new ArrayList<Enemy>();
+        enemies = new LinkedList<>();
+        enemyDeathTracker = new ArrayList<>();
         width = sprite.getSprite(0, 0).getWidth();
         height = sprite.getSprite(0, 0).getHeight();
         spriteCounter = 0;
@@ -65,7 +62,6 @@ public class Portal extends Entity{
         }
         counter++;
 
-        //image = sheet.getSprite(sheetCount/50, 0);
         if(spriteCounter > 90)
             spriteCounter = 0;
         spriteCounter += 0.3 * delta;
