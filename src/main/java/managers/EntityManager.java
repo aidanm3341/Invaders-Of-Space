@@ -3,6 +3,7 @@ package managers;
 import entities.Arena;
 import entities.Entity;
 import entities.EntityType;
+import entities.emitters.PortalEmitter;
 import entities.player.Player;
 import entities.emitters.Bullet;
 import entities.enemies.DeathListener;
@@ -51,6 +52,10 @@ public class EntityManager implements DeathListener {
         bg.update(gc, i);
         for(int j = 0; j< entities.size(); j++) {
             entities.get(j).update(gc, i);
+            if(entities.get(j) instanceof PortalEmitter) {
+                PortalEmitter portalEmitter = (PortalEmitter) entities.get(j);
+                System.out.println(portalEmitter.getX() + " " + portalEmitter.getY());
+            }
         }
         collisions.update();
     }

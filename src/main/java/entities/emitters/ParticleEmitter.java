@@ -4,6 +4,7 @@ import entities.Entity;
 import entities.EntityType;
 import managers.EntityManager;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
 import java.util.ArrayList;
@@ -19,8 +20,7 @@ public abstract class ParticleEmitter extends Entity {
     }
 
     public void update(GameContainer gc, float delta) throws SlickException {
-        for(int i=0; i<particles.size(); i++)
-        {
+        for(int i=0; i<particles.size(); i++) {
             Particle p = particles.get(i);
             if(p.getLife() <= 0) {
                 removeParticle(p);
@@ -37,6 +37,8 @@ public abstract class ParticleEmitter extends Entity {
         particles.remove(p);
         entityManager.removeEntity(p);
     }
+
+    public void render(GameContainer gc, Graphics g) {};
 
     public void reset() {
         particles.clear();

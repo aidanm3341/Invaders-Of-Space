@@ -3,6 +3,7 @@ package entities.waves;
 import entities.Arena;
 import entities.Entity;
 import entities.EntityType;
+import entities.emitters.PortalEmitter;
 import entities.enemies.Enemy;
 import entities.enemies.EnemyFactory;
 import entities.enemies.EnemyType;
@@ -40,6 +41,8 @@ public class Portal extends Entity{
 
     private int counter, spawnTime;
 
+    private PortalEmitter emitter;
+
     public Portal(float x, float y) {
         setX(x);
         setY(y);
@@ -53,6 +56,9 @@ public class Portal extends Entity{
         spriteCounter = 0;
         counter = 0;
         spawnTime = 500;
+
+        emitter = new PortalEmitter(getX() + getWidth()/2, getY() + getHeight()/2);
+        emitter.init(gc);
     }
 
     public void update(GameContainer gc, float delta) throws SlickException {
@@ -65,10 +71,13 @@ public class Portal extends Entity{
         if(spriteCounter > 7)
             spriteCounter = 0;
         spriteCounter += 0.007 * delta;
+
+        emitter.update(gc, delta);
     }
 
     public void render(GameContainer gc, Graphics g) throws SlickException {
         g.drawImage(sprite.getSprite((int) spriteCounter, 0), getX(), getY());
+        emitter.render(gc, g);
     }
 
     private void dispatchEnemy() {
