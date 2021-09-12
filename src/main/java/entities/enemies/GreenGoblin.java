@@ -1,6 +1,7 @@
 package entities.enemies;
 
 import ai.BasicAI;
+import ai.NewBasicAI;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -14,7 +15,8 @@ public class GreenGoblin extends Enemy
 
     public GreenGoblin(float x, float y, Point player) {
         super(x, y);
-        ai = new BasicAI(this, player);
+        //ai = new BasicAI(this, player);
+        ai = new NewBasicAI(this, player);
         ai.init();
     }
 
