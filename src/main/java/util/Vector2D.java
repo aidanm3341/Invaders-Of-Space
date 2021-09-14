@@ -22,4 +22,11 @@ public class Vector2D extends Vector2f {
         }
         return this;
     }
+
+    public void limitLocal(float limit){
+        if(lengthSquared() > limit*limit){
+            normalise();
+            scale(limit);
+        }
+    }
 }

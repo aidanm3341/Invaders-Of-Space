@@ -12,7 +12,7 @@ public abstract class AIimp implements AI{
     protected float x, y, angle, lastAngle;
 
     protected Vector2D position, velocity, acceleration;
-    protected float maxSpeed;
+    protected float maxSpeed, maxSteeringForce;
 
     public AIimp(Enemy enemy, Point player){
         this.me = enemy;
@@ -38,8 +38,8 @@ public abstract class AIimp implements AI{
         me.setLastAngle(lastAngle);
     }
 
-    protected void updateNew(){
-        velocity.add(acceleration);
+    protected void updateNew(float delta){
+        velocity.add(acceleration.scale(delta));
         velocity.limit(maxSpeed);
         position.add(velocity);
         acceleration.scale(0);

@@ -9,7 +9,8 @@ public class NewBasicAI extends AIimp{
 
     public NewBasicAI(Enemy enemy, Point player) {
         super(enemy, player);
-        maxSpeed = 0.3f;
+        maxSpeed = 0.4f;
+        maxSteeringForce = 0.0006f;
     }
 
     public void action(float delta) {
@@ -17,12 +18,13 @@ public class NewBasicAI extends AIimp{
         Vector2f desired = target.sub(position);
         desired.normalise();
         desired.scale(maxSpeed);
-        Vector2f steer = desired.sub(velocity);
-        //steer.limit(maxforce);
+
+        Vector2D steer = new Vector2D(desired.sub(velocity));
+        steer.limitLocal(maxSteeringForce);
         applyForce(steer);
 
         angle = (float) (Math.toRadians(velocity.getTheta()) + Math.PI/2);
 
-        updateNew();
+        updateNew(delta);
     }
 }
