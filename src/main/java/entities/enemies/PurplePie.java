@@ -7,12 +7,13 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.geom.Vector2f;
 
 public class PurplePie extends Enemy{
 
     private float[] vertices;
 
-    public PurplePie(float x, float y, Point player)
+    public PurplePie(float x, float y, Vector2f player)
     {
         super(x, y);
         ai = new AimerAI(this, player);

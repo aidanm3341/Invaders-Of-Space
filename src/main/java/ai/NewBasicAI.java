@@ -7,7 +7,7 @@ import util.Vector2D;
 
 public class NewBasicAI extends AIimp{
 
-    public NewBasicAI(Enemy enemy, Point player) {
+    public NewBasicAI(Enemy enemy, Vector2f player) {
         super(enemy, player);
         maxSpeed = 0.4f;
         maxSteeringForce = 0.0006f;

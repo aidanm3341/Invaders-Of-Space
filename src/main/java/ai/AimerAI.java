@@ -2,6 +2,7 @@ package ai;
 
 import entities.enemies.Enemy;
 import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.geom.Vector2f;
 
 public class  AimerAI extends AIimp{
 
@@ -11,7 +12,7 @@ public class  AimerAI extends AIimp{
     private float speed, maxSpeed, minSpeed, rotationalSpeed, maxRotationalSpeed, minRotationalSpeed;
     private float chargeConeAngle;
 
-    public AimerAI(Enemy enemy, Point player) {
+    public AimerAI(Enemy enemy, Vector2f player) {
         super(enemy, player);
     }
 

@@ -12,6 +12,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 import shop.MyFont;
 
@@ -27,13 +28,13 @@ public class WaveManager {
     private int currentWaveInt;
     private WaveText waveSplash;
     private long waveTimerStart;
-    private Point target;
+    private Vector2f target;
 
     private String shopCountDownTimerString;
     private UnicodeFont waveTimerFont;
 
 
-    public void init(GameContainer gc, Point target) {
+    public void init(GameContainer gc, Vector2f target) {
         waves = new ArrayList<>();
         this.target = target;
         WaveBuilder waveBuilder = new WaveBuilder(gc, target);

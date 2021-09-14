@@ -4,9 +4,10 @@ import entities.emitters.BulletEmitter;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.geom.Vector2f;
 
 public class WeaponFactory {
-    public Weapon basicWeapon(Point origin){
+    public Weapon basicWeapon(Vector2f origin){
         return new Weapon(origin) {
             @Override
             protected Image getImage() throws SlickException {
@@ -20,7 +21,7 @@ public class WeaponFactory {
         };
     }
 
-    public Weapon advancedWeapon(Point origin){
+    public Weapon advancedWeapon(Vector2f origin){
         return new Weapon(origin) {
             @Override
             protected Image getImage() throws SlickException {

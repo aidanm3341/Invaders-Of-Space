@@ -5,6 +5,7 @@ import entities.waves.Portal;
 import entities.waves.Wave;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.geom.Vector2f;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +14,9 @@ public class WaveBuilder {
 
     private GameContainer gc;
     private List<Portal> portals;
-    private final Point target;
+    private final Vector2f target;
 
-    public WaveBuilder(GameContainer gc, Point target){
+    public WaveBuilder(GameContainer gc, Vector2f target){
         this.gc = gc;
         this.target = target;
         portals = new ArrayList<>();

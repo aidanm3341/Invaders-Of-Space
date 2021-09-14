@@ -8,12 +8,13 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.geom.Vector2f;
 
 public class GreenGoblin extends Enemy
 {
     private float[] vertices;
 
-    public GreenGoblin(float x, float y, Point player) {
+    public GreenGoblin(float x, float y, Vector2f player) {
         super(x, y);
         //ai = new BasicAI(this, player);
         ai = new NewBasicAI(this, player);

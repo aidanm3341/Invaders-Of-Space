@@ -8,13 +8,13 @@ import util.Vector2D;
 public abstract class AIimp implements AI{
 
     protected Enemy me;
-    protected Point player;
+    protected Vector2f player;
     protected float x, y, angle, lastAngle;
 
     protected Vector2D position, velocity, acceleration;
     protected float maxSpeed, maxSteeringForce;
 
-    public AIimp(Enemy enemy, Point player){
+    public AIimp(Enemy enemy, Vector2f player){
         this.me = enemy;
         this.player = player;
 

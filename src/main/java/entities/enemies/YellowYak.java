@@ -7,12 +7,13 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.geom.Vector2f;
 
 public class YellowYak extends Enemy{
 
     private float[] vertices;
 
-    public YellowYak(float x, float y, Point player) {
+    public YellowYak(float x, float y, Vector2f player) {
         super(x, y);
         ai = new ChargerAI(this, player);
         ai.init();

@@ -5,16 +5,17 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.geom.Vector2f;
 
 public abstract class Entity{
 
-    protected Point pos;
+    protected Vector2f pos;
     protected float width, height;
     protected Polygon body;
     protected boolean isCollidable = false;
 
     public Entity(){
-        pos = new Point(0, 0);
+        pos = new Vector2f(0, 0);
     }
 
     public abstract void init(GameContainer gc);
@@ -38,11 +39,11 @@ public abstract class Entity{
         return pos.getY();
     }
 
-    public void setX(float x){ pos.setX(x); }
+    public void setX(float x){ pos.x = x ; }
 
-    public void setY(float y){ pos.setY(y); }
+    public void setY(float y){ pos.y = y; }
 
-    public Point getPos(){
+    public Vector2f getPos(){
         return pos;
     }
 

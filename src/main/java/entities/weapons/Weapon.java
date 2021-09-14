@@ -11,19 +11,20 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Transform;
+import org.newdawn.slick.geom.Vector2f;
 
 public abstract class Weapon extends Entity {
     private static final int RADIUS_FROM_SHIP = 120;
 
     private float mouseX, mouseY;
     double angle, lastAngle;
-    private Point origin;
+    private Vector2f origin;
 
     private Image image;
 
     private BulletEmitter bulletEmitter;
 
-    public Weapon(Point origin) {
+    public Weapon(Vector2f origin) {
         this.origin = origin;
     }
 

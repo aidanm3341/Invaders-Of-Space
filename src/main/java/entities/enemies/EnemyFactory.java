@@ -2,10 +2,11 @@ package entities.enemies;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.geom.Vector2f;
 
 public class EnemyFactory {
 
-    public static Enemy createEnemy(EnemyType type, Point target, float x, float y)
+    public static Enemy createEnemy(EnemyType type, Vector2f target, float x, float y)
     {
         switch(type){
             case GREEN_GOBLIN:

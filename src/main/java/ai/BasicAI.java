@@ -2,13 +2,14 @@ package ai;
 
 import entities.enemies.Enemy;
 import org.newdawn.slick.geom.Point;
+import org.newdawn.slick.geom.Vector2f;
 
 public class BasicAI extends AIimp implements AI {
 
     private float speed;
     private float velX, velY;
 
-    public BasicAI(Enemy enemy, Point player) {
+    public BasicAI(Enemy enemy, Vector2f player) {
         super(enemy, player);
         speed = 0.3f;
     }
