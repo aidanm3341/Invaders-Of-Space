@@ -1,6 +1,8 @@
 package entities.enemies;
 
+import ai.AI;
 import ai.BasicAI;
+import ai.BasicGroupingAI;
 import ai.NewBasicAI;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -10,14 +12,16 @@ import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.geom.Vector2f;
 
+import java.util.List;
+
 public class GreenGoblin extends Enemy
 {
     private float[] vertices;
 
-    public GreenGoblin(float x, float y, Vector2f player) {
+    public GreenGoblin(float x, float y, Vector2f player, List<Enemy> enemies) {
         super(x, y);
-        //ai = new BasicAI(this, player);
-        ai = new NewBasicAI(this, player);
+        //ai = new NewBasicAI(this, player);
+        this.ai = new BasicGroupingAI(this, enemies, player);
         ai.init();
     }
 
